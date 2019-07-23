@@ -188,3 +188,41 @@ aside.max-h-screen,
 main.max-h-screen {
   max-height: calc(100vh - 124px);
 }
+
+div.spoiler {
+  padding: 10px;
+  width: 17%;
+  cursor: pointer;
+}
+
+div.spoiled {
+  display: none;
+}
+
+div.favor {
+  width: 1.5%;
+}
+
+div.codeLister {
+  padding: 4px;
+  cursor: pointer;
+  background: #afafaf;
+  border: 1px solid #777;
+}
+
+pre {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: auto;
+	overflow-y: hidden;
+	font-size: 8px;
+	line-height: 12px;
+	background: #efefef;
+	border: 1px solid #777;
+}
+
+pre code {
+	padding: 10px;
+	color: #333;
+}
