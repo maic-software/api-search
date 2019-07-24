@@ -11,7 +11,7 @@ import './App.css';
 import $ from 'jquery';
 
 const algoliasearch = require("algoliasearch");
-const client = algoliasearch("LYITGBJZF1","67baaf6fb4bc87e9b148aa237251b326");
+const client = algoliasearch("API_ID","API_ADMIN_KEY");
 const index = client.initIndex("apis");
 
 function getSpoil(id) {
@@ -202,8 +202,8 @@ class App extends Component {
     return (
       <div className="h-screen overflow-hidden">
         <InstantSearch
-          appId="LYITGBJZF1"
-          apiKey="c0d0c32d6bc8e80c30eabe69af5724d2"
+          appId="API_ID"
+          apiKey="API_SEARCH_KEY"
           indexName="apis"
         >
           <div className="flex flex-col h-screen font-sans">

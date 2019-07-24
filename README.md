@@ -1,16 +1,22 @@
 # MAIC Software
 
-## How to build
+## How to build and deploy
 
-1. Create a netlify account
+1. Create an algolia account
 
-2. Drag and drop
+2. In **src/App.js** change fill the info of your algolia API at lines 14, 205 and 206
 
-3. npm run build as a depoyment command
+3. Drop **utilities/data.json** as indice in the algolia dashboard (you can now use localy the website)
 
-4. Root public/
+4. Create a netlify account
 
-5. Deploy
+5. Drag and drop
+
+6. npm run build as a depoyment command
+
+7. Root public/
+
+8. Deploy
 
 ## What it can do
 
