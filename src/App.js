@@ -104,7 +104,9 @@ export const WidjetFolder = (id,tree,path) => {
       </div>
       <div>&nbsp;</div>
       <div id={id+tree.name} className="folder">
-        {revealSecret(id+tree.name,tree,path)}
+        <div>
+          {revealSecret(id+tree.name,tree,path)}
+        </div>
       </div>
       <div>&nbsp;</div>
     </div>
