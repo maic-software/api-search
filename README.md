@@ -6,7 +6,7 @@
 
 2. In **src/App.js** change fill the info of your algolia API at lines 14, 205 and 206
 
-3. Drop **utilities/data.json** as indice in the algolia dashboard (you can now use localy the website)
+3. Drop **utilities/data2.json** as indice in the algolia dashboard (you can now use localy the website)
 
 4. Create a netlify account
 
@@ -20,28 +20,24 @@
 
 ## What it can do
 
-This program present different functions that are basic use cases of various API. To a 'template' can be associated different version (different language to be exact).
+This program present different functions that are basic use cases of various API. To a 'template' can be associated different version. Also this program can generate form type interface for basic url get method. It also can present project composed of multiple folders.
 
 ## What it cannot do
 
-This program cannot present two versions of the same template in the same language. To do so, you will have to create another object. This program also cannot present an entire project as a template.
+It cannot present containers and cannot create a interface for basic API. Also you cannot download a full template in one click.
 
 ## Update the informations
 
-This website uses nodejs react in order to render the different objects. It also uses algolia as a back-end and searching engine. Objects are dynamically added to the website according to the back-end. For the information inside those objects, they are also dynamically created. The principal app (named src/App.js) will create JSX objects according to information provided inside **src/data/**. This folder list le different language version presented for a certain template. Then, the app will create a place holder with a specific id. This place holder will be filled with specific info later on. When the user click on a file, the app will search the content of the file in **public/data/{nameOfTheApi}/{nameOfTheTemplate}**. Then, the app will list all language in the json file **src/data/{nameOfTheApi}List.json**, and add the information from the first directory to the website.
+This website uses nodejs react in order to render the different objects. It also uses algolia as a back-end and searching engine. Objects are dynamically added to the website according to the back-end. For the information inside those objects, they are also dynamically created. The main script **src/App.js** will create objects according to the **tree** associated to a template version. This **tree** discribe the different files and where they are located. Then, the app will create a place holder with a specific id for every files in a version. For all the **getformurl** type of template (basic form interface generated), it will create the said form. For those which don't match this categorie, the place holders will be filled with specific info later on (filled during runtime). When the user click on a file, the app will search the content of the file in **public/data/{nameOfTheApi}/{versionName}/{dirOfTheTemplate}**.
 </br>
 So in order to update the data base, you need to :
 
-1. **Update the data base :** Either drag and drop a new data.json file, or add a new object manually in your algolia project ; **utilities/data.json** servs as an example.
+1. **Update the data base :** Either drag and drop a new data.json file, or add a new object manually in your algolia project ; **utilities/data2.json** servs as an example. Attention: a **tree** is required in every version and there has to be at least one version for every template.
 
-2. **Update src/data folder :** Add your files inside **public/data/{apiName}/{templateName}/** folder. Attention, it has to be the same API name and template as the ones mentioned in the algolia object.
+2. **Update public/data folder :** Add your project inside **public/data/{nameOfTheApi}/{versionName}/**. Take attention to the names that have to match your **tree**.
 
-3. **Modify your files names :** All your files must have the name **{templateName}.lang** where 'lang' can be c or py or whatever.
-
-4. **Update public/data folder :** Create the file **src/data/{apiName}/{templateName}List.json**. It has to be composed of the number of different language presented and a list of the sayed languages. Check out the already present list to have an exact syntaxe.
-
-5. **ReDeploy :** Simply redeploy.
+3. **ReDeploy :** Simply redeploy.
 
 ## Problems
 
-Right now the website is composed of parts that can be stored inside a backend, such as files inside **public/data/** and **src/data/**. This is why we have to redeploy after evry single modifications. It would be better if an external API could take care of that.
+Right now the website is composed of parts that can be stored inside a backend, such as files inside **public/data/**. This is why we have to redeploy after evry single modifications. It would be better if an external API could take care of that.
