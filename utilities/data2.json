@@ -227,4 +227,14 @@
       }]
     }
   }]
+},{
+  "name": "aws-golang-auth-examples",
+  "description": "Serves as example for parser",
+  "categorie": "NotComunication",
+  "API": "Golang",
+  "link": "https://www.twilio.com/docs/sms/send-messages",
+  "favor": "0",
+  "version": [
+{"tree": {"name": "version1", "foldernum": "1", "folder": [{"name": "functions", "foldernum": "4", "folder": [{"name": "hello-world", "foldernum": "0", "folder": [], "filenum": "3", "file": [{"name": "hello_world_suite_test", "lang": "go", "type": "file"}, {"name": "main", "lang": "go", "type": "file"}, {"name": "main_test", "lang": "go", "type": "file"}]}, {"name": "auth", "foldernum": "0", "folder": [], "filenum": "3", "file": [{"name": "auth_suite_test", "lang": "go", "type": "file"}, {"name": "main", "lang": "go", "type": "file"}, {"name": "main_test", "lang": "go", "type": "file"}]}, {"name": "auth2", "foldernum": "0", "folder": [], "filenum": "3", "file": [{"name": "auth_suite_test", "lang": "go", "type": "file"}, {"name": "main", "lang": "go", "type": "file"}, {"name": "main_test", "lang": "go", "type": "file"}]}, {"name": "hello-world2", "foldernum": "0", "folder": [], "filenum": "3", "file": [{"name": "hello_world_suite_test", "lang": "go", "type": "file"}, {"name": "main", "lang": "go", "type": "file"}, {"name": "main_test", "lang": "go", "type": "file"}]}], "filenum": "0", "file": []}], "filenum": "5", "file": [{"name": "README", "lang": "md", "type": "file"}, {"name": "serverless", "lang": "yml", "type": "file"}, {"name": "go", "lang": "mod", "type": "file"}, {"name": "go", "lang": "sum", "type": "file"}, {"name": "package", "lang": "json", "type": "file"}]}}
+  ]
 }]
