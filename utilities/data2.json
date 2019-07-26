@@ -29,7 +29,7 @@
       "filenum": "1",
       "file": [{
         "name": "exec",
-        "name": "json",
+        "lang": "json",
         "type": "file"
       }]
     }

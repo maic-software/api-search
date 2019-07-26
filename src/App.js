@@ -51,7 +51,7 @@ export const WidjetFile = (id,tree,path) => {
   return (
     <div key={id+tree.name}>
       <div onClick={() => { getFileContent(id+"Code"+tree.name+tree.lang,path) }} className="codeLister">
-        {tree.name}
+        {tree.name+"."+tree.lang}
       </div>
       <pre>
         <code id={id+"Code"+tree.name+tree.lang}></code>
