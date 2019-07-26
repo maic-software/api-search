@@ -21,6 +21,13 @@ import {
 
 
 
+/******************************************************************************/
+/*
+ * (form_id,name_of_the_input) -> input_of_the_given_name_html_object
+ *
+ * This function create a basic input html object.
+ */
+
 export const FormInput = (id,name) => {
   return (
     <p key={id+name}>
@@ -31,6 +38,14 @@ export const FormInput = (id,name) => {
 
 
 
+
+
+/******************************************************************************/
+/*
+ * (folder_id,location_tree,path_to_file) -> object_to_present_code_files
+ *
+ * This function create a basic object that can present the content of a file.
+ */
 
 export const WidjetFile = (id,tree,path) => {
   return (
@@ -47,6 +62,14 @@ export const WidjetFile = (id,tree,path) => {
 }
 
 
+
+
+/******************************************************************************/
+/*
+ * (folder_id,location_tree,path_to_file) -> object_to_generate_form_interface
+ *
+ * This function create a basic object that can contain a form interface.
+ */
 
 export const WidjetGetForm = (id,tree,path) => {
   return (
@@ -66,6 +89,13 @@ export const WidjetGetForm = (id,tree,path) => {
 
 
 
+/******************************************************************************/
+/*
+ * (previous_folder_id,location_tree,path_to_folder) -> object_to_present_folder
+ *
+ * This function create a basic object that represent a folder inside a project.
+ */
+
 export const WidjetFolder = (id,tree,path) => {
   return (
     <div key={id+tree.name}>
@@ -83,6 +113,13 @@ export const WidjetFolder = (id,tree,path) => {
 
 
 
+
+/******************************************************************************/
+/*
+ * (object_inside_algolia_database) -> template_representation
+ *
+ * This function create a object representing every template.
+ */
 
 const Hit = ({ hit }) => {
   return (
@@ -138,6 +175,13 @@ const Hit = ({ hit }) => {
 
 
 
+
+/******************************************************************************/
+/*
+ * () -> webpage
+ *
+ * This class is a representation of the webpage.
+ */
 
 class App extends Component {
   render() {

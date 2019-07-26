@@ -12,6 +12,13 @@ const index = client.initIndex("apis2");
 
 
 
+/******************************************************************************/
+/*
+ * (spoiler_tag_id) -> void
+ *
+ * This function display a spoiler content and change the innerHTML msg.
+ */
+
 export function getSpoil(id) {
   var divS = document.getElementById(id+"Spoiler");
   var msgS = document.getElementById(id+"SpoilerInnerMSG");
@@ -28,6 +35,13 @@ export function getSpoil(id) {
 
 
 
+/******************************************************************************/
+/*
+ * (folder_tag_id) -> void
+ *
+ * This function display a folder tag content.
+ */
+
 export function displayFolder(id) {
   var divS = document.getElementById(id);
   if(divS.style.display === 'block'){
@@ -41,6 +55,12 @@ export function displayFolder(id) {
 
 
 
+/******************************************************************************/
+/*
+ * (template_id) -> void
+ *
+ * This function change the ranking of a template (and block it's own access).
+ */
 
 export function updateFavor(id) {
   var divS = document.getElementById(id+"Star");
@@ -69,6 +89,13 @@ export function updateFavor(id) {
 
 
 
+/******************************************************************************/
+/*
+ * (file_tag_id,file_path) -> void
+ *
+ * This function read a file content and forward it to the associated html
+ * object.
+ */
 
 export function getFileContent(id,path) {
   if(document.getElementById(id).innerHTML !== "") {
@@ -95,6 +122,13 @@ export function getFileContent(id,path) {
 
 
 
+/******************************************************************************/
+/*
+ * (form_id,location_tree) -> inputs
+ *
+ * This function generate a list of form input object.
+ */
+
 export function getBasicInput(id,tree) {
   var inclusion = [];
   for(var i = 0; i < tree.argnum ; i++) {
@@ -104,6 +138,15 @@ export function getBasicInput(id,tree) {
 }
 
 
+
+
+/******************************************************************************/
+/*
+ * (folder_tag_id,location_tree,path_to_folder) -> list_of_html_objects
+ *
+ * This function go recursively deeper inside the project to create the
+ * associated tags for the project representation.
+ */
 
 
 export function revealSecret(id,tree,path) {
@@ -127,6 +170,14 @@ export function revealSecret(id,tree,path) {
 
 
 
+
+/******************************************************************************/
+/*
+ * (object_inside_algolia_database) -> version_tag_object
+ *
+ * This function can be seen as the first iteration of "revealSecret" for the
+ * recursive parcout.
+ */
 
 export function getVersion(hit) {
   var path = "/data/"+hit.API+"/"+hit.name;
