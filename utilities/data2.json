@@ -1,0 +1,230 @@
+[{
+  "name": "Autopilot",
+  "description": "Twilio template for an Airline Reservation robot",
+  "categorie": "Communication",
+  "API": "Twilio",
+  "link": "https://github.com/twilio/autopilot-templates/blob/master/Assistants/AirlineReservations/schema.json",
+  "favor": "0",
+  "version": [{
+    "tree": {
+      "name": "Autopilot_Airline_Reservation",
+      "foldernum": "0",
+      "folder": [
+
+      ],
+      "filenum": "1",
+      "file": [{
+        "name": "exec",
+        "lang": "json",
+        "type": "file"
+      }]
+    }
+  },{
+    "tree": {
+      "name": "Autopilot_Hello_World",
+      "foldernum": "0",
+      "folder": [
+
+      ],
+      "filenum": "1",
+      "file": [{
+        "name": "exec",
+        "name": "json",
+        "type": "file"
+      }]
+    }
+  }]
+},
+{
+  "name": "Send_Message",
+  "description": "Twilio template to Send a message",
+  "categorie": "Communication",
+  "API": "Twilio",
+  "link": "https://www.twilio.com/docs/sms/send-messages",
+  "favor": "0",
+  "version": [{
+    "tree": {
+      "name": "csharp",
+      "foldernum": "0",
+      "folder": [
+
+      ],
+      "filenum": "1",
+      "file": [{
+        "name": "Send_Message",
+        "lang": "cs",
+        "type": "file"
+      }]
+    }
+  },{
+    "tree": {
+      "name": "curl",
+      "foldernum": "0",
+      "folder": [
+
+      ],
+      "filenum": "1",
+      "file": [{
+        "name": "Send_Message",
+        "lang": "curl",
+        "type": "file"
+      }]
+    }
+  },{
+    "tree": {
+      "name": "java",
+      "foldernum": "0",
+      "folder": [
+
+      ],
+      "filenum": "1",
+      "file": [{
+        "name": "Send_Message",
+        "lang": "java",
+        "type": "file"
+      }]
+    }
+  },{
+    "tree": {
+      "name": "js",
+      "foldernum": "0",
+      "folder": [
+
+      ],
+      "filenum": "1",
+      "file": [{
+        "name": "Send_Message",
+        "lang": "js",
+        "type": "file"
+      }]
+    }
+  },{
+    "tree": {
+      "name": "php",
+      "foldernum": "0",
+      "folder": [
+
+      ],
+      "filenum": "1",
+      "file": [{
+        "name": "Send_Message",
+        "lang": "php",
+        "type": "file"
+      }]
+    }
+  },{
+    "tree": {
+      "name": "python",
+      "foldernum": "0",
+      "folder": [
+
+      ],
+      "filenum": "1",
+      "file": [{
+        "name": "Send_Message",
+        "lang": "py",
+        "type": "file"
+      }]
+    }
+  },{
+    "tree": {
+      "name": "ruby",
+      "foldernum": "0",
+      "folder": [
+
+      ],
+      "filenum": "1",
+      "file": [{
+        "name": "Send_Message",
+        "lang": "rb",
+        "type": "file"
+      }]
+    }
+  }]
+},
+{
+  "name": "Instant_Send_Message",
+  "description": "Twilio API to Send a message",
+  "categorie": "Communication",
+  "API": "Twilio",
+  "link": "https://www.twilio.com/docs/sms/send-messages",
+  "favor": "0",
+  "version": [{
+    "tree": {
+      "name": "Instant_Send_Message",
+      "foldernum": "0",
+      "folder": [
+
+      ],
+      "filenum": "1",
+      "file": [{
+        "name": "Noname",
+        "type": "getform",
+        "url": "https://orikan.api.stdlib.com/twilio-send@dev/twilio-call",
+        "argnum": "2",
+        "arg": [{
+          "name": "number"
+        },{
+          "name": "msg"
+        }]
+      }]
+    }
+  }]
+},
+{
+  "name": "aws-node-twilio-send-text-message",
+  "description": "Twilio serverless API to Send a message",
+  "categorie": "Communication",
+  "API": "Twilio",
+  "link": "https://www.twilio.com/docs/sms/send-messages",
+  "favor": "0",
+  "version": [{
+    "tree": {
+      "name": "send-text-message",
+      "foldernum": "1",
+      "folder": [{
+        "name": "frontend",
+        "foldernum": "0",
+        "folder": [
+
+        ],
+        "filenum": "2",
+        "file": [{
+          "name": "app",
+          "lang": "css",
+          "type": "file"
+        },{
+          "name": "index",
+          "lang": "html",
+          "type": "file"
+        }]
+      }],
+      "filenum": "6",
+      "file": [{
+        "name": "event",
+        "lang": "json",
+        "type": "file"
+      },{
+        "name": "handler",
+        "lang": "js",
+        "type": "file"
+      },{
+        "name": "messenger",
+        "lang": "js",
+        "type": "file"
+      },{
+        "name": "package",
+        "lang": "json",
+        "type": "file"
+      },{
+        "name": "README",
+        "lang": "md",
+        "type": "file"
+      },{
+        "name": "serverless",
+        "lang": "yml",
+        "type": "file"
+      }]
+    }
+  }]
+}]

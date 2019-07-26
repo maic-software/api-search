@@ -8,141 +8,81 @@ import {
   InfiniteHits
 } from 'react-instantsearch-dom';
 import './App.css';
-import $ from 'jquery';
-
-const algoliasearch = require("algoliasearch");
-const client = algoliasearch("API_ID","API_ADMIN_KEY");
-const index = client.initIndex("apis");
-
-function getSpoil(id) {
-  var divS = document.getElementById(id+"Spoiler");
-  var msgS = document.getElementById(id+"SpoilerInnerMSG");
-  if(divS.style.display === 'block'){
-    divS.style.display = 'none';
-    msgS.innerHTML = "Click for further info";
-  }
-  else {
-    divS.style.display = 'block';
-    msgS.innerHTML = "Click here to reduce";
-  }
-}
-
-function updateFavor(id) {
-  var divS = document.getElementById(id+"Star");
-  if(divS.style.status === "used"){
-   return;
-  }
-  else{
-    divS.style.status = "used";
-    divS.innerHTML = "&#9733";
-    var upF = "0";
-    index.getObject(id, ['favor'], (err, content) => {
-      if (err) throw err;
-      var upFInt = parseInt(content.favor, 10);
-      upFInt += 1;
-      upF = upFInt.toString(10);
-      index.partialUpdateObject({
-        favor: upF,
-        objectID: id
-      }, (err, content) => {
-        if (err) throw err;
-      });
-    });
-  }
-}
-
-function getCode(api,temp,lang,id) {
-  if(document.getElementById(id).innerHTML !== ""){
-    $('#'+id).text('');
-    }
-  else {
-      var url = "/data/" + api + "/" + temp + "/" + temp + "." + lang;
-      $.ajax({
-            type: "GET",
-            url: url,
-            dataType: "text",
-            error:function(msg){
-                      alert( "Error on access !");
-                      },
-             success:function(data){
-                      data.replace('<',"&lt;");
-                      data.replace('>',"&rt;");
-                      $('#'+id).text(data);
-                      }
-             });
-    }
-  }
+import {
+  getSpoil,
+  displayFolder,
+  updateFavor,
+  getFileContent,
+  getBasicInput,
+  revealSecret,
+  getVersion
+} from './script.js';
 
 
-function getTempPresentation(name,lang) {
-  return name + "." + lang + " :";
-}
 
-function getCodeId(id,lang) {
-  return id + "Code" + lang;
-}
 
-function getContent(id) {
-  var $temp = $("<input>");
-  $("body").append($temp);
-  var content = $("#"+id).text();
-  content.replace("&lt;",'<');
-  content.replace("&rt;",'>');
-  $temp.val(content).select();
-  document.execCommand("copy");
-  $temp.remove();
-}
-
-const WidjetSingle = (jList,i,id,api,temp) => {
+export const FormInput = (id,name) => {
   return (
-    <div key={id+jList['lang'][i]['content']}>
-      <div onClick={() => {getCode(api,temp,jList['lang'][i]['content'],getCodeId(id,jList['lang'][i]['content'])) }} className="codeLister">
-        {getTempPresentation(temp,jList['lang'][i]['content'])}
+    <p key={id+name}>
+      <input className="gen" type="text" name={name}/>
+    </p>
+  )
+}
+
+
+
+
+export const WidjetFile = (id,tree,path) => {
+  return (
+    <div key={id+tree.name}>
+      <div onClick={() => { getFileContent(id+"Code"+tree.name+tree.lang,path) }} className="codeLister">
+        {tree.name}
       </div>
-      <button onClick={() => {getContent(getCodeId(id,jList['lang'][i]['content']))}}>
-        Click to copy
-      </button>
       <pre>
-        <code id={getCodeId(id,jList['lang'][i]['content'])}></code>
+        <code id={id+"Code"+tree.name+tree.lang}></code>
       </pre>
       <div>&nbsp;</div>
     </div>
   )
 }
 
-const WidjetContainerised = (jList,i,id,api,temp) => {
+
+
+export const WidjetGetForm = (id,tree,path) => {
   return (
-    <div key={id+jList['lang'][i]['content']}>
-      <div onClick={() => {getCode(api,temp,jList['lang'][i]['content'],getCodeId(id,jList['lang'][i]['content'])) }} className="codeLister">
-        {getTempPresentation(temp,jList['lang'][i]['content'])}
+    <div key={id+tree.name}>
+      <form action={tree.url} method="GET">
+        {getBasicInput(id,tree)}
+        <p>
+          <button type="submit">
+            {tree.execmsg}
+          </button>
+        </p>
+      </form>
+    </div>
+  )
+}
+
+
+
+
+export const WidjetFolder = (id,tree,path) => {
+  return (
+    <div key={id+tree.name}>
+      <div onClick={() => { displayFolder(id+tree.name) }}>
+        {tree.name+"/"}
       </div>
-      <button onClick={() => {getContent(getCodeId(id,jList['lang'][i]['content']))}}>
-        Click to copy
-      </button>
-      <pre>
-        <code id={getCodeId(id,jList['lang'][i]['content'])}></code>
-      </pre>
-      <pre>
-        <code id={getCodeId(id,jList['lang'][i]['containername'])}></code>
-      </pre>
+      <div>&nbsp;</div>
+      <div id={id+tree.name} className="folder">
+        {revealSecret(id+tree.name,tree,path)}
+      </div>
       <div>&nbsp;</div>
     </div>
   )
 }
 
-function getCodeList(api,temp,id) {
-  var inclusion = [];
-  var jList = require("../src/data/" + api + "/" + temp + "List.json");
-  for(var i = 0; i < jList['number']; i++) {
-    if(jList['lang'][i]['container'] === 'no') {
-      inclusion.push(WidjetSingle(jList,i,id,api,temp));
-    }
-    else {
-      inclusion.push(WidjetContainerised(jList,i,id,api,temp));
-    }
-  }
-  return inclusion;
-}
+
+
 
 const Hit = ({ hit }) => {
   return (
@@ -187,7 +127,7 @@ const Hit = ({ hit }) => {
       </div>
       <div id={hit.objectID+"Spoiler"} className="spoiled">
         <div>
-          {getCodeList(hit.API,hit.name,hit.objectID)}
+          {getVersion(hit)}
         </div>
         <div id={hit.objectID+"Code"}></div>
       </div>
@@ -197,14 +137,16 @@ const Hit = ({ hit }) => {
 }
 
 
+
+
 class App extends Component {
   render() {
     return (
       <div className="h-screen overflow-hidden">
         <InstantSearch
-          appId="API_ID"
-          apiKey="API_SEARCH_KEY"
-          indexName="apis"
+          appId="LYITGBJZF1"
+          apiKey="c0d0c32d6bc8e80c30eabe69af5724d2"
+          indexName="apis2"
         >
           <div className="flex flex-col h-screen font-sans">
             <header className="flex bg-white w-full border-grey-light border-solid border-b flex-no-shrink">

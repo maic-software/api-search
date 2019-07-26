@@ -199,8 +199,8 @@ div.spoiled {
   display: none;
 }
 
-div.favor {
-  width: 1.5%;
+div.folder {
+  display: none;
 }
 
 div.codeLister {
@@ -225,4 +225,8 @@ pre {
 pre code {
 	padding: 10px;
 	color: #333;
+}
+
+input.gen {
+  border: 1px solid #777;
 }
