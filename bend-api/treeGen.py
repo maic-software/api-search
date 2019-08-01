@@ -11,12 +11,16 @@ def exceptionFilterFolder(name):
         return 0
     if name == ".git":
         return 0
+    if name[0] == ".":
+        return 0
     if name.count(".") > 0:
         return 0
     return 1
 
 def exceptionFilterFile(name):
     if name.count(".") != 1:
+        return 0
+    if name[0] == ".":
         return 0
     return 1
 

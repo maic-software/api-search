@@ -3,11 +3,11 @@ import {
   InstantSearch,
   SearchBox,
   Menu,
-  PoweredBy,
   Highlight,
   InfiniteHits
 } from 'react-instantsearch-dom';
 import './App.css';
+import axios from 'axios';
 import {
   getSpoil,
   displayFolder,
@@ -49,12 +49,14 @@ export const FormInput = (id,name) => {
 
 export const WidjetFile = (id,tree,path) => {
   return (
-    <div key={id+tree.name}>
-      <div onClick={() => { getFileContent(id+"Code"+tree.name+tree.lang,path) }} className="codeLister">
+    <div key={id+tree.name+tree.lang}>
+      <div className="codeLister" onClick={() => {displayFolder(id+"Code"+tree.name+tree.lang)}}>
         {tree.name+"."+tree.lang}
       </div>
       <pre>
-        <code id={id+"Code"+tree.name+tree.lang}></code>
+        <code id={id+"Code"+tree.name+tree.lang} display="block">
+          {getFileContent(id+"Code"+tree.name+tree.lang,path)}
+        </code>
       </pre>
       <div>&nbsp;</div>
     </div>
@@ -99,7 +101,7 @@ export const WidjetGetForm = (id,tree,path) => {
 export const WidjetFolder = (id,tree,path) => {
   return (
     <div key={id+tree.name}>
-      <div onClick={() => { displayFolder(id+tree.name) }}>
+      <div onClick={() => {displayFolder(id+tree.name)}}>
         {tree.name+"/"}
       </div>
       <div>&nbsp;</div>
@@ -170,7 +172,7 @@ const Hit = ({ hit }) => {
         </div>
         <div id={hit.objectID+"Code"}></div>
       </div>
-      <span id={hit.objectID+"Star"} onClick={() => { updateFavor(hit.objectID)}}>&#x2606;</span>
+      <span id={hit.objectID+"Star"} onClick={() => { updateFavor(hit.objectID,hit.favor)}}>{hit.favor}&#x2606;</span>
     </div>
   )
 }
@@ -192,7 +194,7 @@ class App extends Component {
         <InstantSearch
           appId="LYITGBJZF1"
           apiKey="c0d0c32d6bc8e80c30eabe69af5724d2"
-          indexName="apis2"
+          indexName="apis3"
         >
           <div className="flex flex-col h-screen font-sans">
             <header className="flex bg-white w-full border-grey-light border-solid border-b flex-no-shrink">
@@ -209,9 +211,6 @@ class App extends Component {
                     placeholder: 'Search for a template name'
                   }}
                 />
-                <div className="flex items-center border-grey-light border-solid border-l px-4 flex-no-shrink">
-                  <PoweredBy className="flex flex-col md:items-center sm:flex-row" />
-                </div>
               </div>
             </header>
             <div className="flex flex-grow">
@@ -249,47 +248,9 @@ class App extends Component {
                 </div>
               </main>
             </div>
-            <footer className="flex flex-no-shrink justify-between flex-col sm:flex-row p-4 border-grey-light border-solid border-t text-sm text-grey-dark">
-              <div className="text-center sm:text-left">
-                Made by{' '}
-                <a
-                  href="https://twitter.com/@frontstuff_io"
-                  className="text-blue hover:text-blue-darker transition no-underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  @frontstuff_io
-                </a>{' '}
-                and{' '}
-                <a
-                  href="https://twitter.com/@cdenoix"
-                  className="text-blue hover:text-blue-darker transition no-underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  @cdenoix
-                </a>{' '}
-                -{' '}
-                <a
-                  href="https://github.com/clemfromspace/api-search"
-                  className="text-blue hover:text-blue-darker transition no-underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-              </div>
-              <div />
-              <div className="text-center sm:text-right mt-2 sm:mt-0">
-                Data from{' '}
-                <a
-                  href="https://api.publicapis.org/"
-                  className="text-blue hover:text-blue-darker transition no-underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  api.publicapis.org
-                </a>
+            <footer class="flex flex-no-shrink justify-between flex-col sm:flex-row p-4 border-grey-light border-solid border-t text-sm text-grey-dark">
+              <div>
+                &nbsp;
               </div>
             </footer>
           </div>

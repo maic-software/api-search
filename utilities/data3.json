@@ -1,0 +1,141 @@
+[{
+  "name": "aws-dotnet-rest-api-with-dynamodb",
+  "description": "none for the moment",
+  "categorie": "Platform",
+  "API": "DotNet",
+  "link": "https://github.com/serverless/examples/tree/master/aws-dotnet-rest-api-with-dynamodb",
+  "favor": "0",
+  "version": [
+    {"tree": {"name": "", "foldernum": "1", "folder": [{"name": "v1", "foldernum": "2", "folder": [{"name": "src", "foldernum": "0", "folder": [], "filenum": "0", "file": []}, {"name": "tests", "foldernum": "0", "folder": [], "filenum": "0", "file": []}], "filenum": "2", "file": [{"name": "DotNetServerless", "lang": "sln", "type": "file"}, {"name": "README", "lang": "MD", "type": "file"}]}], "filenum": "0", "file": []}}
+  ]
+},{
+  "name": "aws-ffmpeg-layer",
+  "description": "none for the moment",
+  "categorie": "Audio&Video",
+  "API": "ffmpeg",
+  "link": "https://github.com/serverless/examples/tree/master/aws-ffmpeg-layer",
+  "favor": "0",
+  "version": [
+    {"tree": {"name": "", "foldernum": "1", "folder": [{"name": "v1", "foldernum": "0", "folder": [], "filenum": "5", "file": [{"name": "README", "lang": "md", "type": "file"}, {"name": "handler", "lang": "js", "type": "file"}, {"name": "serverless", "lang": "yml", "type": "file"}, {"name": "package", "lang": "json", "type": "file"}, {"name": "build", "lang": "sh", "type": "file"}]}], "filenum": "0", "file": []}}
+  ]
+},{
+  "name": "aws-golang-auth-examples",
+  "description": "none for the moment",
+  "categorie": "Auth",
+  "API": "None",
+  "link": "https://github.com/serverless/examples/tree/master/aws-golang-auth-examples",
+  "favor": "0",
+  "version": [
+    {"tree": {"name": "", "foldernum": "1", "folder": [{"name": "v1", "foldernum": "1", "folder": [{"name": "functions", "foldernum": "4", "folder": [{"name": "hello-world", "foldernum": "0", "folder": [], "filenum": "3", "file": [{"name": "hello_world_suite_test", "lang": "go", "type": "file"}, {"name": "main", "lang": "go", "type": "file"}, {"name": "main_test", "lang": "go", "type": "file"}]}, {"name": "auth", "foldernum": "0", "folder": [], "filenum": "3", "file": [{"name": "auth_suite_test", "lang": "go", "type": "file"}, {"name": "main", "lang": "go", "type": "file"}, {"name": "main_test", "lang": "go", "type": "file"}]}, {"name": "auth2", "foldernum": "0", "folder": [], "filenum": "3", "file": [{"name": "auth_suite_test", "lang": "go", "type": "file"}, {"name": "main", "lang": "go", "type": "file"}, {"name": "main_test", "lang": "go", "type": "file"}]}, {"name": "hello-world2", "foldernum": "0", "folder": [], "filenum": "3", "file": [{"name": "hello_world_suite_test", "lang": "go", "type": "file"}, {"name": "main", "lang": "go", "type": "file"}, {"name": "main_test", "lang": "go", "type": "file"}]}], "filenum": "0", "file": []}], "filenum": "5", "file": [{"name": "README", "lang": "md", "type": "file"}, {"name": "serverless", "lang": "yml", "type": "file"}, {"name": "go", "lang": "mod", "type": "file"}, {"name": "go", "lang": "sum", "type": "file"}, {"name": "package", "lang": "json", "type": "file"}]}], "filenum": "0", "file": []}}
+  ]
+},{
+  "name": "aws-golang-dynamo-stream-to-elasticsearch",
+  "description": "none for the moment",
+  "categorie": "Search",
+  "API": "Elasticsearch",
+  "link": "https://github.com/serverless/examples/tree/master/aws-golang-dynamo-stream-to-elasticsearch",
+  "favor": "0",
+  "version": [
+    {"tree": {"name": "", "foldernum": "1", "folder": [{"name": "v1", "foldernum": "3", "folder": [{"name": "dstream", "foldernum": "0", "folder": [], "filenum": "2", "file": [{"name": "update", "lang": "go", "type": "file"}, {"name": "details", "lang": "go", "type": "file"}]}, {"name": "cmd", "foldernum": "2", "folder": [{"name": "seed-dynamo", "foldernum": "0", "folder": [], "filenum": "1", "file": [{"name": "main", "lang": "go", "type": "file"}]}, {"name": "aws-golang-dynamo-stream-to-elasticsearch", "foldernum": "0", "folder": [], "filenum": "1", "file": [{"name": "main", "lang": "go", "type": "file"}]}], "filenum": "0", "file": []}, {"name": "docs", "foldernum": "0", "folder": [], "filenum": "2", "file": [{"name": "query", "lang": "png", "type": "file"}, {"name": "kibana", "lang": "png", "type": "file"}]}], "filenum": "4", "file": [{"name": "README", "lang": "md", "type": "file"}, {"name": "serverless", "lang": "yml", "type": "file"}, {"name": "Gopkg", "lang": "toml", "type": "file"}, {"name": "package", "lang": "json", "type": "file"}]}], "filenum": "0", "file": []}}
+  ]
+},{
+  "name": "aws-golang-http-get-post",
+  "description": "none for the moment",
+  "categorie": "Server",
+  "API": "None",
+  "link": "https://github.com/serverless/examples/tree/master/aws-golang-http-get-post",
+  "favor": "0",
+  "version": [
+    {"tree": {"name": "", "foldernum": "1", "folder": [{"name": "v1", "foldernum": "2", "folder": [{"name": "postFolder", "foldernum": "0", "folder": [], "filenum": "1", "file": [{"name": "postExample", "lang": "go", "type": "file"}]}, {"name": "getFolder", "foldernum": "0", "folder": [], "filenum": "2", "file": [{"name": "getExample", "lang": "go", "type": "file"}, {"name": "getQueryExample", "lang": "go", "type": "file"}]}], "filenum": "5", "file": [{"name": "README", "lang": "md", "type": "file"}, {"name": "serverless", "lang": "yml", "type": "file"}, {"name": "Gopkg", "lang": "toml", "type": "file"}, {"name": "Gopkg", "lang": "lock", "type": "file"}, {"name": "package", "lang": "json", "type": "file"}]}], "filenum": "0", "file": []}}
+  ]
+},{
+  "name": "aws-golang-simple-http-endpoint",
+  "description": "none for the moment",
+  "categorie": "Server",
+  "API": "None",
+  "link": "https://github.com/serverless/examples/tree/master/aws-golang-simple-http-endpoint",
+  "favor": "0",
+  "version": [
+    {"tree": {"name": "", "foldernum": "1", "folder": [{"name": "v1", "foldernum": "2", "folder": [{"name": "world", "foldernum": "0", "folder": [], "filenum": "1", "file": [{"name": "main", "lang": "go", "type": "file"}]}, {"name": "hello", "foldernum": "0", "folder": [], "filenum": "1", "file": [{"name": "main", "lang": "go", "type": "file"}]}], "filenum": "4", "file": [{"name": "README", "lang": "md", "type": "file"}, {"name": "serverless", "lang": "yml", "type": "file"}, {"name": "Gopkg", "lang": "toml", "type": "file"}, {"name": "package", "lang": "json", "type": "file"}]}], "filenum": "0", "file": []}}
+  ]
+},{
+  "name": "aws-golang-stream-kinesis-to-elasticsearch",
+  "description": "none for the moment",
+  "categorie": "Search",
+  "API": "Elasticsearch",
+  "link": "https://github.com/serverless/examples/tree/master/aws-golang-stream-kinesis-to-elasticsearch",
+  "favor": "0",
+  "version": [
+    {"tree": {"name": "", "foldernum": "1", "folder": [{"name": "v1", "foldernum": "1", "folder": [{"name": "elastic", "foldernum": "0", "folder": [], "filenum": "1", "file": [{"name": "elastic", "lang": "go", "type": "file"}]}], "filenum": "6", "file": [{"name": "README", "lang": "md", "type": "file"}, {"name": "serverless", "lang": "yml", "type": "file"}, {"name": "Gopkg", "lang": "toml", "type": "file"}, {"name": "Gopkg", "lang": "lock", "type": "file"}, {"name": "package", "lang": "json", "type": "file"}, {"name": "main", "lang": "go", "type": "file"}]}], "filenum": "0", "file": []}}
+  ]
+},{
+  "name": "aws-java-simple-http-endpoint",
+  "description": "none for the moment",
+  "categorie": "Server",
+  "API": "None",
+  "link": "https://github.com/serverless/examples/tree/master/aws-java-simple-http-endpoint",
+  "favor": "0",
+  "version": [
+    {"tree": {"name": "", "foldernum": "1", "folder": [{"name": "v1", "foldernum": "2", "folder": [{"name": "gradle", "foldernum": "1", "folder": [{"name": "wrapper", "foldernum": "0", "folder": [], "filenum": "1", "file": [{"name": "gradle-wrapper", "lang": "properties", "type": "file"}]}], "filenum": "0", "file": []}, {"name": "src", "foldernum": "1", "folder": [{"name": "main", "foldernum": "2", "folder": [{"name": "java", "foldernum": "1", "folder": [{"name": "com", "foldernum": "1", "folder": [{"name": "serverless", "foldernum": "0", "folder": [], "filenum": "3", "file": [{"name": "Handler", "lang": "java", "type": "file"}, {"name": "Response", "lang": "java", "type": "file"}, {"name": "ApiGatewayResponse", "lang": "java", "type": "file"}]}], "filenum": "0", "file": []}], "filenum": "0", "file": []}, {"name": "resources", "foldernum": "0", "folder": [], "filenum": "1", "file": [{"name": "log4j", "lang": "properties", "type": "file"}]}], "filenum": "0", "file": []}], "filenum": "0", "file": []}], "filenum": "5", "file": [{"name": "build", "lang": "gradle", "type": "file"}, {"name": "README", "lang": "md", "type": "file"}, {"name": "pom", "lang": "xml", "type": "file"}, {"name": "serverless", "lang": "yml", "type": "file"}, {"name": "gradlew", "lang": "bat", "type": "file"}]}], "filenum": "0", "file": []}}
+  ]
+},{
+  "name": "aws-node-fullstack",
+  "description": "none for the moment",
+  "categorie": "Server",
+  "API": "None",
+  "link": "https://github.com/serverless/examples/tree/master/aws-node-fullstack",
+  "favor": "0",
+  "version": [
+    {"tree": {"name": "", "foldernum": "1", "folder": [{"name": "v1", "foldernum": "2", "folder": [{"name": "backend", "foldernum": "0", "folder": [], "filenum": "5", "file": [{"name": "yarn", "lang": "lock", "type": "file"}, {"name": "serverless", "lang": "yml", "type": "file"}, {"name": "package-lock", "lang": "json", "type": "file"}, {"name": "package", "lang": "json", "type": "file"}, {"name": "index", "lang": "js", "type": "file"}]}, {"name": "frontend", "foldernum": "2", "folder": [{"name": "src", "foldernum": "1", "folder": [{"name": "images", "foldernum": "0", "folder": [], "filenum": "1", "file": [{"name": "logo", "lang": "png", "type": "file"}]}], "filenum": "4", "file": [{"name": "DemoApp", "lang": "css", "type": "file"}, {"name": "DemoApp", "lang": "js", "type": "file"}, {"name": "index", "lang": "css", "type": "file"}, {"name": "index", "lang": "js", "type": "file"}]}, {"name": "public", "foldernum": "0", "folder": [], "filenum": "3", "file": [{"name": "favicon", "lang": "ico", "type": "file"}, {"name": "index", "lang": "html", "type": "file"}, {"name": "manifest", "lang": "json", "type": "file"}]}], "filenum": "3", "file": [{"name": "yarn", "lang": "lock", "type": "file"}, {"name": "package-lock", "lang": "json", "type": "file"}, {"name": "package", "lang": "json", "type": "file"}]}], "filenum": "1", "file": [{"name": "README", "lang": "md", "type": "file"}]}], "filenum": "0", "file": []}}
+  ]
+},{
+  "name": "aws-node-graphql-and-rds",
+  "description": "none for the moment",
+  "categorie": "Database",
+  "API": "None",
+  "link": "https://github.com/serverless/examples/tree/master/aws-node-graphql-and-rds",
+  "favor": "0",
+  "version": [
+    {"tree": {"name": "", "foldernum": "1", "folder": [{"name": "v1", "foldernum": "2", "folder": [{"name": "resource", "foldernum": "0", "folder": [], "filenum": "20", "file": [{"name": "MySqlRDSInstance", "lang": "yml", "type": "file"}, {"name": "AuroraRDSInstance", "lang": "yml", "type": "file"}, {"name": "AuroraRDSClusterParameter", "lang": "yml", "type": "file"}, {"name": "RouteTableAssociationSubnetA", "lang": "yml", "type": "file"}, {"name": "RoutePublic", "lang": "yml", "type": "file"}, {"name": "LambdaRole", "lang": "yml", "type": "file"}, {"name": "ServerlessInternetGateway", "lang": "yml", "type": "file"}, {"name": "ServerlessSubnetA", "lang": "yml", "type": "file"}, {"name": "RouteTableAssociationSubnetC", "lang": "yml", "type": "file"}, {"name": "ServerlessSecurityGroup", "lang": "yml", "type": "file"}, {"name": "ServerlessSubnetC", "lang": "yml", "type": "file"}, {"name": "AuroraRDSCluster", "lang": "yml", "type": "file"}, {"name": "RouteTableAssociationSubnetB", "lang": "yml", "type": "file"}, {"name": "ServerlessSubnetGroup", "lang": "yml", "type": "file"}, {"name": "ServerlessSubnetB", "lang": "yml", "type": "file"}, {"name": "ServerlessVPCGA", "lang": "yml", "type": "file"}, {"name": "ServerlessVPC", "lang": "yml", "type": "file"}, {"name": "PostgreSqlRDSInstance", "lang": "yml", "type": "file"}, {"name": "AuroraRDSInstanceParameter", "lang": "yml", "type": "file"}, {"name": "RouteTablePublic", "lang": "yml", "type": "file"}]}, {"name": "resolver", "foldernum": "3", "folder": [{"name": "Mutation", "foldernum": "0", "folder": [], "filenum": "3", "file": [{"name": "aurora_createUser", "lang": "js", "type": "file"}, {"name": "mysql_createUser", "lang": "js", "type": "file"}, {"name": "postgresql_createUser", "lang": "js", "type": "file"}]}, {"name": "Common", "foldernum": "0", "folder": [], "filenum": "3", "file": [{"name": "postgresql", "lang": "js", "type": "file"}, {"name": "aurora", "lang": "js", "type": "file"}, {"name": "mysql", "lang": "js", "type": "file"}]}, {"name": "Query", "foldernum": "0", "folder": [], "filenum": "3", "file": [{"name": "postgresql_getUser", "lang": "js", "type": "file"}, {"name": "mysql_getUser", "lang": "js", "type": "file"}, {"name": "aurora_getUser", "lang": "js", "type": "file"}]}], "filenum": "0", "file": []}], "filenum": "7", "file": [{"name": "secrets", "lang": "json", "type": "file"}, {"name": "README", "lang": "md", "type": "file"}, {"name": "handler", "lang": "js", "type": "file"}, {"name": "serverless", "lang": "yml", "type": "file"}, {"name": "schema", "lang": "gql", "type": "file"}, {"name": "package-lock", "lang": "json", "type": "file"}, {"name": "package", "lang": "json", "type": "file"}]}], "filenum": "0", "file": []}}
+  ]
+},{
+  "name": "aws-node-rest-api-mongodb",
+  "description": "none for the moment",
+  "categorie": "Database",
+  "API": "Mongodb",
+  "link": "https://github.com/serverless/examples/tree/master/aws-node-rest-api-mongodb",
+  "favor": "0",
+  "version": [
+    {"tree": {"name": "", "foldernum": "1", "folder": [{"name": "v1", "foldernum": "1", "folder": [{"name": "model", "foldernum": "0", "folder": [], "filenum": "1", "file": [{"name": "User", "lang": "js", "type": "file"}]}], "filenum": "4", "file": [{"name": "README", "lang": "md", "type": "file"}, {"name": "handler", "lang": "js", "type": "file"}, {"name": "serverless", "lang": "yml", "type": "file"}, {"name": "package", "lang": "json", "type": "file"}]}], "filenum": "0", "file": []}}
+  ]
+},{
+  "name": "aws-node-rest-api-with-dynamodb-and-offline",
+  "description": "none for the moment",
+  "categorie": "Database",
+  "API": "DynamoDB",
+  "link": "https://github.com/serverless/examples/tree/master/aws-node-rest-api-with-dynamodb-and-offline",
+  "favor": "0",
+  "version": [
+    {"tree": {"name": "", "foldernum": "2", "folder": [{"name": "offline", "foldernum": "1", "folder": [{"name": "migrations", "foldernum": "0", "folder": [], "filenum": "1", "file": [{"name": "todos", "lang": "json", "type": "file"}]}], "filenum": "0", "file": []}, {"name": "todos", "foldernum": "0", "folder": [], "filenum": "6", "file": [{"name": "update", "lang": "js", "type": "file"}, {"name": "dynamodb", "lang": "js", "type": "file"}, {"name": "create", "lang": "js", "type": "file"}, {"name": "delete", "lang": "js", "type": "file"}, {"name": "get", "lang": "js", "type": "file"}, {"name": "list", "lang": "js", "type": "file"}]}], "filenum": "3", "file": [{"name": "README", "lang": "md", "type": "file"}, {"name": "serverless", "lang": "yml", "type": "file"}, {"name": "package", "lang": "json", "type": "file"}]}}
+  ]
+},{
+  "name": "aws-node-rest-api-with-dynamodb",
+  "description": "none for the moment",
+  "categorie": "Database",
+  "API": "DynamoDB",
+  "link": "https://github.com/serverless/examples/tree/master/aws-node-rest-api-with-dynamodb",
+  "favor": "0",
+  "version": [
+    {"tree": {"name": "", "foldernum": "1", "folder": [{"name": "v1", "foldernum": "1", "folder": [{"name": "todos", "foldernum": "0", "folder": [], "filenum": "5", "file": [{"name": "update", "lang": "js", "type": "file"}, {"name": "create", "lang": "js", "type": "file"}, {"name": "delete", "lang": "js", "type": "file"}, {"name": "get", "lang": "js", "type": "file"}, {"name": "list", "lang": "js", "type": "file"}]}], "filenum": "3", "file": [{"name": "README", "lang": "md", "type": "file"}, {"name": "serverless", "lang": "yml", "type": "file"}, {"name": "package", "lang": "json", "type": "file"}]}], "filenum": "0", "file": []}}
+  ]
+},{
+  "name": "aws-node-twilio-send-text-message",
+  "description": "none for the moment",
+  "categorie": "Communication",
+  "API": "Twilio",
+  "link": "https://github.com/serverless/examples/tree/master/aws-node-twilio-send-text-message",
+  "favor": "0",
+  "version": [
+    {"tree": {"name": "", "foldernum": "1", "folder": [{"name": "v1", "foldernum": "1", "folder": [{"name": "frontend", "foldernum": "0", "folder": [], "filenum": "2", "file": [{"name": "app", "lang": "css", "type": "file"}, {"name": "index", "lang": "html", "type": "file"}]}], "filenum": "6", "file": [{"name": "README", "lang": "md", "type": "file"}, {"name": "handler", "lang": "js", "type": "file"}, {"name": "serverless", "lang": "yml", "type": "file"}, {"name": "event", "lang": "json", "type": "file"}, {"name": "messenger", "lang": "js", "type": "file"}, {"name": "package", "lang": "json", "type": "file"}]}], "filenum": "0", "file": []}}
+  ]
+}]

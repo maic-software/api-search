@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <h1>
+    <code>
+      &lt;input webkitdirectory&gt;
+    </code>
+  </h1>
+  <div class="picker">
+    <p>
+      API :
+      <input type="text" id="apiname" name="API" />
+    </p>
+    <p>
+      Template name :
+      <input type="text" id="tempname" name="Template" />
+    </p>
+    <p>
+      Category :
+      <input type="text" id="catname" name="Category" />
+    </p>
+    <p>
+      Short description :
+      <input type="text" id="description" name="Description" />
+    </p>
+    <p>
+      Link to the documentation :
+      <input type="text" id="doclink" name="Link" />
+    </p>
+    <input type="file" id="picker" name="fileList" webkitdirectory multiple/>
+    <button type="button" class="btn btn-success btn-block" onClick="onClickHandler()">Upload</button>
+  </div>
+  <ul id="listing"></ul>
+</head>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  let picker = document.getElementById('picker');
+  let listing = document.getElementById('listing');
+
+  var evt;
+
+  picker.addEventListener('change', e => {
+    for (let file of Array.from(e.target.files)) {
+      let item = document.createElement('li');
+      item.textContent = file.webkitRelativePath;
+      listing.appendChild(item);
+    };
+    evt = e;
+  });
+
+  function onClickHandler() {
+    const data = new FormData();
+    console.log("here");
+    for(var x = 0; x<evt.target.files.length; x++) {
+      data.append('file', evt.target.files[x]);
+    }
+    // var json = '{' +
+    // '"name": "' + document.getElementById("tempname").value + '",' +
+    // '"description": "' + document.getElementById("description").value + '",' +
+    // '"categorie": "' + document.getElementById("catname").value + '",' +
+    // '"API" : "' + document.getElementById("apiname").value + '",' +
+    // '"link": "' + document.getElementById("doclink").value + '",' +
+    // '"favor": "0",' +
+    // '"version": []' +
+    // '}';
+    // var jparts = [
+    //   new Blob(['you construct a file...'], {type: 'text/plain'}),
+    //   ' Same way as you do with blob',
+    //   new Uint16Array([33])
+    // ];
+    // var jfile = new File(jparts, 'tmp.json', {
+    //   lastModified: new Date(0),
+    //   type: "overide/mimetype"
+    // });
+    // data.append('file',jfile);
+    axios.post("http://localhost:8000/upload", data, {
+    })
+    .then(res => {
+      console.log(res.statusText);
+    });
+    var args = [];
+    args.push(document.getElementById("tempname").value);
+    args.push(document.getElementById("description").value);
+    args.push(document.getElementById("catname").value);
+    args.push(document.getElementById("apiname").value);
+    args.push(document.getElementById("doclink").value);
+    axios.get("http://localhost:8000/upload", args, {
+    })
+    .then(res => {
+      console.log(res.statusText);
+    });
+  }
+</script>
+</html>

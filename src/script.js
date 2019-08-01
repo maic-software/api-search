@@ -11,7 +11,6 @@ const index = client.initIndex("apis2");
 
 
 
-
 /******************************************************************************/
 /*
  * (spoiler_tag_id) -> void
@@ -44,11 +43,11 @@ export function getSpoil(id) {
 
 export function displayFolder(id) {
   var divS = document.getElementById(id);
-  if(divS.style.display === 'block'){
-    divS.style.display = 'none';
+  if(divS.style.display === 'none'){
+    divS.style.display = 'block';
   }
   else {
-    divS.style.display = 'block';
+    divS.style.display = 'none';
   }
 }
 
@@ -62,14 +61,15 @@ export function displayFolder(id) {
  * This function change the ranking of a template (and block it's own access).
  */
 
-export function updateFavor(id) {
+export function updateFavor(id,favor) {
   var divS = document.getElementById(id+"Star");
   if(divS.style.status === "used"){
    return;
   }
   else{
+    var inc = parseInt(favor,10) + 1;
     divS.style.status = "used";
-    divS.innerHTML = "&#9733";
+    divS.innerHTML = inc + "&#9733;";
     var upF = "0";
     index.getObject(id, ['favor'], (err, content) => {
       if (err) throw err;
@@ -98,10 +98,10 @@ export function updateFavor(id) {
  */
 
 export function getFileContent(id,path) {
-  if(document.getElementById(id).innerHTML !== "") {
-    $('#'+id).text('');
-  }
-  else {
+  // if(document.getElementById(id).innerHTML !== "") {
+  //   $('#'+id).text('');
+  // }
+  // else {
     var url = path;
     $.ajax({
       type: "GET",
@@ -116,7 +116,7 @@ export function getFileContent(id,path) {
         $("#"+id).text(data);
       }
     });
-  }
+  // }
 }
 
 

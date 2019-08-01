@@ -199,15 +199,15 @@ div.spoiled {
   display: none;
 }
 
-div.folder {
-  display: none;
-}
-
 div.codeLister {
   padding: 4px;
   cursor: pointer;
   background: #afafaf;
   border: 1px solid #777;
+}
+
+div.folder {
+  display: block;
 }
 
 pre {
