@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+}
+
+group 'com.vdda'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile (
+            'com.amazonaws:aws-lambda-java-core:1.1.0',
+            'com.amazonaws:aws-lambda-java-events:1.1.0',
+            'com.mashape.unirest:unirest-java:1.4.9',
+            'org.slf4j:slf4j-simple:1.7.21',
+            'com.twilio.sdk:twilio-java-sdk:6.3.0'
+    )
+}
+
+task buildZip(type: Zip) {
+    from compileJava
+    from processResources
+    into('lib') {
+        from configurations.runtime
+    }
+}
+
+build.dependsOn buildZip
+
+task createStack(type: Exec) {
+    workingDir '/aws'
+
+    if (System.getProperty('os.name').toLowerCase().contains('windows')) {
+        commandLine 'bash', 'create_stack.sh' // git bash on windows
+    } else {
+        commandLine './create_stack.sh'
+    }
+}
+
+task deleteStack(type: Exec) {
+    workingDir '/aws'
+
+    if (System.getProperty('os.name').toLowerCase().contains('windows')) {
+        commandLine 'bash', 'delete_stack.sh' // git bash on windows
+    } else {
+        commandLine './delete_stack.sh'
+    }
+}

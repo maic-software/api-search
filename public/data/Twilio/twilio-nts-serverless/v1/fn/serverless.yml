@@ -1,0 +1,27 @@
+service: twilio-nts-serverless # NOTE: update this with your service name
+
+provider:
+  name: azure
+  location: West US
+
+plugins:
+  - serverless-azure-functions
+
+package:
+  exclude:
+    - README.md
+    - .eslintrc.json
+    - .gitignore
+    - test/**
+
+functions:
+  getToken:
+    handler: handler.getToken
+    events:
+      - http: true
+        x-azure-settings:
+          authLevel : anonymous
+      - http: true
+        x-azure-settings:
+          direction: out
+          name: res

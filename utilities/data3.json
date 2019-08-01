@@ -138,4 +138,54 @@
   "version": [
     {"tree": {"name": "", "foldernum": "1", "folder": [{"name": "v1", "foldernum": "1", "folder": [{"name": "frontend", "foldernum": "0", "folder": [], "filenum": "2", "file": [{"name": "app", "lang": "css", "type": "file"}, {"name": "index", "lang": "html", "type": "file"}]}], "filenum": "6", "file": [{"name": "README", "lang": "md", "type": "file"}, {"name": "handler", "lang": "js", "type": "file"}, {"name": "serverless", "lang": "yml", "type": "file"}, {"name": "event", "lang": "json", "type": "file"}, {"name": "messenger", "lang": "js", "type": "file"}, {"name": "package", "lang": "json", "type": "file"}]}], "filenum": "0", "file": []}}
   ]
+},{
+  "name": "twilio-nts-serverless",
+  "description": "none for the moment",
+  "categorie": "Communication",
+  "API": "Twilio",
+  "link": "https://github.com/bengreenier/twilio-nts-serverless",
+  "favor": "0",
+  "version": [
+    {"tree": {"name": "", "foldernum": "1", "folder": [{"name": "v1", "foldernum": "1", "folder": [{"name": "fn", "foldernum": "1", "folder": [{"name": "test", "foldernum": "0", "folder": [], "filenum": "1", "file": [{"name": "basic", "lang": "js", "type": "file"}]}], "filenum": "7", "file": [{"name": "getToken-function", "lang": "json", "type": "file"}, {"name": "README", "lang": "md", "type": "file"}, {"name": "handler", "lang": "js", "type": "file"}, {"name": "serverless", "lang": "yml", "type": "file"}, {"name": "hello-function", "lang": "json", "type": "file"}, {"name": "package-lock", "lang": "json", "type": "file"}, {"name": "package", "lang": "json", "type": "file"}]}], "filenum": "1", "file": [{"name": "README", "lang": "md", "type": "file"}]}], "filenum": "0", "file": []}}
+  ]
+},{
+  "name": "serverless-twilio-shippo",
+  "description": "none for the moment",
+  "categorie": "Communication",
+  "API": "Twilio",
+  "link": "https://github.com/shipping-api/serverless-twilio-shippo",
+  "favor": "0",
+  "version": [
+    {"tree": {"name": "", "foldernum": "1", "folder": [{"name": "v1", "foldernum": "0", "folder": [], "filenum": "4", "file": [{"name": "README", "lang": "md", "type": "file"}, {"name": "handler", "lang": "js", "type": "file"}, {"name": "serverless", "lang": "yml", "type": "file"}, {"name": "package", "lang": "json", "type": "file"}]}], "filenum": "0", "file": []}}
+  ]
+},{
+  "name": "serverless-twilio-interface",
+  "description": "none for the moment",
+  "categorie": "Communication",
+  "API": "Twilio",
+  "link": "https://github.com/dstuck/serverless-twilio-interface",
+  "favor": "0",
+  "version": [
+    {"tree": {"name": "", "foldernum": "1", "folder": [{"name": "v1", "foldernum": "2", "folder": [{"name": "lambda_code", "foldernum": "0", "folder": [], "filenum": "1", "file": [{"name": "lambda_function", "lang": "py", "type": "file"}]}, {"name": "terraform_twilio", "foldernum": "0", "folder": [], "filenum": "2", "file": [{"name": "twilio_lambda", "lang": "tf", "type": "file"}, {"name": "twilio_api_gateway", "lang": "tf", "type": "file"}]}], "filenum": "3", "file": [{"name": "update_twilio_webhook", "lang": "py", "type": "file"}, {"name": "README", "lang": "md", "type": "file"}, {"name": "setup", "lang": "py", "type": "file"}]}], "filenum": "0", "file": []}}
+  ]
+},{
+  "name": "smsbot",
+  "description": "none for the moment",
+  "categorie": "Communication",
+  "API": "Twilio",
+  "link": "https://github.com/ibmets/smsbot",
+  "favor": "0",
+  "version": [
+    {"tree": {"name": "", "foldernum": "1", "folder": [{"name": "v1", "foldernum": "1", "folder": [{"name": "images", "foldernum": "0", "folder": [], "filenum": "2", "file": [{"name": "sms_app", "lang": "png", "type": "file"}, {"name": "slack_text_hidden", "lang": "jpg", "type": "file"}]}], "filenum": "4", "file": [{"name": "README", "lang": "md", "type": "file"}, {"name": "handler", "lang": "js", "type": "file"}, {"name": "serverless", "lang": "yml", "type": "file"}, {"name": "package", "lang": "json", "type": "file"}]}], "filenum": "0", "file": []}}
+  ]
+},{
+  "name": "twilio2slack",
+  "description": "none for the moment",
+  "categorie": "Communication",
+  "API": "Twilio",
+  "link": "https://github.com/vandiedakaf/twilio2slack",
+  "favor": "0",
+  "version": [
+    {"tree": {"name": "", "foldernum": "1", "folder": [{"name": "v1", "foldernum": "4", "folder": [{"name": "gradle", "foldernum": "1", "folder": [{"name": "wrapper", "foldernum": "0", "folder": [], "filenum": "2", "file": [{"name": "gradle-wrapper", "lang": "jar", "type": "file"}, {"name": "gradle-wrapper", "lang": "properties", "type": "file"}]}], "filenum": "0", "file": []}, {"name": "src", "foldernum": "1", "folder": [{"name": "main", "foldernum": "2", "folder": [{"name": "java", "foldernum": "0", "folder": [], "filenum": "3", "file": [{"name": "TwilioSmsRequest", "lang": "java", "type": "file"}, {"name": "TwilioSmsResponse", "lang": "java", "type": "file"}, {"name": "ForwardSms", "lang": "java", "type": "file"}]}, {"name": "resources", "foldernum": "0", "folder": [], "filenum": "2", "file": [{"name": "config-template", "lang": "properties", "type": "file"}, {"name": "config", "lang": "properties", "type": "file"}]}], "filenum": "0", "file": []}], "filenum": "0", "file": []}, {"name": "travis", "foldernum": "0", "folder": [], "filenum": "5", "file": [{"name": "lambda_update", "lang": "sh", "type": "file"}, {"name": "policy_logs", "lang": "json", "type": "file"}, {"name": "lambda_payload", "lang": "json", "type": "file"}, {"name": "policy_s3", "lang": "json", "type": "file"}, {"name": "trust_policy", "lang": "json", "type": "file"}]}, {"name": "aws", "foldernum": "0", "folder": [], "filenum": "3", "file": [{"name": "lambda_gateway", "lang": "template", "type": "file"}, {"name": "delete_stack", "lang": "sh", "type": "file"}, {"name": "create_stack", "lang": "sh", "type": "file"}]}], "filenum": "4", "file": [{"name": "build", "lang": "gradle", "type": "file"}, {"name": "README", "lang": "md", "type": "file"}, {"name": "gradlew", "lang": "bat", "type": "file"}, {"name": "settings", "lang": "gradle", "type": "file"}]}], "filenum": "0", "file": []}}
+  ]
 }]

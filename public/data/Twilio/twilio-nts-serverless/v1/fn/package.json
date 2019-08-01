@@ -1,0 +1,26 @@
+{
+  "name": "twilio-nts-serverless",
+  "version": "1.0.0",
+  "description": "Azure Functions sample for the Serverless framework",
+  "main": "handler.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "azure",
+    "serverless"
+  ],
+  "devDependencies": {
+    "eslint": "^5.15.3",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "mocha": "^6.0.2",
+    "serverless-azure-functions": "*"
+  },
+  "dependencies": {
+    "twilio": "^3.29.2"
+  }
+}

@@ -9,8 +9,6 @@ path = sys.argv[1]
 def exceptionFilterFolder(name):
     if name == 'node_modules':
         return 0
-    if name == ".git":
-        return 0
     if name[0] == ".":
         return 0
     if name.count(".") > 0:

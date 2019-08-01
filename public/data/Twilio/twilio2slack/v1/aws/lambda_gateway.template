@@ -1,0 +1,259 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "",
+  "Parameters": {
+    "FunctionName": {
+      "Description": "Function Name",
+      "Type": "String"
+    },
+    "Handler": {
+      "Description": "Lambda Handler",
+      "Type": "String"
+    },
+    "RoleName": {
+      "Description": "Role Name",
+      "Type": "String"
+    },
+    "S3Bucket": {
+      "Description": "S3 Bucket",
+      "Type": "String"
+    },
+    "S3Key": {
+      "Description": "S3 Key",
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "RestApi": {
+      "Type": "AWS::ApiGateway::RestApi",
+      "Properties": {
+        "Description": "A twilio to slack API",
+        "Name": "twilio2slack"
+      }
+    },
+    "ResourceSms": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "RestApi"
+        },
+        "ParentId": {
+          "Fn::GetAtt": [
+            "RestApi",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "sms"
+      }
+    },
+    "MethodPost": {
+      "DependsOn": "LambdaInvokePermission",
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "RestApi"
+        },
+        "ResourceId": {
+          "Ref": "ResourceSms"
+        },
+        "HttpMethod": "POST",
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "Type": "AWS",
+          "Uri": {
+            "Fn::Join": [
+              "/",
+              [
+                "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions",
+                {
+                  "Fn::GetAtt": [
+                    "LambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "invocations"
+              ]
+            ]
+          },
+          "IntegrationHttpMethod": "POST",
+          "RequestTemplates": {
+            "application/x-www-form-urlencoded": {
+              "Fn::Join": [
+                "\n",
+                [
+                  "#if ($context.httpMethod == \"POST\")",
+                  " #set($rawAPIData = $input.path(\"$\"))",
+                  "#end ",
+                  "#set($countAmpersands = $rawAPIData.length() - $rawAPIData.replace(\"&\", \"\").length())",
+                  "#if ($countAmpersands == 0)",
+                  " #set($rawPostData = $rawAPIData + \"&\")",
+                  "#end",
+                  "#set($tokenisedAmpersand = $rawAPIData.split(\"&\"))",
+                  "#set($tokenisedEquals = []) ",
+                  "#foreach( $kvPair in $tokenisedAmpersand )",
+                  " #set($countEquals = $kvPair.length() - $kvPair.replace(\"=\", \"\").length())",
+                  " #if ($countEquals == 1)",
+                  "  #set($devNull = $tokenisedEquals.add($kvPair))",
+                  " #end",
+                  "#end",
+                  "#set($allParams = $input.params())",
+                  "{",
+                  "	\"parameters\" : {",
+                  "	#foreach( $kvPair in $tokenisedEquals )",
+                  "	  #set($kvTokenised = $kvPair.split(\"=\"))",
+                  "	 \"$util.urlDecode($kvTokenised[0])\" : #if($kvTokenised.size() > 1 && $kvTokenised[1].length() > 0)\"$util.urlDecode($kvTokenised[1])\"#{else}\"\"#end#if( $foreach.hasNext ),#end",
+                  "	#end",
+                  "	},",
+                  "	#foreach($type in $allParams.keySet())",
+                  "    #set($params = $allParams.get($type))",
+                  "    \"$type\" : {",
+                  "      #foreach($paramName in $params.keySet())",
+                  "      \"$paramName\" : \"$util.escapeJavaScript($params.get($paramName))\"",
+                  "      #if($foreach.hasNext),#end",
+                  "      #end",
+                  "    }",
+                  "    #if($foreach.hasNext),#end",
+                  "    #end",
+                  "}"
+                ]
+              ]
+            }
+          },
+          "PassthroughBehavior": "WHEN_NO_TEMPLATES",
+          "IntegrationResponses": [
+            {
+              "ResponseTemplates": {
+                "application/json": {
+                  "Fn::Join": [
+                    "\n",
+                    [
+                      "#set($inputRoot = $input.path('$'))",
+                      "<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+                      "<Response>",
+                      "</Response>"
+                    ]
+                  ]
+                }
+              },
+              "StatusCode": "200"
+            }
+          ]
+        },
+        "MethodResponses": [
+          {
+            "StatusCode": "200",
+            "ResponseModels": {
+              "application/xml": "Empty"
+            }
+          }
+        ]
+      }
+    },
+    "Deployment": {
+      "DependsOn": "MethodPost",
+      "Type": "AWS::ApiGateway::Deployment",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "RestApi"
+        },
+        "Description": "Staging Env",
+        "StageName": "stage"
+      }
+    },
+    "LambdaExecutionRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "lambda.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "Path": "/",
+        "Policies": [
+          {
+            "PolicyName": "lambda_s3",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": "s3:*",
+                  "Resource": "arn:aws:s3:::*"
+                }
+              ]
+            }
+          },
+          {
+            "PolicyName": "lambda_logs",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": "logs:*",
+                  "Resource": "arn:aws:logs:*:*:*"
+                }
+              ]
+            }
+          }
+        ],
+        "RoleName": {
+          "Ref": "RoleName"
+        }
+      }
+    },
+    "LambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "FunctionName"
+        },
+        "Handler": {
+          "Ref": "Handler"
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "LambdaExecutionRole",
+            "Arn"
+          ]
+        },
+        "Code": {
+          "S3Bucket": {
+            "Ref": "S3Bucket"
+          },
+          "S3Key": {
+            "Ref": "S3Key"
+          }
+        },
+        "Runtime": "java8",
+        "Timeout": "15",
+        "MemorySize": "512"
+      }
+    },
+    "LambdaInvokePermission": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "LambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com"
+      }
+    }
+  }
+}
+
