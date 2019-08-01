@@ -11,6 +11,23 @@ const index = client.initIndex("apis2");
 
 
 
+
+export function displayFacets(){
+  var displayer = document.getElementById("facetsOpener");
+  var facets = document.getElementById("facetsFilter");
+  if(facets.style.display === 'none') {
+    displayer.innerHTML = "Close";
+    facets.style.display = "block";
+    displayer.style.left = "230px";
+  }
+  else {
+    displayer.innerHTML = "Open";
+    facets.style.display = "none";
+    displayer.style.left = "-25px";
+  }
+}
+
+
 /******************************************************************************/
 /*
  * (spoiler_tag_id) -> void

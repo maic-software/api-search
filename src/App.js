@@ -7,8 +7,8 @@ import {
   InfiniteHits
 } from 'react-instantsearch-dom';
 import './App.css';
-import axios from 'axios';
 import {
+  displayFacets,
   getSpoil,
   displayFolder,
   updateFavor,
@@ -100,8 +100,9 @@ export const WidjetGetForm = (id,tree,path) => {
 
 export const WidjetFolder = (id,tree,path) => {
   return (
-    <div key={id+tree.name}>
-      <div onClick={() => {displayFolder(id+tree.name)}}>
+    [
+    <div key={id+tree.name} className="folderWidjet">
+      <div onClick={() => {displayFolder(id+tree.name)}} className="folderClickable">
         {tree.name+"/"}
       </div>
       <div>&nbsp;</div>
@@ -110,8 +111,9 @@ export const WidjetFolder = (id,tree,path) => {
           {revealSecret(id+tree.name,tree,path)}
         </div>
       </div>
-      <div>&nbsp;</div>
-    </div>
+    </div>,
+    <div>&nbsp;</div>
+  ]
   )
 }
 
@@ -161,11 +163,13 @@ const Hit = ({ hit }) => {
             .replace('www.', '')}
         </a>
       </p>
+      <div>&nbsp;</div>
       <div onClick={() => { getSpoil(hit.objectID) }} className="spoiler">
         <div id={hit.objectID+"SpoilerInnerMSG"}>
           Click for further info
         </div>
       </div>
+      <div>&nbsp;</div>
       <div id={hit.objectID+"Spoiler"} className="spoiled">
         <div>
           {getVersion(hit)}
@@ -214,7 +218,7 @@ class App extends Component {
               </div>
             </header>
             <div className="flex flex-grow">
-              <aside className="md:w-64 lg:w-64 xxl:w-80 flex-no-shrink bg-white border-grey-light border-solid border-r z-10 max-h-screen hidden md:block overflow-hidden">
+              <aside id="facetsFilter" className="md:w-64 lg:w-64 xxl:w-80 flex-no-shrink bg-white border-grey-light border-solid border-r z-10 max-h-screen md:block overflow-hidden">
                 <div className="h-full overflow-y-auto">
                   <h4 className="font-normal uppercase text-xs tracking-wide text-grey-dark p-4 border-grey-light border-solid">
                     Categories
@@ -240,6 +244,7 @@ class App extends Component {
                   />
                 </div>
               </aside>
+              <a id="facetsOpener" className="opener" onClick={() => {displayFacets()}}>Close</a>
               <main className="bg-grey-lighter flex-grow max-h-screen overflow-hidden">
                 <div className="h-full overflow-y-scroll">
                   <div className="flex px-8 py-6">
@@ -248,7 +253,7 @@ class App extends Component {
                 </div>
               </main>
             </div>
-            <footer class="flex flex-no-shrink justify-between flex-col sm:flex-row p-4 border-grey-light border-solid border-t text-sm text-grey-dark">
+            <footer className="flex flex-no-shrink justify-between flex-col sm:flex-row p-4 border-grey-light border-solid border-t text-sm text-grey-dark">
               <div>
                 &nbsp;
               </div>
