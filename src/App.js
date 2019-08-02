@@ -242,6 +242,17 @@ class App extends Component {
                       placeholder: 'Search for APIs'
                     }}
                   />
+                  <h4 className="font-normal uppercase text-xs tracking-wide text-grey-dark px-4 pt-4 pb-1 border-grey-light border-solid border-t">
+                    Languages
+                  </h4>
+                  <Menu
+                    attribute="language"
+                    limit={8}
+                    searchable={true}
+                    translations={{
+                      placeholder: 'Template language'
+                    }}
+                  />
                 </div>
               </aside>
               <a id="facetsOpener" className="opener" onClick={() => {displayFacets()}}>Close</a>
