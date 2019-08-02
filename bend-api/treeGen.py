@@ -15,8 +15,28 @@ def exceptionFilterFolder(name):
         return 0
     return 1
 
+def exceptionFilterFileLang(array):
+    if array[len(array)-1] == "jar":
+        return 0;
+    if array[len(array)-1] == "png":
+        return 0;
+    if array[len(array)-1] == "jpg":
+        return 0;
+    if array[len(array)-1] == "vod":
+        return 0;
+    if array[len(array)-1] == "jpeg":
+        return 0;
+    if array[len(array)-1] == "gif":
+        return 0;
+    if array[len(array)-1] == "ico":
+        return 0;
+    return 1
+
 def exceptionFilterFile(name):
+    ar = name.split(".")
     if name.count(".") != 1:
+        return 0
+    if exceptionFilterFileLang(ar) == 0:
         return 0
     if name[0] == ".":
         return 0
