@@ -70,6 +70,16 @@ export function displayFolder(id) {
 
 
 
+export function displayMenu(id) {
+  var divS = document.getElementById(id);
+  if(divS.style.display === 'block'){
+    divS.style.display = 'none';
+  }
+  else {
+    divS.style.display = 'block';
+  }
+}
+
 
 /******************************************************************************/
 /*
@@ -156,6 +166,47 @@ export function getBasicInput(id,tree) {
 
 
 
+function genStdrName(elem) {
+  if (elem.pointInit === "no" && elem.pointCompose === "no") {
+    return elem.name;
+  }
+  var name;
+  if (elem.pointCompose === "yes") {
+    name = elem.name[0].name;
+    for(var i = 1; i < elem.nameNum ; i++) {
+      name = name + "." + elem.name[i].name;
+    }
+  }
+  else {
+    name = elem.name;
+  }
+  if (elem.pointInit === "yes") {
+    name = "." + name;
+  }
+  return name;
+}
+
+
+function genCompName(elem) {
+  if (elem.pointInit === "no" && elem.pointCompose === "no") {
+    return elem.name;
+  }
+  var name;
+  if (elem.pointCompose === "yes") {
+    name = elem.name[0].name;
+    for(var i = 1; i < elem.nameNum ; i++) {
+      name = name + "p" + elem.name[i].name;
+    }
+  }
+  else {
+    name = elem.name;
+  }
+  if (elem.pointInit === "yes") {
+    name = "p" + name;
+  }
+  return name;
+}
+
 
 /******************************************************************************/
 /*
@@ -168,15 +219,27 @@ export function getBasicInput(id,tree) {
 
 export function revealSecret(id,tree,path) {
   var inclusion = [];
+  var name;
+  var nameCompatible;
   for(var i = 0; i < tree.foldernum ; i++) {
-    inclusion.push(new WidjetFolder(id,tree.folder[i],path+"/"+tree.folder[i].name));
+    name = genStdrName(tree.folder[i]);
+    nameCompatible = genCompName(tree.folder[i]);
+    if(name[0] !== "."){
+      inclusion.push(new WidjetFolder(id,tree.folder[i],path+"/"+name,name,nameCompatible));
+    }
   }
   for(i = 0; i < tree.filenum ; i++) {
+    name = genStdrName(tree.file[i]);
+    nameCompatible = genCompName(tree.file[i]);
     if(tree.file[i].type === 'getform') {
-      inclusion.push(new WidjetGetForm(id,tree.file[i],path+"/"+tree.file[i].name));
+      if(name[0] !== "."){
+        inclusion.push(new WidjetGetForm(id,tree.file[i],path+"/"+tree.file[i].name));
+      }
     }
     else if(tree.file[i].type === 'file') {
-      inclusion.push(new WidjetFile(id,tree.file[i],path+"/"+tree.file[i].name+"."+tree.file[i].lang));
+      if(name[0] !== "."){
+        inclusion.push(new WidjetFile(id,tree.file[i],path+"/"+name,name,nameCompatible));
+      }
     }
     else {
       alert("File type unrecognised!");

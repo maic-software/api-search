@@ -221,6 +221,14 @@ div.folder {
   display: block;
 }
 
+div.facetMenu {
+  display: none;
+}
+
+h4.clickable {
+  cursor: pointer;
+}
+
 #facetsFilter {
   max-width: 256px;
 }

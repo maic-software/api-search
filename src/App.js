@@ -11,6 +11,7 @@ import {
   displayFacets,
   getSpoil,
   displayFolder,
+  displayMenu,
   updateFavor,
   getFileContent,
   getBasicInput,
@@ -47,15 +48,15 @@ export const FormInput = (id,name) => {
  * This function create a basic object that can present the content of a file.
  */
 
-export const WidjetFile = (id,tree,path) => {
+export const WidjetFile = (id,tree,path,name,nameCompatible) => {
   return (
-    <div key={id+tree.name+tree.lang}>
-      <div className="codeLister" onClick={() => {displayFolder(id+"Code"+tree.name+tree.lang)}}>
-        {tree.name+"."+tree.lang}
+    <div key={id+nameCompatible}>
+      <div className="codeLister" onClick={() => {displayFolder(id+"Code"+nameCompatible)}}>
+        {name}
       </div>
       <pre>
-        <code id={id+"Code"+tree.name+tree.lang} display="block">
-          {getFileContent(id+"Code"+tree.name+tree.lang,path)}
+        <code id={id+"Code"+nameCompatible} display="block">
+          {getFileContent(id+"Code"+nameCompatible,path)}
         </code>
       </pre>
       <div>&nbsp;</div>
@@ -98,17 +99,17 @@ export const WidjetGetForm = (id,tree,path) => {
  * This function create a basic object that represent a folder inside a project.
  */
 
-export const WidjetFolder = (id,tree,path) => {
+export const WidjetFolder = (id,tree,path,name,nameCompatible) => {
   return (
     [
-    <div key={id+tree.name} className="folderWidjet">
-      <div onClick={() => {displayFolder(id+tree.name)}} className="folderClickable">
-        {tree.name+"/"}
+    <div key={id+nameCompatible} className="folderWidjet">
+      <div onClick={() => {displayFolder(id+nameCompatible+"T")}} className="folderClickable">
+        {name+"/"}
       </div>
       <div>&nbsp;</div>
-      <div id={id+tree.name} className="folder">
+      <div id={id+nameCompatible+"T"} className="folder">
         <div>
-          {revealSecret(id+tree.name,tree,path)}
+          {revealSecret(id+nameCompatible+"T",tree,path)}
         </div>
       </div>
     </div>,
@@ -139,6 +140,22 @@ const Hit = ({ hit }) => {
           hit={hit}
           className="mr-2 text-grey-darkest font-normal"
         />
+        <span className="flex items-center mt-2 sm:-mt-1">
+          {hit.type && (
+            <span className="flex items-center text-xxs border-solid border-grey-light text-grey border-2 px-2 py-1 rounded-full mr-1 uppercase">
+              <svg
+                className="w-2 h-auto -mt-1 mr-1 fill-current flex-no-shrink"
+                xmlns="http://www.w3.org/2000/svg"
+                width="402"
+                height="402"
+                viewBox="0 0 402 402"
+              >
+                <path d="M357.5 190.7c-5.3-5.3-11.8-8-19.4-8h-9.1v-54.8c0-35-12.6-65.1-37.7-90.2C266.1 12.6 236 0 201 0c-35 0-65.1 12.6-90.2 37.7C85.7 62.8 73.1 92.9 73.1 127.9v54.8h-9.1c-7.6 0-14.1 2.7-19.4 8 -5.3 5.3-8 11.8-8 19.4V374.6c0 7.6 2.7 14.1 8 19.4 5.3 5.3 11.8 8 19.4 8H338c7.6 0 14.1-2.7 19.4-8 5.3-5.3 8-11.8 8-19.4V210.1C365.5 202.5 362.8 196.1 357.5 190.7zM274.1 182.7H127.9v-54.8c0-20.2 7.1-37.4 21.4-51.7 14.3-14.3 31.5-21.4 51.7-21.4 20.2 0 37.4 7.1 51.7 21.4 14.3 14.3 21.4 31.5 21.4 51.7V182.7z" />
+              </svg>
+              <span>{hit.type}</span>
+            </span>
+          )}
+        </span>
       </h3>
       <p className="text-grey-dark mb-3">
         <Highlight attribute="description" hit={hit} />
@@ -198,7 +215,7 @@ class App extends Component {
         <InstantSearch
           appId="LYITGBJZF1"
           apiKey="c0d0c32d6bc8e80c30eabe69af5724d2"
-          indexName="apis3"
+          indexName="apis4"
         >
           <div className="flex flex-col h-screen font-sans">
             <header className="flex bg-white w-full border-grey-light border-solid border-b flex-no-shrink">
@@ -220,39 +237,58 @@ class App extends Component {
             <div className="flex flex-grow">
               <aside id="facetsFilter" className="md:w-64 lg:w-64 xxl:w-80 flex-no-shrink bg-white border-grey-light border-solid border-r z-10 max-h-screen md:block overflow-hidden">
                 <div className="h-full overflow-y-auto">
-                  <h4 className="font-normal uppercase text-xs tracking-wide text-grey-dark p-4 border-grey-light border-solid">
-                    Categories
-                  </h4>
-                  <Menu
-                    attribute="categorie"
-                    limit={8}
-                    searchable={true}
-                    translations={{
-                      placeholder: 'Category searching'
-                    }}
-                  />
-                  <h4 className="font-normal uppercase text-xs tracking-wide text-grey-dark px-4 pt-4 pb-1 border-grey-light border-solid border-t">
+                  <h4 className="font-normal uppercase text-xs tracking-wide text-grey-dark px-4 pt-4 pb-1 border-grey-light border-solid border-t clickable" onClick={() => {displayMenu("APIMenu")}}>
                     APIs
                   </h4>
-                  <Menu
-                    attribute="API"
-                    limit={8}
-                    searchable={true}
-                    translations={{
-                      placeholder: 'Search for APIs'
-                    }}
-                  />
-                  <h4 className="font-normal uppercase text-xs tracking-wide text-grey-dark px-4 pt-4 pb-1 border-grey-light border-solid border-t">
+                  <div id="APIMenu" className="facetMenu">
+                    <Menu
+                      attribute="API"
+                      limit={8}
+                      searchable={true}
+                      translations={{
+                        placeholder: 'Search for APIs'
+                      }}
+                    />
+                  </div>
+                  <h4 className="font-normal uppercase text-xs tracking-wide text-grey-dark px-4 pt-4 pb-1 border-grey-light border-solid border-t clickable" onClick={() => {displayMenu("typeMenu")}}>
+                    Types
+                  </h4>
+                  <div id="typeMenu" className="facetMenu">
+                    <Menu
+                      attribute="type"
+                      limit={8}
+                      searchable={true}
+                      translations={{
+                        placeholder: 'Search for types'
+                      }}
+                    />
+                  </div>
+                  <h4 className="font-normal uppercase text-xs tracking-wide text-grey-dark px-4 pt-4 pb-1 border-grey-light border-solid border-t clickable" onClick={() => {displayMenu("categoryMenu")}}>
+                    Categories
+                  </h4>
+                  <div id="categoryMenu" className="facetMenu">
+                    <Menu
+                      attribute="categorie"
+                      limit={8}
+                      searchable={true}
+                      translations={{
+                        placeholder: 'Category searching'
+                      }}
+                    />
+                  </div>
+                  <h4 className="font-normal uppercase text-xs tracking-wide text-grey-dark px-4 pt-4 pb-1 border-grey-light border-solid border-t clickable" onClick={() => {displayMenu("languageMenu")}}>
                     Languages
                   </h4>
-                  <Menu
-                    attribute="language"
-                    limit={8}
-                    searchable={true}
-                    translations={{
-                      placeholder: 'Template language'
-                    }}
-                  />
+                  <div id="languageMenu" className="facetMenu">
+                    <Menu
+                      attribute="language"
+                      limit={8}
+                      searchable={true}
+                      translations={{
+                        placeholder: 'Template language'
+                      }}
+                    />
+                  </div>
                 </div>
               </aside>
               <a id="facetsOpener" className="opener" onClick={() => {displayFacets()}}>Close</a>
