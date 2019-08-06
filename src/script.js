@@ -125,25 +125,20 @@ export function updateFavor(id,favor) {
  */
 
 export function getFileContent(id,path) {
-  // if(document.getElementById(id).innerHTML !== "") {
-  //   $('#'+id).text('');
-  // }
-  // else {
-    var url = path;
-    $.ajax({
-      type: "GET",
-      url: url,
-      dataType: "text",
-      error:function(msg){
-        alert( "Error on access !");
-      },
-      success:function(data){
-        data.replace("<","&lt;");
-        data.replace(">","&rt;");
-        $("#"+id).text(data);
-      }
-    });
-  // }
+  var url = path;
+  $.ajax({
+    type: "GET",
+    url: url,
+    dataType: "text",
+    error:function(msg){
+      alert( "Error on access !");
+    },
+    success:function(data){
+      data.replace("<","&lt;");
+      data.replace(">","&rt;");
+      $("#"+id).text(data);
+    }
+  });
 }
 
 
