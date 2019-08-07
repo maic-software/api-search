@@ -7,7 +7,7 @@ import {
 import $ from 'jquery';
 const algoliasearch = require("algoliasearch");
 const client = algoliasearch("LYITGBJZF1","67baaf6fb4bc87e9b148aa237251b326");
-const index = client.initIndex("apis2");
+const index = client.initIndex("apis4");
 
 
 

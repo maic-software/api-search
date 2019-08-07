@@ -230,7 +230,7 @@ h4.clickable {
 }
 
 #facetsFilter {
-  max-width: 256px;
+  width: 256px;
 }
 
 a.opener {
