@@ -42,6 +42,24 @@ function getIndexFromTable(name) {
   return -1;
 }
 
+function getStaticApiGet(url,index) {
+  if (index != 0) {
+    //console.log("Not the API case.")
+    return "";
+  }
+  var tmp = url.split("/");
+  if (tmp.length === 1) {
+    console.log("Error, url is not composed of / characters!");
+    return "";
+  }
+  var testtmp = tmp[tmp.length-1].split(".");
+  if (testtmp.length !== 1) {
+    //console.log("No form argument provided.")
+    return "";
+  }
+  return tmp[tmp.length-1];
+}
+
 
 function checkForm(name,form) {
   var array = form.split("&");
@@ -77,8 +95,7 @@ export function getUrlArg(name) {
     return "";
   }
   if (form.length === 1) {
-    console.log("No form argument provided.")
-    return "";
+    return getStaticApiGet(url,index);
   }
   form = form[form.length-1];
   for (let i = 0; i < formArgList[index].length ; i++) {
@@ -87,7 +104,7 @@ export function getUrlArg(name) {
       return getUrlVars()[current];
     }
   }
-  console.log("No argument founded for "+name);
+  //console.log("No argument founded for "+name);
   return "";
 }
 
