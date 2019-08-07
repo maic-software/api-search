@@ -9,6 +9,11 @@ const algoliasearch = require("algoliasearch");
 const client = algoliasearch("LYITGBJZF1","67baaf6fb4bc87e9b148aa237251b326");
 const index = client.initIndex("apis4");
 
+const formArgList = [["API","api","apis","APIs"],
+                     ["type","types","Types","Type"],
+                     ["category","categories","Category","Categories"],
+                     ["language","languages","Language","Languages"]];
+
 
 
 
@@ -28,6 +33,31 @@ export function displayFacets(){
 }
 
 
+function getIndexFromTable(name) {
+  for (let i = 0; i < formArgList.length ; i++){
+    if (formArgList[i][0] === name) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+
+function checkForm(name,form) {
+  var array = form.split("&");
+  var arrayCurrent;
+  for (let i = 0; i < array.length ; i++) {
+    arrayCurrent = array[i].split("=");
+    if (arrayCurrent.length === 2) {
+      if (arrayCurrent[0] === name) {
+        return 1;
+      }
+    }
+  }
+  return 0;
+}
+
+
 function getUrlVars() {
     var vars = {};
     document.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
@@ -38,9 +68,26 @@ function getUrlVars() {
 
 
 export function getUrlArg(name) {
-  if (document.location.href.indexOf(name) !== -1) {
-    return getUrlVars()[name];
+  var current;
+  var index = getIndexFromTable(name);
+  var url = document.location.href;
+  var form = url.split("?");
+  if (index === -1) {
+    console.log("Error, argument not present in the table!");
+    return "";
   }
+  if (form.length === 1) {
+    console.log("No form argument provided.")
+    return "";
+  }
+  form = form[form.length-1];
+  for (let i = 0; i < formArgList[index].length ; i++) {
+    current = formArgList[index][i];
+    if (checkForm(current,form)) {
+      return getUrlVars()[current];
+    }
+  }
+  console.log("No argument founded for "+name);
   return "";
 }
 
