@@ -228,6 +228,9 @@ div.facetMenu {
 h4.clickable {
   cursor: pointer;
 }
+span.clickable {
+  cursor: pointer;
+}
 
 #facetsFilter {
   width: 256px;

@@ -194,7 +194,12 @@ const Hit = ({ hit }) => {
         </div>
         <div id={hit.objectID+"Code"}></div>
       </div>
-      <span id={hit.objectID+"Star"} onClick={() => { updateFavor(hit.objectID,hit.favor)}}>{hit.favor}&#x2606;</span>
+      <span id={hit.objectID+"Star"} onClick={() => { updateFavor(hit.objectID,hit.favor)}}>
+        {hit.favor}
+        <span className="clickable">
+          &#x2606;
+        </span>
+      </span>
     </div>
   )
 }
