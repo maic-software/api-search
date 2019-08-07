@@ -261,7 +261,7 @@ export function getVersion(hit) {
   var current = hit.version[i];
   var id = hit.objectID;
   while(current != null) {
-    inclusion.push(new WidjetFolder(id+hit.API+hit.name,current.tree,path+"/"+current.tree.name));
+    inclusion.push(new WidjetFolder(id+hit.API+hit.name+current.name,current.tree,path+"/"+current.tree.name,current.tree.name,current.tree.name));
     i++;
     current = hit.version[i];
   }
