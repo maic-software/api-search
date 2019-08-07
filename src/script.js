@@ -28,6 +28,23 @@ export function displayFacets(){
 }
 
 
+function getUrlVars() {
+    var vars = {};
+    document.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+      vars[key] = value;
+    });
+    return vars;
+}
+
+
+export function getUrlArg(name) {
+  if (document.location.href.indexOf(name) !== -1) {
+    return getUrlVars()[name];
+  }
+  return "";
+}
+
+
 /******************************************************************************/
 /*
  * (spoiler_tag_id) -> void

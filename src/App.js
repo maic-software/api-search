@@ -9,6 +9,7 @@ import {
 import './App.css';
 import {
   displayFacets,
+  getUrlArg,
   getSpoil,
   displayFolder,
   displayMenu,
@@ -251,6 +252,7 @@ class App extends Component {
                       attribute="API"
                       limit={8}
                       searchable={true}
+                      defaultRefinement={getUrlArg("API")}
                       translations={{
                         placeholder: 'Search for APIs'
                       }}
@@ -264,6 +266,7 @@ class App extends Component {
                       attribute="type"
                       limit={8}
                       searchable={true}
+                      defaultRefinement={getUrlArg("type")}
                       translations={{
                         placeholder: 'Search for types'
                       }}
@@ -277,6 +280,7 @@ class App extends Component {
                       attribute="categorie"
                       limit={8}
                       searchable={true}
+                      defaultRefinement={getUrlArg("category")}
                       translations={{
                         placeholder: 'Category searching'
                       }}
@@ -290,6 +294,7 @@ class App extends Component {
                       attribute="language"
                       limit={8}
                       searchable={true}
+                      defaultRefinement={getUrlArg("language")}
                       translations={{
                         placeholder: 'Template language'
                       }}
