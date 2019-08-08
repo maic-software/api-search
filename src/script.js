@@ -6,14 +6,31 @@ import {
 } from './App.js';
 import $ from 'jquery';
 const algoliasearch = require("algoliasearch");
-const client = algoliasearch("LYITGBJZF1","67baaf6fb4bc87e9b148aa237251b326");
-const index = client.initIndex("apis4");
 
 const formArgList = [["API","api","apis","APIs"],
                      ["type","types","Types","Type"],
                      ["category","categories","Category","Categories"],
                      ["language","languages","Language","Languages"]];
 
+// const dotenv = require('dotenv');
+// console.log(dotenv.config());
+//
+// const {
+//    APP_ADMIN_ID,
+//    API_ADMIN_KEY,
+//    INDEX_NAME
+// } = process.env;
+//
+// console.log(APP_ADMIN_ID);
+// console.log(API_ADMIN_KEY);
+// console.log(INDEX_NAME);
+
+const APP_ADMIN_ID = "LYITGBJZF1";
+const API_ADMIN_KEY = "67baaf6fb4bc87e9b148aa237251b326";
+const INDEX_NAME = "apis5";
+
+const client = algoliasearch(APP_ADMIN_ID,API_ADMIN_KEY);
+const index = client.initIndex(INDEX_NAME);
 
 
 
@@ -43,7 +60,7 @@ function getIndexFromTable(name) {
 }
 
 function getStaticApiGet(url,index) {
-  if (index != 0) {
+  if (index !== 0) {
     //console.log("Not the API case.")
     return "";
   }
@@ -91,7 +108,7 @@ export function getUrlArg(name) {
   var url = document.location.href;
   var form = url.split("?");
   if (index === -1) {
-    console.log("Error, argument not present in the table!");
+    //console.log("Error, argument not present in the table!");
     return "";
   }
   if (form.length === 1) {
@@ -342,6 +359,9 @@ export function getVersion(hit) {
   var current = hit.version[i];
   var id = hit.objectID;
   while(current != null) {
+    if(current.tree.RMprovided === "yes") {
+      inclusion.push(new WidjetFile(id+hit.API+hit.name+current.name,current.tree,path+"/"+current.tree.name+current.tree.RMpath,"README.md","READMEpmd"));
+    }
     inclusion.push(new WidjetFolder(id+hit.API+hit.name+current.name,current.tree,path+"/"+current.tree.name,current.tree.name,current.tree.name));
     i++;
     current = hit.version[i];

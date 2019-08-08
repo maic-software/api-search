@@ -20,6 +20,22 @@ import {
   getVersion
 } from './script.js';
 
+// const dotenv = require('dotenv');
+// dotenv.config();
+//
+// const {
+//   APP_ID,
+//   API_KEY,
+//   INDEX_NAME
+// } = process.env;
+//
+// console.log(APP_ID);
+// console.log(API_KEY);
+// console.log(INDEX_NAME);
+
+const APP_ID = "LYITGBJZF1";
+const API_KEY = "c0d0c32d6bc8e80c30eabe69af5724d2";
+const INDEX_NAME = "apis5";
 
 
 
@@ -220,9 +236,9 @@ class App extends Component {
     return (
       <div className="h-screen overflow-hidden">
         <InstantSearch
-          appId="LYITGBJZF1"
-          apiKey="c0d0c32d6bc8e80c30eabe69af5724d2"
-          indexName="apis4"
+          appId={APP_ID}
+          apiKey={API_KEY}
+          indexName={INDEX_NAME}
         >
           <div className="flex flex-col h-screen font-sans">
             <header className="flex bg-white w-full border-grey-light border-solid border-b flex-no-shrink">

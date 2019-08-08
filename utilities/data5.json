@@ -1,0 +1,229 @@
+[{
+  "name": "aws-dotnet-rest-api-with-dynamodb",
+  "description": "none for the moment",
+  "categorie": "Platform",
+  "API": "DotNet",
+  "link": "https://github.com/serverless/examples/tree/master/aws-dotnet-rest-api-with-dynamodb",
+  "language": "C#",
+  "favor": "0",
+  "type": "Project",
+  "version": [
+    {"tree": {"pointInit": "no", "pointCompose": "no", "name": "v1", "foldernum": 2, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "src", "foldernum": 2, "folder": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "DotNetServerless"}, {"name": "Lambda"}], "foldernum": 2, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "Extensions", "foldernum": 0, "folder": [], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "ServicesExtensions"}, {"name": "cs"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "Functions", "foldernum": 0, "folder": [], "filenum": 3, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "CreateItemFunction"}, {"name": "cs"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "UpdateItemFunction"}, {"name": "cs"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "GetItemFunction"}, {"name": "cs"}], "type": "file"}]}], "filenum": 6, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "Program"}, {"name": "cs"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "serverless"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "Startup"}, {"name": "cs"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package-lock"}, {"name": "json"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package"}, {"name": "json"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 3, "name": [{"name": "DotNetServerless"}, {"name": "Lambda"}, {"name": "csproj"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "DotNetServerless"}, {"name": "Application"}], "foldernum": 5, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "Requests", "foldernum": 0, "folder": [], "filenum": 3, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "UpdateItemRequest"}, {"name": "cs"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "GetItemRequest"}, {"name": "cs"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "CreateItemRequest"}, {"name": "cs"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "Responses", "foldernum": 0, "folder": [], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "ItemResponse"}, {"name": "cs"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "Handlers", "foldernum": 0, "folder": [], "filenum": 3, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "UpdateItemHandler"}, {"name": "cs"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "GetItemHandler"}, {"name": "cs"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "CreateItemHandler"}, {"name": "cs"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "Entities", "foldernum": 0, "folder": [], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "Item"}, {"name": "cs"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "Infrastructure", "foldernum": 2, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "Configs", "foldernum": 0, "folder": [], "filenum": 2, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "DynamoDbConfiguration"}, {"name": "cs"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "AwsBasicConfiguration"}, {"name": "cs"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "Repositories", "foldernum": 0, "folder": [], "filenum": 2, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "ItemDynamoRepository"}, {"name": "cs"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "IItemRepository"}, {"name": "cs"}], "type": "file"}]}], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "AWSClientFactory"}, {"name": "cs"}], "type": "file"}]}], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 3, "name": [{"name": "DotNetServerless"}, {"name": "Application"}, {"name": "csproj"}], "type": "file"}]}], "filenum": 0, "file": []}, {"pointInit": "no", "pointCompose": "no", "name": "tests", "foldernum": 1, "folder": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "DotNetServerless"}, {"name": "Tests"}], "foldernum": 1, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "Functions", "foldernum": 0, "folder": [], "filenum": 3, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "GetItemFunctionTests"}, {"name": "cs"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "UpdateItemFunctionTests"}, {"name": "cs"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "CreateItemFunctionTests"}, {"name": "cs"}], "type": "file"}]}], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 3, "name": [{"name": "DotNetServerless"}, {"name": "Tests"}, {"name": "csproj"}], "type": "file"}]}], "filenum": 0, "file": []}], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "DotNetServerless"}, {"name": "sln"}], "type": "file"}], "RMprovided": "yes", "RMpath": "/README.MD"}}
+  ]
+},{
+  "name": "aws-ffmpeg-layer",
+  "description": "Create a gif using ffmpeg",
+  "categorie": "Audio&Video",
+  "API": "ffmpeg",
+  "link": "https://github.com/serverless/examples/tree/master/aws-ffmpeg-layer",
+  "language": "Javascript",
+  "favor": "0",
+  "type": "Use case",
+  "version": [
+    {"tree": {"pointInit": "no", "pointCompose": "no", "name": "v1", "foldernum": 0, "folder": [], "filenum": 4, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "handler"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "serverless"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package"}, {"name": "json"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "build"}, {"name": "sh"}], "type": "file"}], "RMprovided": "yes", "RMpath": "/README.md"}}
+  ]
+},{
+  "name": "aws-golang-auth-examples",
+  "description": "Simple authorisation registery using AWS lambda",
+  "categorie": "Auth",
+  "API": "None",
+  "link": "https://github.com/serverless/examples/tree/master/aws-golang-auth-examples",
+  "language": "Golang",
+  "favor": "0",
+  "type": "SaaS",
+  "version": [
+    {"tree": {"pointInit": "no", "pointCompose": "no", "name": "v1", "foldernum": 1, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "functions", "foldernum": 4, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "hello-world", "foldernum": 0, "folder": [], "filenum": 3, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "hello_world_suite_test"}, {"name": "go"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "main"}, {"name": "go"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "main_test"}, {"name": "go"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "auth", "foldernum": 0, "folder": [], "filenum": 3, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "auth_suite_test"}, {"name": "go"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "main"}, {"name": "go"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "main_test"}, {"name": "go"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "auth2", "foldernum": 0, "folder": [], "filenum": 3, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "auth_suite_test"}, {"name": "go"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "main"}, {"name": "go"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "main_test"}, {"name": "go"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "hello-world2", "foldernum": 0, "folder": [], "filenum": 3, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "hello_world_suite_test"}, {"name": "go"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "main"}, {"name": "go"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "main_test"}, {"name": "go"}], "type": "file"}]}], "filenum": 0, "file": []}], "filenum": 5, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "serverless"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "go"}, {"name": "mod"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "go"}, {"name": "sum"}], "type": "file"}, {"pointInit": "no", "pointCompose": "no", "name": "Makefile", "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package"}, {"name": "json"}], "type": "file"}], "RMprovided": "yes", "RMpath": "/README.md"}}
+  ]
+},{
+  "name": "aws-golang-dynamo-stream-to-elasticsearch",
+  "description": "Linking a database to Elasticsearch API",
+  "categorie": "Search",
+  "API": "Elasticsearch",
+  "link": "https://github.com/serverless/examples/tree/master/aws-golang-dynamo-stream-to-elasticsearch",
+  "language": "Golang",
+  "favor": "0",
+  "type": "Use case",
+  "version": [
+    {"tree": {"pointInit": "no", "pointCompose": "no", "name": "v1", "foldernum": 3, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "dstream", "foldernum": 0, "folder": [], "filenum": 2, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "update"}, {"name": "go"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "details"}, {"name": "go"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "cmd", "foldernum": 2, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "seed-dynamo", "foldernum": 0, "folder": [], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "main"}, {"name": "go"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "aws-golang-dynamo-stream-to-elasticsearch", "foldernum": 0, "folder": [], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "main"}, {"name": "go"}], "type": "file"}]}], "filenum": 0, "file": []}, {"pointInit": "no", "pointCompose": "no", "name": "docs", "foldernum": 0, "folder": [], "filenum": 0, "file": []}], "filenum": 4, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "serverless"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "Gopkg"}, {"name": "toml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "no", "name": "Makefile", "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package"}, {"name": "json"}], "type": "file"}], "RMprovided": "yes", "RMpath": "/README.md"}}
+  ]
+},{
+  "name": "aws-golang-http-get-post",
+  "description": "GET/POST SaaS with Golang",
+  "categorie": "Server",
+  "API": "None",
+  "link": "https://github.com/serverless/examples/tree/master/aws-golang-http-get-post",
+  "language": "Golang",
+  "favor": "0",
+  "type": "Saas",
+  "version": [
+    {"tree": {"pointInit": "no", "pointCompose": "no", "name": "v1", "foldernum": 2, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "postFolder", "foldernum": 0, "folder": [], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "postExample"}, {"name": "go"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "getFolder", "foldernum": 0, "folder": [], "filenum": 2, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "getExample"}, {"name": "go"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "getQueryExample"}, {"name": "go"}], "type": "file"}]}], "filenum": 5, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "serverless"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "Gopkg"}, {"name": "toml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "no", "name": "Makefile", "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "Gopkg"}, {"name": "lock"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package"}, {"name": "json"}], "type": "file"}], "RMprovided": "yes", "RMpath": "/README.md"}}
+  ]
+},{
+  "name": "aws-golang-simple-http-endpoint",
+  "description": "none for the moment",
+  "categorie": "Server",
+  "API": "None",
+  "link": "https://github.com/serverless/examples/tree/master/aws-golang-simple-http-endpoint",
+  "language": "Golang",
+  "favor": "0",
+  "type": "SaaS",
+  "version": [
+    {"tree": {"pointInit": "no", "pointCompose": "no", "name": "v1", "foldernum": 2, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "world", "foldernum": 0, "folder": [], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "main"}, {"name": "go"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "hello", "foldernum": 0, "folder": [], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "main"}, {"name": "go"}], "type": "file"}]}], "filenum": 4, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "serverless"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "Gopkg"}, {"name": "toml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "no", "name": "Makefile", "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package"}, {"name": "json"}], "type": "file"}], "RMprovided": "yes", "RMpath": "/README.md"}}
+  ]
+},{
+  "name": "aws-golang-stream-kinesis-to-elasticsearch",
+  "description": "Simple use case of Elasticsearch",
+  "categorie": "Search",
+  "API": "Elasticsearch",
+  "link": "https://github.com/serverless/examples/tree/master/aws-golang-stream-kinesis-to-elasticsearch",
+  "language": "Golang",
+  "favor": "0",
+  "type": "Use case",
+  "version": [
+    {"tree": {"pointInit": "no", "pointCompose": "no", "name": "v1", "foldernum": 1, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "elastic", "foldernum": 0, "folder": [], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "elastic"}, {"name": "go"}], "type": "file"}]}], "filenum": 6, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "serverless"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "Gopkg"}, {"name": "toml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "no", "name": "Makefile", "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "Gopkg"}, {"name": "lock"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package"}, {"name": "json"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "main"}, {"name": "go"}], "type": "file"}], "RMprovided": "yes", "RMpath": "/README.md"}}
+  ]
+},{
+  "name": "aws-java-simple-http-endpoint",
+  "description": "Simple hello-world endpoint",
+  "categorie": "Server",
+  "API": "None",
+  "link": "https://github.com/serverless/examples/tree/master/aws-java-simple-http-endpoint",
+  "language": "Java",
+  "favor": "0",
+  "type": "Saas",
+  "version": [
+    {"tree": {"pointInit": "no", "pointCompose": "no", "name": "v1", "foldernum": 2, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "gradle", "foldernum": 1, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "wrapper", "foldernum": 0, "folder": [], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "gradle-wrapper"}, {"name": "properties"}], "type": "file"}]}], "filenum": 0, "file": []}, {"pointInit": "no", "pointCompose": "no", "name": "src", "foldernum": 1, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "main", "foldernum": 2, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "java", "foldernum": 1, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "com", "foldernum": 1, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "serverless", "foldernum": 0, "folder": [], "filenum": 3, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "Handler"}, {"name": "java"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "Response"}, {"name": "java"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "ApiGatewayResponse"}, {"name": "java"}], "type": "file"}]}], "filenum": 0, "file": []}], "filenum": 0, "file": []}, {"pointInit": "no", "pointCompose": "no", "name": "resources", "foldernum": 0, "folder": [], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "log4j"}, {"name": "properties"}], "type": "file"}]}], "filenum": 0, "file": []}], "filenum": 0, "file": []}], "filenum": 5, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "build"}, {"name": "gradle"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "pom"}, {"name": "xml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "serverless"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "no", "name": "gradlew", "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "gradlew"}, {"name": "bat"}], "type": "file"}], "RMprovided": "yes", "RMpath": "/README.md"}}
+  ]
+},{
+  "name": "aws-node-fullstack",
+  "description": "Serverless fullstack website",
+  "categorie": "Server",
+  "API": "None",
+  "link": "https://github.com/serverless/examples/tree/master/aws-node-fullstack",
+  "language": "Javascript",
+  "favor": "0",
+  "type": "SaaS",
+  "version": [
+    {"tree": {"pointInit": "no", "pointCompose": "no", "name": "v1", "foldernum": 2, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "backend", "foldernum": 0, "folder": [], "filenum": 4, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "serverless"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package-lock"}, {"name": "json"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package"}, {"name": "json"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "index"}, {"name": "js"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "frontend", "foldernum": 2, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "src", "foldernum": 1, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "images", "foldernum": 0, "folder": [], "filenum": 0, "file": []}], "filenum": 4, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "DemoApp"}, {"name": "css"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "DemoApp"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "index"}, {"name": "css"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "index"}, {"name": "js"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "public", "foldernum": 0, "folder": [], "filenum": 2, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "index"}, {"name": "html"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "manifest"}, {"name": "json"}], "type": "file"}]}], "filenum": 2, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package-lock"}, {"name": "json"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package"}, {"name": "json"}], "type": "file"}]}], "filenum": 0, "file": [], "RMprovided": "yes", "RMpath": "/README.md"}}
+  ]
+},{
+  "name": "aws-node-graphql-and-rds",
+  "description": "Using GraphQL to set up 3 different databases",
+  "categorie": "Database",
+  "API": "None",
+  "link": "https://github.com/serverless/examples/tree/master/aws-node-graphql-and-rds",
+  "language": "Javascript",
+  "favor": "0",
+  "type": "Use case",
+  "version": [
+    {"tree": {"pointInit": "no", "pointCompose": "no", "name": "v1", "foldernum": 2, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "resource", "foldernum": 0, "folder": [], "filenum": 20, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "MySqlRDSInstance"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "AuroraRDSInstance"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "AuroraRDSClusterParameter"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "RouteTableAssociationSubnetA"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "RoutePublic"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "LambdaRole"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "ServerlessInternetGateway"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "ServerlessSubnetA"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "RouteTableAssociationSubnetC"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "ServerlessSecurityGroup"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "ServerlessSubnetC"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "AuroraRDSCluster"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "RouteTableAssociationSubnetB"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "ServerlessSubnetGroup"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "ServerlessSubnetB"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "ServerlessVPCGA"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "ServerlessVPC"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "PostgreSqlRDSInstance"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "AuroraRDSInstanceParameter"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "RouteTablePublic"}, {"name": "yml"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "resolver", "foldernum": 3, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "Mutation", "foldernum": 0, "folder": [], "filenum": 3, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "aurora_createUser"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "mysql_createUser"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "postgresql_createUser"}, {"name": "js"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "Common", "foldernum": 0, "folder": [], "filenum": 3, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "postgresql"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "aurora"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "mysql"}, {"name": "js"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "Query", "foldernum": 0, "folder": [], "filenum": 3, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "postgresql_getUser"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "mysql_getUser"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "aurora_getUser"}, {"name": "js"}], "type": "file"}]}], "filenum": 0, "file": []}], "filenum": 6, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "secrets"}, {"name": "json"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "handler"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "serverless"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "schema"}, {"name": "gql"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package-lock"}, {"name": "json"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package"}, {"name": "json"}], "type": "file"}], "RMprovided": "yes", "RMpath": "/README.md"}}
+  ]
+},{
+  "name": "aws-node-rest-api-mongodb",
+  "description": "Simple MongoDB use case",
+  "categorie": "Database",
+  "API": "MongoDB",
+  "link": "https://github.com/serverless/examples/tree/master/aws-node-rest-api-mongodb",
+  "language": "Javascript",
+  "favor": "0",
+  "type": "Use case",
+  "version": [
+    {"tree": {"pointInit": "no", "pointCompose": "no", "name": "v1", "foldernum": 1, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "model", "foldernum": 0, "folder": [], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "User"}, {"name": "js"}], "type": "file"}]}], "filenum": 3, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "handler"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "serverless"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package"}, {"name": "json"}], "type": "file"}], "RMprovided": "yes", "RMpath": "/README.md"}}
+  ]
+},{
+  "name": "aws-node-rest-api-with-dynamodb-and-offline",
+  "description": "DynamoDB use case with offline support",
+  "categorie": "Database",
+  "API": "DynamoDB",
+  "link": "https://github.com/serverless/examples/tree/master/aws-node-rest-api-with-dynamodb-and-offline",
+  "language": "Javascript",
+  "favor": "0",
+  "type": "Use case",
+  "version": [
+    {"tree": {"pointInit": "no", "pointCompose": "no", "name": "v1", "foldernum": 2, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "offline", "foldernum": 1, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "migrations", "foldernum": 0, "folder": [], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "todos"}, {"name": "json"}], "type": "file"}]}], "filenum": 0, "file": []}, {"pointInit": "no", "pointCompose": "no", "name": "todos", "foldernum": 0, "folder": [], "filenum": 6, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "update"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "dynamodb"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "create"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "delete"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "get"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "list"}, {"name": "js"}], "type": "file"}]}], "filenum": 2, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "serverless"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package"}, {"name": "json"}], "type": "file"}], "RMprovided": "yes", "RMpath": "/README.md"}}
+  ]
+},{
+  "name": "aws-node-rest-api-with-dynamodb",
+  "description": "DynamoDB use case",
+  "categorie": "Database",
+  "API": "DynamoDB",
+  "link": "https://github.com/serverless/examples/tree/master/aws-node-rest-api-with-dynamodb",
+  "language": "Javascript",
+  "favor": "0",
+  "type": "Use case",
+  "version": [
+    {"tree": {"pointInit": "no", "pointCompose": "no", "name": "v1", "foldernum": 1, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "todos", "foldernum": 0, "folder": [], "filenum": 5, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "update"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "create"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "delete"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "get"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "list"}, {"name": "js"}], "type": "file"}]}], "filenum": 2, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "serverless"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package"}, {"name": "json"}], "type": "file"}], "RMprovided": "yes", "RMpath": "/README.md"}}
+  ]
+},{
+  "name": "aws-node-twilio-send-text-message",
+  "description": "Send a message with Twilio",
+  "categorie": "Communication",
+  "API": "Twilio",
+  "link": "https://github.com/serverless/examples/tree/master/aws-node-twilio-send-text-message",
+  "language": "Javascript",
+  "favor": "0",
+  "type": "Use case",
+  "version": [
+    {"tree": {"pointInit": "no", "pointCompose": "no", "name": "v1", "foldernum": 1, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "frontend", "foldernum": 0, "folder": [], "filenum": 2, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "app"}, {"name": "css"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "index"}, {"name": "html"}], "type": "file"}]}], "filenum": 6, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "handler"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "serverless"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "event"}, {"name": "json"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "messenger"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 3, "name": [{"name": "messenger"}, {"name": "test"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package"}, {"name": "json"}], "type": "file"}], "RMprovided": "yes", "RMpath": "/README.md"}}
+  ]
+},{
+  "name": "twilio-nts-serverless",
+  "description": "Twilio NTS use case",
+  "categorie": "Communication",
+  "API": "Twilio",
+  "link": "https://github.com/bengreenier/twilio-nts-serverless",
+  "language": "Javascript",
+  "favor": "0",
+  "type": "Use case",
+  "version": [
+    {"tree": {"pointInit": "no", "pointCompose": "no", "name": "v1", "foldernum": 1, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "fn", "foldernum": 1, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "test", "foldernum": 0, "folder": [], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "basic"}, {"name": "js"}], "type": "file"}]}], "filenum": 7, "file": [{"pointInit": "yes", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "eslintrc"}, {"name": "json"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "getToken-function"}, {"name": "json"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "handler"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "serverless"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "hello-function"}, {"name": "json"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package-lock"}, {"name": "json"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package"}, {"name": "json"}], "type": "file"}]}], "filenum": 2, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "README"}, {"name": "md"}], "type": "file"}, {"pointInit": "yes", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "travis"}, {"name": "yml"}], "type": "file"}], "RMprovided": "yes", "RMpath": "/fn/README.md"}}
+  ]
+},{
+  "name": "serverless-twilio-shippo",
+  "description": "Twilio update communication example",
+  "categorie": "Communication",
+  "API": "Twilio",
+  "link": "https://github.com/shipping-api/serverless-twilio-shippo",
+  "language": "Javascript",
+  "favor": "0",
+  "type": "Use case",
+  "version": [
+    {"tree": {"pointInit": "no", "pointCompose": "no", "name": "v1", "foldernum": 0, "folder": [], "filenum": 3, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "handler"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "serverless"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package"}, {"name": "json"}], "type": "file"}], "RMprovided": "yes", "RMpath": "/README.md"}}
+  ]
+},{
+  "name": "serverless-twilio-interface",
+  "description": "Twilio serverless responder",
+  "categorie": "Communication",
+  "API": "Twilio",
+  "link": "https://github.com/dstuck/serverless-twilio-interface",
+  "language": "Python",
+  "favor": "0",
+  "type": "Use case",
+  "version": [
+    {"tree": {"pointInit": "no", "pointCompose": "no", "name": "v1", "foldernum": 2, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "lambda_code", "foldernum": 0, "folder": [], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "lambda_function"}, {"name": "py"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "terraform_twilio", "foldernum": 0, "folder": [], "filenum": 2, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "twilio_lambda"}, {"name": "tf"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "twilio_api_gateway"}, {"name": "tf"}], "type": "file"}]}], "filenum": 3, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "update_twilio_webhook"}, {"name": "py"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 3, "name": [{"name": "secrets"}, {"name": "yml"}, {"name": "template"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "setup"}, {"name": "py"}], "type": "file"}], "RMprovided": "yes", "RMpath": "/README.md"}}
+  ]
+},{
+  "name": "smsbot",
+  "description": "Sms forwarded to Slack channels",
+  "categorie": "Communication",
+  "API": "Twilio",
+  "link": "https://github.com/ibmets/smsbot",
+  "language": "Javascript",
+  "favor": "0",
+  "type": "Use case",
+  "version": [
+    {"tree": {"pointInit": "no", "pointCompose": "no", "name": "v1", "foldernum": 1, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "images", "foldernum": 0, "folder": [], "filenum": 0, "file": []}], "filenum": 4, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "handler"}, {"name": "js"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "serverless"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "no", "name": "LICENSE", "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "package"}, {"name": "json"}], "type": "file"}], "RMprovided": "yes", "RMpath": "/README.md"}}
+  ]
+},{
+  "name": "twilio2slack",
+  "description": "Sms forwarded to Slack channels",
+  "categorie": "Communication",
+  "API": "Twilio",
+  "link": "https://github.com/vandiedakaf/twilio2slack",
+  "language": "Java",
+  "favor": "0",
+  "type": "Use case",
+  "version": [
+    {"tree": {"pointInit": "no", "pointCompose": "no", "name": "v1", "foldernum": 4, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "gradle", "foldernum": 1, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "wrapper", "foldernum": 0, "folder": [], "filenum": 1, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "gradle-wrapper"}, {"name": "properties"}], "type": "file"}]}], "filenum": 0, "file": []}, {"pointInit": "no", "pointCompose": "no", "name": "src", "foldernum": 1, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "main", "foldernum": 2, "folder": [{"pointInit": "no", "pointCompose": "no", "name": "java", "foldernum": 0, "folder": [], "filenum": 3, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "TwilioSmsRequest"}, {"name": "java"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "TwilioSmsResponse"}, {"name": "java"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "ForwardSms"}, {"name": "java"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "resources", "foldernum": 0, "folder": [], "filenum": 2, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "config-template"}, {"name": "properties"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "config"}, {"name": "properties"}], "type": "file"}]}], "filenum": 0, "file": []}], "filenum": 0, "file": []}, {"pointInit": "no", "pointCompose": "no", "name": "travis", "foldernum": 0, "folder": [], "filenum": 5, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "lambda_update"}, {"name": "sh"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "policy_logs"}, {"name": "json"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "lambda_payload"}, {"name": "json"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "policy_s3"}, {"name": "json"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "trust_policy"}, {"name": "json"}], "type": "file"}]}, {"pointInit": "no", "pointCompose": "no", "name": "aws", "foldernum": 0, "folder": [], "filenum": 3, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "lambda_gateway"}, {"name": "template"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "delete_stack"}, {"name": "sh"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "create_stack"}, {"name": "sh"}], "type": "file"}]}], "filenum": 5, "file": [{"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "build"}, {"name": "gradle"}], "type": "file"}, {"pointInit": "yes", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "travis"}, {"name": "yml"}], "type": "file"}, {"pointInit": "no", "pointCompose": "no", "name": "gradlew", "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "gradlew"}, {"name": "bat"}], "type": "file"}, {"pointInit": "no", "pointCompose": "yes", "nameNum": 2, "name": [{"name": "settings"}, {"name": "gradle"}], "type": "file"}], "RMprovided": "yes", "RMpath": "/README.md"}}
+  ]
+}]

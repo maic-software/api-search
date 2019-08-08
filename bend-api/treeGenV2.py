@@ -4,6 +4,11 @@ import sys
 import os
 
 path = sys.argv[1]
+pathInit = sys.argv[1]
+
+rmFlag = 0
+
+pathToRm = ""
 
 
 def genName(name):
@@ -74,14 +79,20 @@ def genFolder(path):
 
 
 def genFile(path):
+    global rmFlag, pathToRm
     num = 0
     array = []
     for file in os.listdir(path):
         if os.path.isfile(path+"/"+file) and exceptionFilder(file):
-            num += 1
-            tmp = genName(file)
-            tmp['type'] = 'file'
-            array.append(tmp)
+            if rmFlag == 0 and (file == "README.md" or file == "README.MD") :
+                pathProj = path.replace(pathInit,"")
+                pathToRm = pathProj+"/"+file
+                rmFlag = 1
+            else :
+                num += 1
+                tmp = genName(file)
+                tmp['type'] = 'file'
+                array.append(tmp)
     return num, array
 
 
@@ -96,6 +107,12 @@ def mainGeneration(path):
 
 tree = {}
 tree['tree'] = mainGeneration(path)
+if rmFlag == 1 :
+    tree['tree']['RMprovided'] = "yes"
+    tree['tree']['RMpath'] = pathToRm
+else :
+    tree['tree']['RMprovided'] = "no"
+
 
 with open("tmp.json",'w') as f:
     json.dump(tree,f)
