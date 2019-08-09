@@ -177,7 +177,7 @@ const Hit = ({ hit }) => {
       <p className="text-grey-dark mb-3">
         <Highlight attribute="description" hit={hit} />
       </p>
-      <a href={"ddl/"+hit.name+".zip"} download={hit.name+".zip"}>Download</a>
+      <a href={"/ddl/"+hit.name+".zip"} download={hit.name+".zip"}>Download</a>
       <p className="flex items-center">
         <svg
           className="w-3 h-3 mr-2 text-grey fill-current flex-no-shrink"
