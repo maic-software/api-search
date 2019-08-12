@@ -62,7 +62,6 @@ function getIndexFromTable(name) {
 
 function getStaticApiGet(url,index) {
   if (index !== 0) {
-    //console.log("Not the API case.")
     return "";
   }
   var tmp = url.split("/");
@@ -72,7 +71,6 @@ function getStaticApiGet(url,index) {
   }
   var testtmp = tmp[tmp.length-1].split(".");
   if (testtmp.length !== 1) {
-    //console.log("No form argument provided.")
     return "";
   }
   return tmp[tmp.length-1];
@@ -109,7 +107,6 @@ export function getUrlArg(name) {
   var url = document.location.href;
   var form = url.split("?");
   if (index === -1) {
-    //console.log("Error, argument not present in the table!");
     return "";
   }
   if (form.length === 1) {
@@ -122,7 +119,6 @@ export function getUrlArg(name) {
       return getUrlVars()[current];
     }
   }
-  //console.log("No argument founded for "+name);
   return "";
 }
 
