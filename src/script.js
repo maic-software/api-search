@@ -243,7 +243,7 @@ export function getFileContent(id,path) {
     url: url,
     dataType: "text",
     error:function(msg){
-      alert( "Error on access !");
+      $("#"+id).text("Error on access!");
     },
     success:function(data){
       var arraytmp = path.split("/");

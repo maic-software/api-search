@@ -77,6 +77,9 @@ export const FormInput = (id,name) => {
 export const WidjetFile = (id,tree,path,name,nameCompatible) => {
   return (
     <div key={id+nameCompatible}>
+      <span className="clickable" onClick={() => {getFileContent(id+"Code"+nameCompatible,path)}}>
+        &#x21bb;
+      </span>
       <div className="codeLister" onClick={() => {displayFolder(id+"Code"+nameCompatible)}}>
         {name}
       </div>
@@ -332,7 +335,7 @@ class App extends Component {
               <main className="bg-grey-lighter flex-grow max-h-screen overflow-hidden">
                 <div className="h-full overflow-y-scroll">
                   <div className="flex px-8 py-6">
-                      <InfiniteHits hitComponent={Hit} />
+                      <InfiniteHits hitComponent={Hit} showPrevious={false} />
                   </div>
                 </div>
               </main>
