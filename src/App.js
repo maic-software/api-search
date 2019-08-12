@@ -19,6 +19,7 @@ import {
   revealSecret,
   getVersion
 } from './script.js';
+export const hljs = require('highlight.js');
 
 // const dotenv = require('dotenv');
 // dotenv.config();
@@ -71,7 +72,7 @@ export const WidjetFile = (id,tree,path,name,nameCompatible) => {
       <div className="codeLister" onClick={() => {displayFolder(id+"Code"+nameCompatible)}}>
         {name}
       </div>
-      <pre>
+      <pre id={id+"Code"+nameCompatible+"Pre"}>
         <code id={id+"Code"+nameCompatible} display="block">
           {getFileContent(id+"Code"+nameCompatible,path)}
         </code>
@@ -205,6 +206,7 @@ const Hit = ({ hit }) => {
         </div>
       </div>
       <div>&nbsp;</div>
+      <link rel="stylesheet" href="/styles/arduino-light.css"/>
       <div id={hit.objectID+"Spoiler"} className="spoiled">
         <div>
           {getVersion(hit)}

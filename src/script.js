@@ -1,4 +1,5 @@
 import {
+  hljs,
   WidjetFolder,
   WidjetFile,
   WidjetGetForm,
@@ -222,6 +223,23 @@ export function updateFavor(id,favor) {
  * object.
  */
 
+// export function getFileContent(id,path) {
+//   var url = path;
+//   $.ajax({
+//     type: "GET",
+//     url: url,
+//     dataType: "text",
+//     error:function(msg){
+//       alert( "Error on access !");
+//     },
+//     success:function(data){
+//       data.replace("<","&lt;");
+//       data.replace(">","&rt;");
+//       $("#"+id).text(data);
+//     }
+//   });
+// }
+
 export function getFileContent(id,path) {
   var url = path;
   $.ajax({
@@ -232,12 +250,29 @@ export function getFileContent(id,path) {
       alert( "Error on access !");
     },
     success:function(data){
-      data.replace("<","&lt;");
-      data.replace(">","&rt;");
-      $("#"+id).text(data);
+      var arraytmp = path.split("/");
+      var name = arraytmp[arraytmp.length-1];
+      var array = name.split(".");
+      var lang = array[array.length-1];
+      if (hljs.getLanguage(lang) !== void[0]) {
+        data.replace("<","&lt;");
+        data.replace(">","&rt;");
+        document.getElementById(id).className = lang;
+        document.getElementById(id+"Pre").className = "hljs";
+        $('#'+id).text(data);
+        hljs.highlightBlock(document.getElementById(id));
+      }
+      else {
+        data.replace("<","&lt;");
+        data.replace(">","&rt;");
+        document.getElementById(id).className = "plaintext";
+        document.getElementById(id+"Pre").className = "hljs";
+        $("#"+id).text(data);
+      }
     }
   });
 }
+
 
 
 
