@@ -250,20 +250,25 @@ export function getFileContent(id,path) {
       var name = arraytmp[arraytmp.length-1];
       var array = name.split(".");
       var lang = array[array.length-1];
-      if (hljs.getLanguage(lang) !== void[0]) {
-        data.replace("<","&lt;");
-        data.replace(">","&rt;");
-        document.getElementById(id).className = lang;
-        document.getElementById(id+"Pre").className = "hljs";
-        $('#'+id).text(data);
-        hljs.highlightBlock(document.getElementById(id));
-      }
-      else {
-        data.replace("<","&lt;");
-        data.replace(">","&rt;");
-        document.getElementById(id).className = "plaintext";
-        document.getElementById(id+"Pre").className = "hljs";
-        $("#"+id).text(data);
+      try {
+        if (hljs.getLanguage(lang) !== void[0]) {
+          data.replace("<","&lt;");
+          data.replace(">","&rt;");
+          document.getElementById(id).className = lang;
+          document.getElementById(id+"Pre").className = "hljs";
+          $('#'+id).text(data);
+          hljs.highlightBlock(document.getElementById(id));
+        }
+        else {
+          data.replace("<","&lt;");
+          data.replace(">","&rt;");
+          document.getElementById(id).className = "plaintext";
+          document.getElementById(id+"Pre").className = "hljs";
+          $("#"+id).text(data);
+        }
+      } catch (e) {
+        console.log(id);
+        console.log(e);
       }
     }
   });
@@ -391,9 +396,9 @@ export function getVersion(hit) {
   var id = hit.objectID;
   while(current != null) {
     if(current.tree.RMprovided === "yes") {
-      inclusion.push(new WidjetFile(id+hit.API+hit.name+current.name,current.tree,path+"/"+current.tree.name+current.tree.RMpath,"README.md","READMEpmd"));
+      inclusion.push(new WidjetFile(id+hit.API+hit.name+current.tree.name,current.tree,path+"/"+current.tree.name+current.tree.RMpath,"README.md","READMEpmd"));
     }
-    inclusion.push(new WidjetFolder(id+hit.API+hit.name+current.name,current.tree,path+"/"+current.tree.name,current.tree.name,current.tree.name));
+    inclusion.push(new WidjetFolder(id+hit.API+hit.name,current.tree,path+"/"+current.tree.name,current.tree.name,current.tree.name));
     i++;
     current = hit.version[i];
   }
