@@ -67,17 +67,6 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage , preservePath: true }).array('file');
 
-// var jsonStor = multer.diskStorage({
-//   destination: function (req, json, cb) {
-//     cb(null,'public/upload/');
-//   },
-//   filename: function (req, json, cb) {
-//     cb(null,'tmp.json');
-//   }
-// })
-//
-// var jsonUp = multer({ storage: jsonStor}).single('json');
-
 app.post('/upload',function(req, res) {
   upload(req, res, function (err) {
     if (err instanceof multer.MulterError) {

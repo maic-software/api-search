@@ -20,6 +20,7 @@ import {
   getVersion
 } from './script.js';
 const algoliasearch = require("algoliasearch");
+const introJs = require("intro.js");
 export const hljs = require('highlight.js');
 
 // const dotenv = require('dotenv');
@@ -163,7 +164,11 @@ const Hit = ({ hit }) => {
       key={hit.objectID}
       className="bg-white p-8 rounded shadow hover:shadow-md my-2 transition"
     >
-      <h3 className="text-xl mb-3 flex flex-col sm:flex-row">
+      <h3
+        data-step="5"
+        data-intro="Every templates are given a name and a type that refer to it's complexity."
+        className="text-xl mb-3 flex flex-col sm:flex-row"
+        >
         <Highlight
           attribute="name"
           hit={hit}
@@ -189,7 +194,14 @@ const Hit = ({ hit }) => {
       <p className="text-grey-dark mb-3">
         <Highlight attribute="description" hit={hit} />
       </p>
-      <a href={"/ddl/"+hit.name+".zip"} download={hit.name+".zip"}>Download</a>
+      <a
+        data-step="8"
+        data-intro="You can download the full template here."
+        href={"/ddl/"+hit.name+".zip"}
+        download={hit.name+".zip"}
+        >
+        Download
+      </a>
       <p className="flex items-center">
         <svg
           className="w-3 h-3 mr-2 text-grey fill-current flex-no-shrink"
@@ -200,6 +212,8 @@ const Hit = ({ hit }) => {
           <path d="M477.1 35c-46.7-46.7-122.3-46.7-169 0l-89.5 89.4c-2.5 2.5-3.2 6.2-1.8 9.4 1.4 3.2 4.5 5.3 8 5.2h3.2c18.7 0 37.2 3.6 54.5 10.7 3.2 1.3 6.9 0.6 9.3-1.9l64.3-64.2c20-20 52.4-20 72.4 0 20 20 20 52.4 0 72.4l-80 80 -0.7 0.8 -28 27.8c-20 20-52.4 20-72.4 0 -13.5-12.7-34.5-12.7-48 0 -5.8 5.8-9.3 13.6-9.9 21.8 -0.6 9.8 3 19.3 9.9 26.3 9.9 9.9 21.4 18 34.1 23.9 1.8 0.9 3.6 1.5 5.4 2.3 1.8 0.8 3.7 1.4 5.5 2 1.8 0.7 3.7 1.3 5.5 1.8l5 1.4c3.4 0.9 6.8 1.5 10.3 2.1 4.2 0.6 8.5 1 12.7 1.2h6 0.5l5.1-0.6c1.9-0.1 3.8-0.5 6.1-0.5h2.9l5.9-0.9 2.7-0.5 4.9-1h0.9c21-5.3 40.1-16.1 55.4-31.4l108.6-108.6C523.7 157.3 523.7 81.7 477.1 35z" />
         </svg>
         <a
+          data-step="6"
+          data-intro="Here is a link to the documentation (for more informations)."
           href={hit.link}
           className="text-blue hover:text-blue-darker transition no-underline truncate"
           target="_blank"
@@ -212,7 +226,11 @@ const Hit = ({ hit }) => {
       </p>
       <div>&nbsp;</div>
       <div onClick={() => { getSpoil(hit.objectID) }} className="spoiler">
-        <div id={hit.objectID+"SpoilerInnerMSG"}>
+        <div
+          data-step="7"
+          data-intro="You can click here to display a preview of the project."
+          id={hit.objectID+"SpoilerInnerMSG"}
+          >
           Click for further info
         </div>
       </div>
@@ -224,7 +242,11 @@ const Hit = ({ hit }) => {
         </div>
         <div id={hit.objectID+"Code"}></div>
       </div>
-      <span id={hit.objectID+"Star"} onClick={() => { updateFavor(hit.objectID,hit.favor)}}>
+      <span
+        data-step="9"
+        data-intro="You can vote here for a template. Help others find the most relevant and easy to launch templates."
+        id={hit.objectID+"Star"} onClick={() => { updateFavor(hit.objectID,hit.favor)}}
+        >
         {hit.favor}
         <span className="clickable">
           &#x2606;
@@ -253,6 +275,7 @@ class App extends Component {
           apiKey={API_KEY}
           indexName={INDEX_NAME}
         >
+          <link href="/styles/introjs.css" rel="stylesheet"/>
           <div className="flex flex-col h-screen font-sans">
             <header className="flex bg-white w-full border-grey-light border-solid border-b flex-no-shrink">
               <div className="p-4 md:w-64 lg:w-64 xxl:w-80 items-center flex-no-shrink border-grey-light border-solid border-r hidden md:flex justify-center">
@@ -260,7 +283,11 @@ class App extends Component {
                   MAIC Software
                 </h1>
               </div>
-              <div className="flex flex-grow justify-between">
+              <div
+                data-step="1"
+                data-intro="The most important feature here. You can basicaly search for anything you want. It can be an API or a type of service."
+                className="flex flex-grow justify-between"
+                >
                 <SearchBox
                   className="h-full flex-grow"
                   autoFocus={true}
@@ -269,9 +296,19 @@ class App extends Component {
                   }}
                 />
               </div>
+              <div className="p-4 md:w-64 lg:w-64 xxl:w-80 items-center flex-no-shrink border-grey-light border-solid border-r hidden md:flex justify-center">
+                <h1 className="text-base text-grey-darker uppercase tracking-wide">
+                  <a className="clickable" onClick={() => {introJs.introJs().start()}}>Quick start up</a>
+                </h1>
+              </div>
             </header>
             <div className="flex flex-grow">
-              <aside id="facetsFilter" className="md:w-64 lg:w-64 xxl:w-80 flex-no-shrink bg-white border-grey-light border-solid border-r z-10 max-h-screen md:block overflow-hidden">
+              <aside
+                data-step="2"
+                data-intro="Here are the filters. You can filter your template by just clicking on one of the filters, and then choose for your attribut."
+                id="facetsFilter"
+                className="md:w-64 lg:w-64 xxl:w-80 flex-no-shrink bg-white border-grey-light border-solid border-r z-10 max-h-screen md:block overflow-hidden"
+                >
                 <div className="h-full overflow-y-auto">
                   <h4 className="font-normal uppercase text-xs tracking-wide text-grey-dark px-4 pt-4 pb-1 border-grey-light border-solid border-t clickable" onClick={() => {displayMenu("APIMenu")}}>
                     APIs
@@ -331,9 +368,21 @@ class App extends Component {
                   </div>
                 </div>
               </aside>
-              <a id="facetsOpener" className="opener" onClick={() => {displayFacets()}}>Close</a>
+              <a
+                data-step="3"
+                data-intro="Click here to display or hide the filter menu."
+                id="facetsOpener"
+                className="opener"
+                onClick={() => {displayFacets()}}
+                >
+                Close
+              </a>
               <main className="bg-grey-lighter flex-grow max-h-screen overflow-hidden">
-                <div className="h-full overflow-y-scroll">
+                <div
+                  data-step="4"
+                  data-intro="Right here are presented the templates, ordered by success and relevance. You can load more template by clicking on the loadmore button."
+                  className="h-full overflow-y-scroll"
+                  >
                   <div className="flex px-8 py-6">
                       <InfiniteHits hitComponent={Hit} showPrevious={false} />
                   </div>

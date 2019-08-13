@@ -232,6 +232,10 @@ span.clickable {
   cursor: pointer;
 }
 
+a.clickable {
+  cursor: pointer;
+}
+
 #facetsFilter {
   width: 256px;
 }
