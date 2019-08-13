@@ -238,6 +238,7 @@ export function updateFavor(id,favor) {
 
 export function getFileContent(id,path) {
   var url = path;
+  //console.log(document.getElementById(id));
   $.ajax({
     type: "GET",
     url: url,

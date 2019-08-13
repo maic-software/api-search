@@ -289,7 +289,7 @@ class App extends Component {
                 data-step="1"
                 data-disable-interaction
                 data-intro="The most important feature here. You can basicaly search for anything you want. It can be an API or a type of service."
-                className="flex flex-grow justify-between"
+                className="flex flex-grow justify-between border-grey-light border-solid border-r"
                 >
                 <SearchBox
                   className="h-full flex-grow"
@@ -299,7 +299,7 @@ class App extends Component {
                   }}
                 />
               </div>
-              <div className="p-4 md:w-64 lg:w-64 xxl:w-80 items-center flex-no-shrink border-grey-light border-solid border-r hidden md:flex justify-center">
+              <div className="p-4 md:w-64 lg:w-64 xxl:w-80 items-center flex-no-shrink border-grey-light border-solid border-r hidden flex justify-center">
                 <h1 className="text-base text-grey-darker uppercase tracking-wide">
                   <a className="clickable" onClick={() => {introJs.introJs().start()}}>Quick start up</a>
                 </h1>
