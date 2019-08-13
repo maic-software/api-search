@@ -1,9 +1,12 @@
-# Search Public APIs
+# MAIC Software
 
-**Welcome to the Public APIs search!**
+**This project is an API template-searching prototype**
 
-Look for public APIs and find what you need in milliseconds 🔍✨ [api-search.io](https://www.api-search.io/)
+Look for API use cases. Using [algolia](https://www.algolia.com/) search engine, this website display templates for API use cases in order to reduce the **time to hello world**.
 
-This project leans on the Public APIs [project](https://github.com/toddmotto/public-apis) and [API](https://github.com/davemachado/public-api), and uses [Algolia](https://www.algolia.com/) to roll.
+This project is based on [api-search](https://github.com/clemfromspace/api-search) project by [clemfromspace](https://github.com/clemfromspace/) and [sarahdayan](https://github.com/sarahdayan).
 
-Made by [clemfromspace](https://github.com/clemfromspace/) and [sarahdayan](https://github.com/sarahdayan).
+**To run the website**
+
+</br>install: npm install 
+</br>run: npm start
