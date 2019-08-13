@@ -196,6 +196,7 @@ const Hit = ({ hit }) => {
       </p>
       <a
         data-step="8"
+        data-disable-interaction
         data-intro="You can download the full template here."
         href={"/ddl/"+hit.name+".zip"}
         download={hit.name+".zip"}
@@ -213,6 +214,7 @@ const Hit = ({ hit }) => {
         </svg>
         <a
           data-step="6"
+          data-disable-interaction
           data-intro="Here is a link to the documentation (for more informations)."
           href={hit.link}
           className="text-blue hover:text-blue-darker transition no-underline truncate"
@@ -285,6 +287,7 @@ class App extends Component {
               </div>
               <div
                 data-step="1"
+                data-disable-interaction
                 data-intro="The most important feature here. You can basicaly search for anything you want. It can be an API or a type of service."
                 className="flex flex-grow justify-between"
                 >
@@ -370,6 +373,7 @@ class App extends Component {
               </aside>
               <a
                 data-step="3"
+                data-disable-interaction
                 data-intro="Click here to display or hide the filter menu."
                 id="facetsOpener"
                 className="opener"
