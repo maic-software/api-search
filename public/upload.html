@@ -53,22 +53,30 @@
     for(var x = 0; x<evt.target.files.length; x++) {
       data.append('file', evt.target.files[x]);
     }
-    var json = '{' +
-    '"name": "' + document.getElementById("tempname").value + '",' +
-    '"description": "' + document.getElementById("description").value + '",' +
-    '"categorie": "' + document.getElementById("catname").value + '",' +
-    '"API" : "' + document.getElementById("apiname").value + '",' +
-    '"link": "' + document.getElementById("doclink").value + '",' +
-    '"favor": "0",' +
-    '"version": []' +
-    '}';
-    var jparts = new Blob([json], {type: 'application/json'});
-    //data.append('document',jparts);
+    // var json = '{' +
+    // '"name": "' + document.getElementById("tempname").value + '",' +
+    // '"description": "' + document.getElementById("description").value + '",' +
+    // '"categorie": "' + document.getElementById("catname").value + '",' +
+    // '"API" : "' + document.getElementById("apiname").value + '",' +
+    // '"link": "' + document.getElementById("doclink").value + '",' +
+    // '"favor": "0",' +
+    // '"version": []' +
+    // '}';
+    // var jparts = new Blob([json], {type: 'application/json'});
+    //data.append('file',jparts);
     axios.post("http://localhost:8000/upload", data, {
     })
     .then(res => {
       console.log(res.statusText);
     });
+    // axios.get("http://localhost:8000/upload", {
+    //   params: {
+    //     json: json
+    //   }
+    // })
+    // .then(res => {
+    //   console.log(res.statusText);
+    // });
   }
 </script>
 </html>

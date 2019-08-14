@@ -3,6 +3,7 @@ var app = express();
 var multer = require('multer');
 var cors = require('cors');
 var fs = require('fs');
+var lstDir = [];
 
 app.use(cors());
 
@@ -36,28 +37,50 @@ function getFileDir(name) {
   return result;
 }
 
+function testDir(path) {
+  for (let i = 0 ; i < lstDir.length ; i++) {
+    if (path === lstDir[i]) {
+      return 0;
+    }
+    let j = 0;
+    let bool = 1;
+    while (j !== lstDir[i].length && j !== path.length && bool) {
+      if (lstDir[i][j] !== path[j]) {
+        bool = 0;
+      }
+      j += 1;
+    }
+    if (bool && j === path.length) {
+      return 0;
+    }
+  }
+  lstDir.push(path);
+  return 1;
+}
+
 function createDir(path) {
   var list = path.split("/");
-  var dir = "";
-  for(let i = 0 ; i < list.length ; i++){
-    dir = dir + list[i] + "/";
-    fs.mkdir(dir, { recursive: true }, function(e){
-      if(!e || (e && e.code === 'EEXIST')){
-        console.log("Path " + dir + " already exists!");
-      } else {
-        console.log(e);
-      }
-    });
+  var dir = "public/upload";
+  for(let i = 0 ; i < list.length-1 ; i++){
+    dir = dir + "/" + list[i];
+    if (testDir(dir)) {
+      fs.mkdir(dir, { recursive: true }, function(e){
+        if(!e || (e && e.code === 'EEXIST')){
+          console.log(lstDir);
+          console.log("Path " + dir + " already exists!");
+        } else {
+          console.log(e);
+        }
+      });
+    }
   }
 }
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     let dirname = getFileDir(file.originalname);
-    console.log(dirname);
-    dirname = 'public/upload/' + dirname;
     createDir(dirname);
-    cb(null, dirname);
+    cb(null, "public/upload/" + dirname);
   },
   filename: function (req, file, cb) {
     let filename = getFileName(file.originalname);
