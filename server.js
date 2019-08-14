@@ -1,3 +1,5 @@
+//import { genTree } from 'treeGen.js';
+
 var express = require('express');
 var app = express();
 var multer = require('multer');
@@ -60,13 +62,12 @@ function testDir(path) {
 
 function createDir(path) {
   var list = path.split("/");
-  var dir = "public/upload";
+  var dir = "public/upload/tmpDir";
   for(let i = 0 ; i < list.length-1 ; i++){
     dir = dir + "/" + list[i];
     if (testDir(dir)) {
       fs.mkdir(dir, { recursive: true }, function(e){
         if(!e || (e && e.code === 'EEXIST')){
-          console.log(lstDir);
           console.log("Path " + dir + " already exists!");
         } else {
           console.log(e);
@@ -78,17 +79,33 @@ function createDir(path) {
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    let dirname = getFileDir(file.originalname);
-    createDir(dirname);
-    cb(null, "public/upload/" + dirname);
+    if (file.originalname === "tmp.json") {
+      cb(null, "public/upload/tmpDir/");
+    }
+    else {
+      let dirname = getFileDir(file.originalname);
+      createDir(dirname);
+      cb(null, "public/upload/tmpDir" + dirname);
+    }
   },
   filename: function (req, file, cb) {
-    let filename = getFileName(file.originalname);
-    cb(null, filename);
+    if (file.originalname === "tmp.json") {
+      cb(null, "tmp.json");
+    }
+    else {
+      let filename = getFileName(file.originalname);
+      cb(null, filename);
+    }
   }
 })
 
 var upload = multer({ storage: storage , preservePath: true }).array('file');
+
+function finalTreatment() {
+  console.log("launched");
+  //genTree("public/upload/tmpDir/")
+  return 1;
+}
 
 app.post('/upload',function(req, res) {
   upload(req, res, function (err) {
@@ -98,6 +115,7 @@ app.post('/upload',function(req, res) {
     else if (err) {
       return res.status(500).json(err);
     }
+    finalTreatment();
     return res.status(200).send(req.file);
   })
 });
