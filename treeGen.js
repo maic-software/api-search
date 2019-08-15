@@ -1,4 +1,9 @@
+const potch = require('path');
+const fs = require('fs');
 
+var rmFlag = 0;
+var pathToRm = "";
+var pathInit = "";
 
 function genName(name) {
   var result = {};
@@ -9,19 +14,21 @@ function genName(name) {
     result["pointInit"] = "no";
   }
   var array = name.split(".");
-  if (array.length === 1) {
+  if (array.length === 1 || (array.length === 2 && name[0] === ".")) {
     result["pointCompose"] = "no";
     result["name"] = name;
     return result;
   }
   result["pointCompose"] = "yes";
   var arraylist = [];
-  for (let i = 0 ; i < array.length ; i++) {
-    if (name[0] !== "." || i !== 0) {
-      let tmp = {};
-      tmp["name"] = array[i];
-      arraylist.push(tmp);
-    }
+  let i = 0;
+  if (name[0] === ".") {
+    i += 1;
+  }
+  for (; i < array.length ; i++) {
+    let tmp = {};
+    tmp["name"] = array[i];
+    arraylist.push(tmp);
   }
   let tmp = array.length;
   if (name[0] === ".") {
@@ -74,18 +81,75 @@ function exceptionFilter(name) {
   return 1;
 }
 
-function genFolder(path,tree) {
-
+function genFolder(path) {
+  var array = [];
+  var files = fs.readdirSync(path);
+  for(var i in files) {
+    let name = path + '/' + files[i];
+    if (fs.lstatSync(name).isDirectory() && exceptionFilter(files[i])) {
+      array.push(mainGeneration(name));
+    }
+  }
+  return array;
 }
 
-function genFile(path,tree) {
-
+function genFile(path) {
+  var array = [];
+  var files = fs.readdirSync(path);
+  for (var i in files){
+    let name = path + '/' + files[i];
+    if (fs.lstatSync(name).isFile() && exceptionFilter(files[i])) {
+      if (rmFlag === 0 && (files[i] === "README.md" || files[i] === "README.MD")) {
+        let pathProj = path.replace(pathInit,"");
+        pathToRm = pathProj + "/" + files[i];
+        rmFlag = 1;
+      }
+      else {
+        let tmp = genName(files[i]);
+        tmp['type'] = 'file';
+        array.push(tmp);
+      }
+    }
+  }
+  return array;
 }
 
-function mainGeneration(path,tree) {
-
+function mainGeneration(path) {
+  var name = potch.basename(path);
+  var result = genName(name);
+  result['folder'] = genFolder(path);
+  result['foldernum'] = result['folder'].length;
+  result['file'] = genFile(path);
+  result['filenum'] = result['file'].length;
+  return result;
 }
 
-export function genTree(path) {
-
+function genTree(path) {
+  pathInit = path;
+  var tree = {};
+  tree['tree'] = mainGeneration(path);
+  if (rmFlag === 1) {
+    tree['tree']['RMprovided'] = "yes";
+    tree['tree']['RMpath'] = pathToRm;
+  }
+  else {
+    tree['tree']['RMprovided'] = "no";
+  }
+  return tree;
 }
+
+// function initMain(path) {
+//   var files = fs.readdirSync(path);
+//   var root;
+//   if (files[0] !== "tmp.json") {
+//     root = files[0];
+//   }
+//   else {
+//     root = files[1];
+//   }
+//   var jtmp = require("./"+path+"tmp.json");
+//   jtmp['version'].push(genTree(path+"/"+root));
+//   return jtmp;
+// }
+
+module.exports = genTree;

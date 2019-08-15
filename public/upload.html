@@ -27,6 +27,14 @@
       Link to the documentation :
       <input type="text" id="doclink" name="Link" />
     </p>
+    <p>
+      Principale programing language :
+      <input type="text" id="lang" name="Language" />
+    </p>
+    <p>
+      Type of project :
+      <input type="text" id="type" name="Type" />
+    </p>
     <input type="file" id="picker" name="fileList" webkitdirectory multiple/>
     <button type="button" class="btn btn-success btn-block" onClick="onClickHandler()">Upload</button>
   </div>
@@ -59,7 +67,9 @@
                '"categorie": "' + document.getElementById("catname").value + '",' +
                '"API" : "' + document.getElementById("apiname").value + '",' +
                '"link": "' + document.getElementById("doclink").value + '",' +
+               '"language": "' + document.getElementById("lang").value + '",' +
                '"favor": "0",' +
+               '"type": "' + document.getElementById("type").value + '",' +
                '"version": []' +
                '}';
     var jfile = new File([json], 'tmp.json', {

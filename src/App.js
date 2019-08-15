@@ -38,7 +38,7 @@ export const hljs = require('highlight.js');
 
 const APP_ID = "LYITGBJZF1";
 const API_KEY = "c0d0c32d6bc8e80c30eabe69af5724d2";
-const INDEX_NAME = "apis5";
+const INDEX_NAME = "apis6";
 
 const client = algoliasearch(APP_ID,API_KEY);
 const index = client.initIndex(INDEX_NAME);
