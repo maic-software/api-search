@@ -8,15 +8,14 @@ const fs = require('fs');
 
 const APP_ADMIN_ID = "LYITGBJZF1";
 const API_ADMIN_KEY = "67baaf6fb4bc87e9b148aa237251b326";
-const INDEX_NAME = "apis6";
+const INDEX_NAME = "apis5m";
 
-const client = algoliasearch(APP_ADMIN_ID,API_ADMIN_KEY);
+const client = algoliasearch(APP_ADMIN_ID,API_ADMIN_KEY,{protocol: 'https:'});
 const index = client.initIndex(INDEX_NAME);
 
 app.use(cors());
 
 const exec = require('child_process').exec;
-var child;
 
 function getFileName(name) {
   var result = "";
@@ -68,32 +67,6 @@ function testDir(path) {
   lstDir.push(path);
   return 1;
 }
-
-// function createDir(path) {
-//   var list = path.split("/");
-//   var dir = "public/upload/tmpDir";
-//   if (testDir(dir)) {
-//     fs.mkdir(dir, { recursive: true }, function(e){
-//       if(!e || (e && e.code === 'EEXIST')){
-//         console.log("Path " + dir + " already exists!");
-//       } else {
-//         console.log(e);
-//       }
-//     });
-//   }
-//   for(let i = 0 ; i < list.length-1 ; i++){
-//     dir = dir + "/" + list[i];
-//     if (testDir(dir)) {
-//       fs.mkdir(dir, { recursive: true }, function(e){
-//         if(!e || (e && e.code === 'EEXIST')){
-//           console.log("Path " + dir + " already exists!");
-//         } else {
-//           console.log(e);
-//         }
-//       });
-//     }
-//   }
-// }
 
 function createDir(path) {
   var list = path.split("/");
@@ -152,6 +125,7 @@ function finalTreatment() {
   }
   var jfile = require("./public/upload/tmpDir/tmp.json");
   jfile['version'].push(parse("public/upload/tmpDir/"+root));
+  //console.log(JSON.stringify(jfile));
   var api = jfile['API'];
   var name = jfile['name'];
   var bddir = "public/data/"
@@ -167,7 +141,13 @@ function finalTreatment() {
       return 0;
     }
   }
-  exec('cp -r public/upload/tmpDir/'+root+' public/data/'+api+'/'+name+'/',
+  index.addObject(jfile,
+    (err, content) => {
+      console.log("Pass here!");
+      if (err) throw err;
+    }
+  );
+  exec('cp -r public/upload/tmpDir/'+' public/data/'+api+'/'+name+'/',
     function (error, stdout, stderr) {
       console.log('stdout: ' + stdout);
       console.log('stderr: ' + stderr);
@@ -176,11 +156,6 @@ function finalTreatment() {
       }
     }
   );
-  // index.addObjects([jfile],
-  //   (err, { objectIDs } = {}) => {
-  //     console.log(`Newcomer is laggy!`);
-  //   }
-  // );
   return 1;
 }
 

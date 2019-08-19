@@ -8,6 +8,7 @@ import {
 } from 'react-instantsearch-dom';
 import './App.css';
 import {
+  updateList,
   displayFacets,
   getUrlArg,
   getSpoil,
@@ -38,7 +39,7 @@ export const hljs = require('highlight.js');
 
 const APP_ID = "LYITGBJZF1";
 const API_KEY = "c0d0c32d6bc8e80c30eabe69af5724d2";
-const INDEX_NAME = "apis6";
+const INDEX_NAME = "apis5m";
 
 const client = algoliasearch(APP_ID,API_KEY);
 const index = client.initIndex(INDEX_NAME);
@@ -47,6 +48,7 @@ index.setSettings({
   hitsPerPage: 5
 });
 
+var globalNumber = 0;
 
 
 /******************************************************************************/
@@ -75,7 +77,7 @@ export const FormInput = (id,name) => {
  * This function create a basic object that can present the content of a file.
  */
 
-export const WidjetFile = (id,tree,path,name,nameCompatible) => {
+export const WidjetFile = (id,tree,path,name,nameCompatible,arrayId) => {
   return (
     <div key={id+nameCompatible}>
       <span className="clickable" onClick={() => {getFileContent(id+"Code"+nameCompatible,path)}}>
@@ -86,7 +88,7 @@ export const WidjetFile = (id,tree,path,name,nameCompatible) => {
       </div>
       <pre id={id+"Code"+nameCompatible+"Pre"}>
         <code id={id+"Code"+nameCompatible} display="block">
-          {getFileContent(id+"Code"+nameCompatible,path)}
+          {updateList(arrayId,id+"Code"+nameCompatible,path)}
         </code>
       </pre>
       <div>&nbsp;</div>
@@ -129,7 +131,7 @@ export const WidjetGetForm = (id,tree,path) => {
  * This function create a basic object that represent a folder inside a project.
  */
 
-export const WidjetFolder = (id,tree,path,name,nameCompatible) => {
+export const WidjetFolder = (id,tree,path,name,nameCompatible,arrayId) => {
   return (
     [
     <div key={id+nameCompatible} className="folderWidjet">
@@ -139,7 +141,7 @@ export const WidjetFolder = (id,tree,path,name,nameCompatible) => {
       <div>&nbsp;</div>
       <div id={id+nameCompatible+"T"} className="folder">
         <div>
-          {revealSecret(id+nameCompatible+"T",tree,path)}
+          {revealSecret(id+nameCompatible+"T",tree,path,arrayId)}
         </div>
       </div>
     </div>,
@@ -240,7 +242,8 @@ const Hit = ({ hit }) => {
       <link rel="stylesheet" href="/styles/arduino-light.css"/>
       <div id={hit.objectID+"Spoiler"} className="spoiled">
         <div>
-          {getVersion(hit)}
+          {getVersion(hit,globalNumber)}
+          {globalNumber +=1}
         </div>
         <div id={hit.objectID+"Code"}></div>
       </div>

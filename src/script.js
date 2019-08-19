@@ -13,6 +13,10 @@ const formArgList = [["API","api","apis","APIs"],
                      ["category","categories","Category","Categories"],
                      ["language","languages","Language","Languages"]];
 
+var arrayIdList = [];
+var idList = [];
+var pathList = [];
+
 // const dotenv = require('dotenv');
 // console.log(dotenv.config());
 //
@@ -28,11 +32,17 @@ const formArgList = [["API","api","apis","APIs"],
 
 const APP_ADMIN_ID = "LYITGBJZF1";
 const API_ADMIN_KEY = "67baaf6fb4bc87e9b148aa237251b326";
-const INDEX_NAME = "apis6";
+const INDEX_NAME = "apis5m";
 
 const client = algoliasearch(APP_ADMIN_ID,API_ADMIN_KEY);
 const index = client.initIndex(INDEX_NAME);
 
+
+export function updateList(arrayId,id,path) {
+  idList[arrayId].push(id);
+  pathList[arrayId].push(path);
+  return "";
+}
 
 
 export function displayFacets(){
@@ -130,6 +140,22 @@ export function getUrlArg(name) {
  * This function display a spoiler content and change the innerHTML msg.
  */
 
+
+export function templateGetCode(id) {
+  var i = 0;
+  while (arrayIdList[i] !== id) {
+    i += 1;
+    if (i >= arrayIdList.length) {
+      console.log("Error on arrayIdList detection!");
+      return;
+    }
+  }
+  console.log(i);
+  for (let j = 0 ; j < idList[i].length ; j++) {
+    getFileContent(idList[i][j],pathList[i][j]);
+  }
+}
+
 export function getSpoil(id) {
   var divS = document.getElementById(id+"Spoiler");
   var msgS = document.getElementById(id+"SpoilerInnerMSG");
@@ -138,6 +164,7 @@ export function getSpoil(id) {
     msgS.innerHTML = "Click for further info";
   }
   else {
+    templateGetCode(id);
     divS.style.display = 'block';
     msgS.innerHTML = "Click here to reduce";
   }
@@ -162,7 +189,6 @@ export function displayFolder(id) {
     divS.style.display = 'none';
   }
 }
-
 
 
 export function displayMenu(id) {
@@ -347,7 +373,7 @@ function genCompName(elem) {
  */
 
 
-export function revealSecret(id,tree,path) {
+export function revealSecret(id,tree,path,arrayId) {
   var inclusion = [];
   var name;
   var nameCompatible;
@@ -355,7 +381,7 @@ export function revealSecret(id,tree,path) {
     name = genStdrName(tree.folder[i]);
     nameCompatible = genCompName(tree.folder[i]);
     if(name[0] !== "."){
-      inclusion.push(new WidjetFolder(id,tree.folder[i],path+"/"+name,name,nameCompatible));
+      inclusion.push(new WidjetFolder(id,tree.folder[i],path+"/"+name,name,nameCompatible,arrayId));
     }
   }
   for(i = 0; i < tree.filenum ; i++) {
@@ -368,7 +394,7 @@ export function revealSecret(id,tree,path) {
     }
     else if(tree.file[i].type === 'file') {
       if(name[0] !== "."){
-        inclusion.push(new WidjetFile(id,tree.file[i],path+"/"+name,name,nameCompatible));
+        inclusion.push(new WidjetFile(id,tree.file[i],path+"/"+name,name,nameCompatible,arrayId));
       }
     }
     else {
@@ -389,19 +415,25 @@ export function revealSecret(id,tree,path) {
  * recursive parcout.
  */
 
-export function getVersion(hit) {
+export function getVersion(hit,globalNumber) {
   var path = "/data/"+hit.API+"/"+hit.name;
   var inclusion = [];
   var i = 0;
   var current = hit.version[i];
   var id = hit.objectID;
   while(current != null) {
+    arrayIdList.push(id);
+    idList.push([]);
+    pathList.push([]);
     if(current.tree.RMprovided === "yes") {
-      inclusion.push(new WidjetFile(id+hit.API+hit.name+current.tree.name,current.tree,path+"/"+current.tree.name+current.tree.RMpath,"README.md","READMEpmd"));
+      inclusion.push(new WidjetFile(id+hit.API+hit.name+current.tree.name,current.tree,path+"/"+current.tree.name+current.tree.RMpath,"README.md","READMEpmd",globalNumber));
     }
-    inclusion.push(new WidjetFolder(id+hit.API+hit.name,current.tree,path+"/"+current.tree.name,current.tree.name,current.tree.name));
+    inclusion.push(new WidjetFolder(id+hit.API+hit.name,current.tree,path+"/"+current.tree.name,current.tree.name,current.tree.name,globalNumber));
     i++;
     current = hit.version[i];
   }
+  console.log(arrayIdList);
+  console.log(idList);
+  console.log(pathList);
   return inclusion;
 }
