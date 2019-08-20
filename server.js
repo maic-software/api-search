@@ -8,7 +8,7 @@ const fs = require('fs');
 
 const APP_ADMIN_ID = "LYITGBJZF1";
 const API_ADMIN_KEY = "67baaf6fb4bc87e9b148aa237251b326";
-const INDEX_NAME = "apis5m";
+const INDEX_NAME = "apis6";
 
 const client = algoliasearch(APP_ADMIN_ID,API_ADMIN_KEY,{protocol: 'https:'});
 const index = client.initIndex(INDEX_NAME);

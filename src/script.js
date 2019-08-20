@@ -5,6 +5,10 @@ import {
   WidjetGetForm,
   FormInput
 } from './App.js';
+import {
+  FullInfo
+} from './fullInfo.js';
+import ReactDOM from 'react-dom'
 import $ from 'jquery';
 const algoliasearch = require("algoliasearch");
 
@@ -32,10 +36,41 @@ var pathList = [];
 
 const APP_ADMIN_ID = "LYITGBJZF1";
 const API_ADMIN_KEY = "67baaf6fb4bc87e9b148aa237251b326";
-const INDEX_NAME = "apis5m";
+const INDEX_NAME = "apis6";
 
 const client = algoliasearch(APP_ADMIN_ID,API_ADMIN_KEY);
 const index = client.initIndex(INDEX_NAME);
+
+
+// export function fullPage(hit) {
+//   var opened = window.open(hit.name,"");
+//   //console.log(hit);
+//   //opened.document.write("<html><body><div id=\"jambon\"></div></body></html>");
+//   ReactDOM.render(new FullInfo(hit),opened.document.getElementById("root"));
+//   //opened.document.render(new FullInfo(hit));
+//   // var creating = windows.create({
+//   //   url: ["localhost3000/"+hit.name]
+//   // });
+// }
+
+function fullPage(arg) {
+  console.log(arg);
+  index.getObject(arg, (err, content) => {
+    if (content === void[0] || content === null) {
+      document.getElementById("fullpage").innerText = "Tercio";
+    }
+    else {
+      //document.getElementById("fullpage").innerText = new FullInfo(content);
+      //$("#fullpage").text(new FullInfo(content));
+      //document.getElementById("fullpage").setAttribute('data',new FullInfo(content));
+      document.getElementById("fullpage").removeChild(document.getElementById("fullpagechild"));
+      document.getElementById("fullpage").append(new FullInfo(content));
+      // document.getElementById("fullpage").style.display = 'none';
+      // document.getElementById("fullpage").setAttribute('data',new FullInfo(content));
+      // document.getElementById("fullpage").style.display = '';
+    }
+  });
+}
 
 
 export function updateList(arrayId,id,path) {
@@ -132,6 +167,26 @@ export function getUrlArg(name) {
   return "";
 }
 
+export function initDisplayUrl(section) {
+  var url = document.location.href;
+  if (url === "http://localhost:3000/" && section === "fullpage") {
+    return "none";
+  }
+  else if (url !== "http://localhost:3000/" && section === "research") {
+    return "none";
+  }
+  return "";
+}
+
+export function exposePage() {
+  var url = document.location.href;
+  if (url === "http://localhost:3000/") {
+    return "Secondo";
+  }
+  var array = url.split("/");
+  var arg = array[array.length-1];
+  fullPage(arg);
+}
 
 /******************************************************************************/
 /*
@@ -432,8 +487,5 @@ export function getVersion(hit,globalNumber) {
     i++;
     current = hit.version[i];
   }
-  console.log(arrayIdList);
-  console.log(idList);
-  console.log(pathList);
   return inclusion;
 }

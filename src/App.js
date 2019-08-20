@@ -11,6 +11,8 @@ import {
   updateList,
   displayFacets,
   getUrlArg,
+  initDisplayUrl,
+  exposePage,
   getSpoil,
   displayFolder,
   displayMenu,
@@ -39,7 +41,7 @@ export const hljs = require('highlight.js');
 
 const APP_ID = "LYITGBJZF1";
 const API_KEY = "c0d0c32d6bc8e80c30eabe69af5724d2";
-const INDEX_NAME = "apis5m";
+const INDEX_NAME = "apis6";
 
 const client = algoliasearch(APP_ID,API_KEY);
 const index = client.initIndex(INDEX_NAME);
@@ -192,6 +194,9 @@ const Hit = ({ hit }) => {
             </span>
           )}
         </span>
+        <span className="clickable" onClick={() => {exposePage()}}>
+          &oplus;
+        </span>
       </h3>
       <p className="text-grey-dark mb-3">
         <Highlight attribute="description" hit={hit} />
@@ -308,7 +313,7 @@ class App extends Component {
                 </h1>
               </div>
             </header>
-            <div className="flex flex-grow">
+            <div id="research" className="flex flex-grow" style={{display:initDisplayUrl("research")}}>
               <aside
                 data-step="2"
                 data-intro="Here are the filters. You can filter your template by just clicking on one of the filters, and then choose for your attribut."
@@ -395,6 +400,11 @@ class App extends Component {
                   </div>
                 </div>
               </main>
+            </div>
+            <div id="fullpage" style={{display:initDisplayUrl("fullpage")}}>
+              <div id="fullpagechild">
+                {exposePage()}
+              </div>
             </div>
             <footer className="flex flex-no-shrink justify-between flex-col sm:flex-row p-4 border-grey-light border-solid border-t text-sm text-grey-dark">
               <div>
