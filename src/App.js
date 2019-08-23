@@ -12,6 +12,7 @@ import {
   displayFacets,
   getUrlArg,
   initDisplayUrl,
+  exposeSpecificPage,
   exposePage,
   getSpoil,
   displayFolder,
@@ -173,11 +174,13 @@ const Hit = ({ hit }) => {
         data-intro="Every templates are given a name and a type that refer to it's complexity."
         className="text-xl mb-3 flex flex-col sm:flex-row"
         >
-        <Highlight
-          attribute="name"
-          hit={hit}
-          className="mr-2 text-grey-darkest font-normal"
-        />
+        <span className="clickable" onClick={() => {exposeSpecificPage(hit.name)}}>
+          <Highlight
+            attribute="name"
+            hit={hit}
+            className="mr-2 text-grey-darkest font-normal"
+          />
+        </span>
         <span className="flex items-center mt-2 sm:-mt-1">
           {hit.type && (
             <span className="flex items-center text-xxs border-solid border-grey-light text-grey border-2 px-2 py-1 rounded-full mr-1 uppercase">
@@ -194,8 +197,15 @@ const Hit = ({ hit }) => {
             </span>
           )}
         </span>
-        <span className="clickable" onClick={() => {exposePage()}}>
-          &oplus;
+        <span
+          data-step="9"
+          data-intro="You can vote here for a template. Help others find the most relevant and easy to launch templates."
+          id={hit.objectID+"Star"} onClick={() => { updateFavor(hit.objectID,hit.favor)}}
+          >
+          {hit.favor}
+          <span className="clickable">
+            &#x2606;
+          </span>
         </span>
       </h3>
       <p className="text-grey-dark mb-3">
@@ -234,15 +244,15 @@ const Hit = ({ hit }) => {
         </a>
       </p>
       <div>&nbsp;</div>
-      <div onClick={() => { getSpoil(hit.objectID) }} className="spoiler">
-        <div
-          data-step="7"
-          data-intro="You can click here to display a preview of the project."
-          id={hit.objectID+"SpoilerInnerMSG"}
-          >
-          Click for further info
-        </div>
-      </div>
+      <span
+        onClick={() => { getSpoil(hit.objectID) }}
+        className="spoiler"
+        data-step="7"
+        data-intro="You can click here to display a preview of the project."
+        id={hit.objectID+"SpoilerInnerMSG"}
+        >
+        Preview
+      </span>
       <div>&nbsp;</div>
       <link rel="stylesheet" href="/styles/arduino-light.css"/>
       <div id={hit.objectID+"Spoiler"} className="spoiled">
@@ -252,16 +262,6 @@ const Hit = ({ hit }) => {
         </div>
         <div id={hit.objectID+"Code"}></div>
       </div>
-      <span
-        data-step="9"
-        data-intro="You can vote here for a template. Help others find the most relevant and easy to launch templates."
-        id={hit.objectID+"Star"} onClick={() => { updateFavor(hit.objectID,hit.favor)}}
-        >
-        {hit.favor}
-        <span className="clickable">
-          &#x2606;
-        </span>
-      </span>
     </div>
   )
 }
@@ -286,7 +286,7 @@ class App extends Component {
           indexName={INDEX_NAME}
         >
           <link href="/styles/introjs.css" rel="stylesheet"/>
-          <div className="flex flex-col h-screen font-sans">
+          <div id="research" className="flex flex-col h-screen font-sans" style={{display:initDisplayUrl("research")}}>
             <header className="flex bg-white w-full border-grey-light border-solid border-b flex-no-shrink">
               <div className="p-4 md:w-64 lg:w-64 xxl:w-80 items-center flex-no-shrink border-grey-light border-solid border-r hidden md:flex justify-center">
                 <h1 className="text-base text-grey-darker uppercase tracking-wide">
@@ -313,7 +313,7 @@ class App extends Component {
                 </h1>
               </div>
             </header>
-            <div id="research" className="flex flex-grow" style={{display:initDisplayUrl("research")}}>
+            <div className="flex flex-grow">
               <aside
                 data-step="2"
                 data-intro="Here are the filters. You can filter your template by just clicking on one of the filters, and then choose for your attribut."
@@ -401,16 +401,16 @@ class App extends Component {
                 </div>
               </main>
             </div>
-            <div id="fullpage" style={{display:initDisplayUrl("fullpage")}}>
-              <div id="fullpagechild">
-                {exposePage()}
-              </div>
-            </div>
             <footer className="flex flex-no-shrink justify-between flex-col sm:flex-row p-4 border-grey-light border-solid border-t text-sm text-grey-dark">
               <div>
                 &nbsp;
               </div>
             </footer>
+          </div>
+          <div id="fullpage" style={{display:initDisplayUrl("fullpage")}}>
+            <div id="fullpagechild">
+              {exposePage()}
+            </div>
           </div>
         </InstantSearch>
       </div>

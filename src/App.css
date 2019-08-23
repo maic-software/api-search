@@ -189,9 +189,8 @@ main.max-h-screen {
   max-height: calc(100vh - 124px);
 }
 
-div.spoiler {
+span.spoiler {
   padding: 4px;
-  width: 16%;
   cursor: pointer;
   border: 1px solid #777;
   background: #efefef;
@@ -223,6 +222,10 @@ div.folder {
 
 div.facetMenu {
   display: none;
+}
+
+h1.clickable {
+  cursor: pointer;
 }
 
 h4.clickable {
@@ -263,7 +266,7 @@ pre {
 	overflow-x: auto;
 	overflow-y: auto;
   max-height: 200px;
-	font-size: 8px;
+	font-size: 12px;
 	line-height: 12px;
 	background: #efefef;
 	border: 1px solid #777;

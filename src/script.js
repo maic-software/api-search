@@ -6,6 +6,7 @@ import {
   FormInput
 } from './App.js';
 import {
+  fillFullInfo,
   FullInfo
 } from './fullInfo.js';
 import ReactDOM from 'react-dom'
@@ -53,23 +54,29 @@ const index = client.initIndex(INDEX_NAME);
 //   // });
 // }
 
-function fullPage(arg) {
-  console.log(arg);
-  index.getObject(arg, (err, content) => {
-    if (content === void[0] || content === null) {
-      document.getElementById("fullpage").innerText = "Tercio";
-    }
-    else {
-      //document.getElementById("fullpage").innerText = new FullInfo(content);
-      //$("#fullpage").text(new FullInfo(content));
-      //document.getElementById("fullpage").setAttribute('data',new FullInfo(content));
-      document.getElementById("fullpage").removeChild(document.getElementById("fullpagechild"));
-      document.getElementById("fullpage").append(new FullInfo(content));
-      // document.getElementById("fullpage").style.display = 'none';
-      // document.getElementById("fullpage").setAttribute('data',new FullInfo(content));
-      // document.getElementById("fullpage").style.display = '';
-    }
-  });
+// function fullPage(arg) {
+//   console.log(arg);
+//   index.getObject(arg, (err, content) => {
+//     if (content === void[0] || content === null) {
+//       document.getElementById("fullpage").innerText = "Tercio";
+//     }
+//     else {
+//       //document.getElementById("fullpage").innerText = new FullInfo(content);
+//       //$("#fullpage").text(new FullInfo(content));
+//       //document.getElementById("fullpage").setAttribute('data',new FullInfo(content));
+//       document.getElementById("fullpage").removeChild(document.getElementById("fullpagechild"));
+//       document.getElementById("fullpage").append(new FullInfo(content));
+//       // document.getElementById("fullpage").style.display = 'none';
+//       // document.getElementById("fullpage").setAttribute('data',new FullInfo(content));
+//       // document.getElementById("fullpage").style.display = '';
+//     }
+//   });
+// }
+
+function initFullPage(arg) {
+  var result = new FullInfo(arg);
+  fillFullInfo(arg);
+  return result;
 }
 
 
@@ -169,23 +176,32 @@ export function getUrlArg(name) {
 
 export function initDisplayUrl(section) {
   var url = document.location.href;
-  if (url === "http://localhost:3000/" && section === "fullpage") {
+  var array = url.split("/");
+  var arg = array[array.length-1];
+  if ((url === "http://localhost:3000/" || array[array.length-2] !== 'p') && section === "fullpage") {
     return "none";
   }
-  else if (url !== "http://localhost:3000/" && section === "research") {
+  else if (array[array.length-2] === 'p'  && section === "research") {
     return "none";
   }
   return "";
 }
 
+export function exposeSpecificPage(arg) {
+  document.location.href = document.location.href + "p/" + arg;
+}
+
 export function exposePage() {
   var url = document.location.href;
-  if (url === "http://localhost:3000/") {
-    return "Secondo";
-  }
   var array = url.split("/");
   var arg = array[array.length-1];
-  fullPage(arg);
+  if (url === "http://localhost:3000/" || array[array.length-2] !== "p") {
+    console.log("pass here");
+    return "Secondo";
+  }
+  //arg = arg.replace("!","");
+  console.log(arg);
+  return initFullPage(arg);
 }
 
 /******************************************************************************/
@@ -216,12 +232,10 @@ export function getSpoil(id) {
   var msgS = document.getElementById(id+"SpoilerInnerMSG");
   if(divS.style.display === 'block'){
     divS.style.display = 'none';
-    msgS.innerHTML = "Click for further info";
   }
   else {
     templateGetCode(id);
     divS.style.display = 'block';
-    msgS.innerHTML = "Click here to reduce";
   }
 }
 
@@ -319,7 +333,6 @@ export function updateFavor(id,favor) {
 
 export function getFileContent(id,path) {
   var url = path;
-  //console.log(document.getElementById(id));
   $.ajax({
     type: "GET",
     url: url,
@@ -377,7 +390,7 @@ export function getBasicInput(id,tree) {
 
 
 
-function genStdrName(elem) {
+export function genStdrName(elem) {
   if (elem.pointInit === "no" && elem.pointCompose === "no") {
     return elem.name;
   }
@@ -398,7 +411,7 @@ function genStdrName(elem) {
 }
 
 
-function genCompName(elem) {
+export function genCompName(elem) {
   if (elem.pointInit === "no" && elem.pointCompose === "no") {
     return elem.name;
   }
