@@ -73,7 +73,7 @@ const index = client.initIndex(INDEX_NAME);
 //   });
 // }
 
-function initFullPage(arg) {
+export function initFullPage(arg) {
   var result = new FullInfo(arg);
   fillFullInfo(arg);
   return result;
@@ -103,22 +103,23 @@ export function displayFacets(){
 }
 
 
-function getIndexFromTable(name) {
-  for (let i = 0; i < formArgList.length ; i++){
-    if (formArgList[i][0] === name) {
-      return i;
+export function getIndexFromTable(name) {
+  for (let i = 0 ; i < formArgList.length ; i++) {
+    for (let j = 0 ; j < formArgList[i].length ; j++) {
+      if (formArgList[i][j] === name) {
+        return i;
+      }
     }
   }
   return -1;
 }
 
-function getStaticApiGet(url,index) {
+export function getStaticApiGet(url,index) {
   if (index !== 0) {
     return "";
   }
   var tmp = url.split("/");
   if (tmp.length === 1) {
-    console.log("Error, url is not composed of / characters!");
     return "";
   }
   var testtmp = tmp[tmp.length-1].split(".");
@@ -129,22 +130,20 @@ function getStaticApiGet(url,index) {
 }
 
 
-function checkForm(name,form) {
+export function checkForm(name,form) {
   var array = form.split("&");
   var arrayCurrent;
   for (let i = 0; i < array.length ; i++) {
     arrayCurrent = array[i].split("=");
-    if (arrayCurrent.length === 2) {
-      if (arrayCurrent[0] === name) {
-        return 1;
-      }
+    if (arrayCurrent[0] === name && arrayCurrent.length ===2) {
+      return 1;
     }
   }
   return 0;
 }
 
 
-function getUrlVars() {
+export function getUrlVars() {
     var vars = {};
     document.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
       vars[key] = value;

@@ -1,0 +1,50 @@
+[
+  {
+    "pointInit": "no",
+    "pointCompose": "no",
+    "name": "myfile"
+  },
+  {
+    "pointInit": "yes",
+    "pointCompose": "no",
+    "name": "myfile"
+  },
+  {
+    "pointInit": "no",
+    "pointCompose": "yes",
+    "nameNume": 4,
+    "name": [
+      {
+        "name": "my"
+      },
+      {
+        "name": "first"
+      },
+      {
+        "name": "json"
+      },
+      {
+        "name": "file"
+      }
+    ]
+  },
+  {
+    "pointInit": "yes",
+    "pointCompose": "yes",
+    "nameNum": 4,
+    "name" : [
+      {
+        "name": "my"
+      },
+      {
+        "name": "first"
+      },
+      {
+        "name": "json"
+      },
+      {
+        "name": "file"
+      }
+    ]
+  }
+]
