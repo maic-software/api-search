@@ -28,8 +28,8 @@
     "eject": "react-scripts eject",
     "css": "npm run tailwind && npm run purgecss",
     "tailwind": "npm run tailwind:normalize && npm run tailwind:css",
-    "tailwind:normalize": "tailwind build src/normalize.src.css -c tailwind.js -o src/normalize.css",
-    "tailwind:css": "tailwind build src/tailwind.src.css -c tailwind.js -o src/tailwind.css",
+    "tailwind:normalize": "tailwind build src/css/normalize.src.css -c tailwind.js -o src/css/normalize.css",
+    "tailwind:css": "tailwind build src/css/tailwind.src.css -c tailwind.js -o src/css/tailwind.css",
     "purgecss": "purgecss -c purgecss.config.js -o src",
     "netlify:redirects": "echo 'https://api-search.netlify.com/* https://api-search.io/:splat 301!' > build/_redirects"
   },

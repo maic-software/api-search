@@ -1,6 +1,6 @@
 module.exports = {
   content: ['src/App.js'],
-  css: ['src/tailwind.css', 'src/App.css'],
+  css: ['src/css/tailwind.css', 'src/css/App.css'],
   whitelistPatterns: [/ais-.*/],
   extractors: [
     {
