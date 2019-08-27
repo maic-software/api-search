@@ -64,3 +64,11 @@ export function displayFacets(){
     displayer.style.left = "-25px";
   }
 }
+
+
+export function poperQuickStart() {
+  setTimeout(function() {
+    var div = document.getElementById("poper");
+    div.style.display = "block";
+  },5000);
+}

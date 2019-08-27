@@ -1,0 +1,103 @@
+span.spoiler {
+  padding: 4px;
+  cursor: pointer;
+  border: 1px solid #777;
+  background: #efefef;
+}
+
+div.spoiled {
+  display: none;
+}
+
+div.folderWidjet {
+  padding: 2px;
+  border: 1px solid #777;
+}
+
+div.folderClickable {
+  cursor: pointer;
+}
+
+div.codeLister {
+  padding: 4px;
+  cursor: pointer;
+  background: #afafaf;
+  border: 1px solid #777;
+}
+
+div.folder {
+  display: block;
+}
+
+div.facetMenu {
+  display: none;
+}
+
+h1.clickable {
+  cursor: pointer;
+}
+
+h4.clickable {
+  cursor: pointer;
+}
+span.clickable {
+  cursor: pointer;
+}
+
+a.clickable {
+  cursor: pointer;
+}
+
+#facetsFilter {
+  width: 256px;
+}
+
+a.opener {
+  padding: 10px 25px;
+  background: #555;
+  color: #fff;
+  position: absolute;
+  top: 300px;
+  left: 230px;
+  text-decoration: none;
+  -ms-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+  border-radius: 0 0 8px 8px;
+  cursor: pointer;
+}
+
+pre {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	overflow-x: auto;
+	overflow-y: auto;
+  max-height: 200px;
+	font-size: 12px;
+	line-height: 12px;
+	background: #efefef;
+	border: 1px solid #777;
+}
+
+pre code {
+	padding: 10px;
+	color: #333;
+}
+
+input.gen {
+  border: 1px solid #777;
+}
+
+a.poper {
+  display: none;
+  padding: 10px 25px;
+  bottom: 7%;
+  right: 1%;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 8px 8px 8px 8px;
+  position: absolute;
+  border: 1px solid #777;
+}
