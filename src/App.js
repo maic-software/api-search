@@ -3,7 +3,8 @@ import {
   InstantSearch,
   SearchBox,
   Menu,
-  InfiniteHits
+  InfiniteHits,
+  Stats
 } from 'react-instantsearch-dom';
 import { Hit } from "./struc/Hit.js";
 import './css/App.css';
@@ -185,8 +186,9 @@ class App extends Component {
                   data-intro="Right here are presented the templates, ordered by success and relevance. You can load more template by clicking on the loadmore button."
                   className="h-full overflow-y-scroll"
                   >
+                  <Stats/>
                   <div className="flex px-8 py-6">
-                      <InfiniteHits hitComponent={Hit} showPrevious={false} />
+                    <InfiniteHits hitComponent={Hit} showPrevious={false} />
                   </div>
                 </div>
               </main>
