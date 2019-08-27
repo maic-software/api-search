@@ -1,0 +1,10 @@
+language: javascript
+
+javascript:
+  -8.10.0
+
+before_script:
+  - npm install
+
+script:
+  - npm test
