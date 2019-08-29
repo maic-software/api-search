@@ -35,6 +35,10 @@
       Type of project :
       <input type="text" id="type" name="Type" />
     </p>
+    <p>
+      Compatible with gCloudButton ?
+      <input type="text" id="button" name="Button" />
+    </p>
     <input type="file" id="picker" name="fileList" webkitdirectory multiple/>
     <button type="button" class="btn btn-success btn-block" onClick="onClickHandler()">Upload</button>
   </div>
@@ -70,6 +74,7 @@
                '"language": "' + document.getElementById("lang").value + '",' +
                '"favor": "0",' +
                '"type": "' + document.getElementById("type").value + '",' +
+               '"button": "' +document.getElementById("button").value + '",' +
                '"version": []' +
                '}';
     var jfile = new File([json], 'tmp.json', {

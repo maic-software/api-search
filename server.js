@@ -125,7 +125,6 @@ function finalTreatment() {
   }
   var jfile = require("./public/upload/tmpDir/tmp.json");
   jfile['version'].push(parse("public/upload/tmpDir/"+root));
-  //console.log(JSON.stringify(jfile));
   var api = jfile['API'];
   var name = jfile['name'];
   var bddir = "public/data/"
@@ -147,7 +146,7 @@ function finalTreatment() {
       if (err) throw err;
     }
   );
-  exec('cp -r public/upload/tmpDir/'+' public/data/'+api+'/'+name+'/',
+  exec('cp -r public/upload/tmpDir/*'+' public/data/'+api+'/'+name+'/',
     function (error, stdout, stderr) {
       console.log('stdout: ' + stdout);
       console.log('stderr: ' + stderr);

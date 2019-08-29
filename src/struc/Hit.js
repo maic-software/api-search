@@ -4,6 +4,7 @@ import { getSpoil } from "../subfunc/display.js";
 import { getVersion } from "../subfunc/treeConst.js";
 import { exposeSpecificPage } from "../subfunc/exposePage.js";
 import { updateFavor } from "../subfunc/updateFavor.js";
+import { parseLink } from "../subfunc/gCloudButton.js";
 
 
 /******************************************************************************/
@@ -117,6 +118,9 @@ export const Hit = ({ hit }) => {
           {incGlobalNumber()}
         </div>
         <div id={hit.objectID+"Code"}></div>
+      </div>
+      <div>
+        {parseLink(hit.link,hit.button)}
       </div>
     </div>
   )

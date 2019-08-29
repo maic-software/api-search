@@ -138,18 +138,4 @@ function genTree(path) {
   return tree;
 }
 
-// function initMain(path) {
-//   var files = fs.readdirSync(path);
-//   var root;
-//   if (files[0] !== "tmp.json") {
-//     root = files[0];
-//   }
-//   else {
-//     root = files[1];
-//   }
-//   var jtmp = require("./"+path+"tmp.json");
-//   jtmp['version'].push(genTree(path+"/"+root));
-//   return jtmp;
-// }
-
 module.exports = genTree;
