@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../css/App.css';
 import "../css/fullInfo.css";
 import { WidjetFileStandard, WidjetFolderStandard } from "./Widjet.js"
-//import { parseLink } from "../subfunc/gCloudButton.js";
+import { parseLink } from "../subfunc/gCloudButton.js";
 
 const algoliasearch = require("algoliasearch");
 
@@ -26,6 +26,37 @@ function exposeResearch(arg) {
   document.location.href = document.location.href.replace("p/","").replace(arg,"");
 }
 
+/******************************************************************************/
+/*
+ * Being a class enable the use of the state. The algolia function
+ * that get the needed infos is asynchronous, and the state is a good way
+ * to render things asynchronously.
+ *
+ * This class is also provided with the method buttonGetter(arg).
+ * This method will get the link and the boolean button associated to the
+ * objectID arg. Then it will trigger a parseLink call.
+ */
+
+class ButtonContainer extends Component {
+  state = {
+    container: 0
+  };
+  buttonGetter(arg) {
+    index.getObject(arg,["link","button"],(err,content) => {
+      if (err) throw err;
+      this.setState({container: parseLink(content["link"],content["button"])});
+    });
+  };
+  render() {
+    const { container } = this.state;
+    return (
+      <div id="ButtonContainer">
+        {container}
+        {this.buttonGetter(gloarg)}
+      </div>
+    )
+  }
+}
 
 /******************************************************************************/
 /*
@@ -179,6 +210,7 @@ export const FullInfo = (arg) => {
                   </a>
                 </p>
                 <div>&nbsp;</div>
+                <ButtonContainer />
                 <div>&nbsp;</div>
                 <link rel="stylesheet" href="/styles/arduino-light.css"/>
                 <div id={arg+"FullInfoCode"}>

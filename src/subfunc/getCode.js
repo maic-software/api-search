@@ -35,7 +35,6 @@ export function templateGetCode(id) {
 
 export function getFileContent(id,path) {
   var url = path;
-  console.log(path);
   $.ajax({
     type: "GET",
     url: url,
