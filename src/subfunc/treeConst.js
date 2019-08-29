@@ -11,10 +11,11 @@ import { arrayIdList, idList, pathList } from "../imp/sharedValues.js";
 
 /******************************************************************************/
 /*
- * (folder_tag_id,location_tree,path_to_folder) -> list_of_html_objects
+ * (folder_tag_id,location_tree,path_to_folder,arrayId) -> list_of_html_objects
  *
  * This function go recursively deeper inside the project to create the
  * associated tags for the project representation.
+ * Carries an arrayId for the globalNumber feature.
  */
 
 
@@ -49,6 +50,14 @@ export function revealSecretGlobal(id,tree,path,arrayId) {
   return inclusion;
 }
 
+/******************************************************************************/
+/*
+ * (folder_tag_id,location_tree,path_to_folder) -> list_of_html_objects
+ *
+ * This function go recursively deeper inside the project to create the
+ * associated tags for the project representation.
+ */
+
 export function revealSecretStandard(id,tree,path) {
   var inclusion = [];
   var name;
@@ -82,10 +91,11 @@ export function revealSecretStandard(id,tree,path) {
 
 /******************************************************************************/
 /*
- * (object_inside_algolia_database) -> version_tag_object
+ * (object_inside_algolia_database,globalNumber) -> version_tag_object
  *
  * This function can be seen as the first iteration of "revealSecret" for the
  * recursive parcout.
+ * Update the globalNumber features (arrayIdList, idList and pathList).
  */
 
 export function getVersion(hit,globalNumber) {

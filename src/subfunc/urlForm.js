@@ -3,6 +3,14 @@ export const formArgList = [["API","api","apis","APIs"],
                             ["category","categories","Category","Categories"],
                             ["language","languages","Language","Languages"]];
 
+
+/******************************************************************************/
+/*
+ * (facet_name) -> index
+ *
+ * Check if the given facet is one (or a form) of the presented facets.
+ */
+
 export function getIndexFromTable(name) {
   for (let i = 0 ; i < formArgList.length ; i++) {
     for (let j = 0 ; j < formArgList[i].length ; j++) {
@@ -13,6 +21,13 @@ export function getIndexFromTable(name) {
   }
   return -1;
 }
+
+/******************************************************************************/
+/*
+ * (url,index) -> query
+ *
+ * Get the query form.
+ */
 
 export function getStaticApiGet(url,index) {
   if (index !== 0) {
@@ -29,6 +44,12 @@ export function getStaticApiGet(url,index) {
   return tmp[tmp.length-1];
 }
 
+/******************************************************************************/
+/*
+ * (facet_name,query_form) -> boolean
+ *
+ * Check if the query form meets the requirements.
+ */
 
 export function checkForm(name,form) {
   var array = form.split("&");
@@ -42,6 +63,12 @@ export function checkForm(name,form) {
   return 0;
 }
 
+/******************************************************************************/
+/*
+ * () -> variables
+ *
+ * Gets the variables of the url (so the app can use it for the facets).
+ */
 
 export function getUrlVars() {
     var vars = {};
@@ -51,6 +78,12 @@ export function getUrlVars() {
     return vars;
 }
 
+/******************************************************************************/
+/*
+ * (facet_name) -> value
+ *
+ * Gets the value of the given facet name.
+ */
 
 export function getUrlArg(name) {
   var current;

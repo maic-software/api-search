@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../css/App.css';
 import "../css/fullInfo.css";
 import { WidjetFileStandard, WidjetFolderStandard } from "./Widjet.js"
+//import { parseLink } from "../subfunc/gCloudButton.js";
 
 const algoliasearch = require("algoliasearch");
 
@@ -15,11 +16,32 @@ const index = client.initIndex(INDEX_NAME);
 var hit;
 var gloarg;
 
+/******************************************************************************/
+/*
+ * (full_page_id) => research_page
+ * Change the url so the website will be back to the research section.
+ */
+
 function exposeResearch(arg) {
   document.location.href = document.location.href.replace("p/","").replace(arg,"");
 }
 
 
+/******************************************************************************/
+/*
+ * Being a class enable the use of the state. The algolia function
+ * that get the needed infos is asynchronous, and the state is a good way
+ * to render things asynchronously.
+ *
+ * This class is also provided with the methods getVersion(hit) and
+ * getCodeByTempName(arg).
+ * The first one is pretty much the same as the one presented in
+ * ../subfunc/treeConst.js. Although it doesn't deal with the
+ * globalNumber and the features associated with it (not needed
+ * for this case).
+ * The second one is an asynchronous function that will get the
+ * project tree to then, do a call to the previous function.
+ */
 
 class CodeContainer extends Component {
   state = {
@@ -60,6 +82,12 @@ class CodeContainer extends Component {
 }
 
 
+/******************************************************************************/
+/*
+ * (full_page_id) => fill_the_info
+ * Get the basic infos and fill them inside the webpage.
+ */
+
 
 export function fillFullInfo(arg) {
     index.getObject(arg, (err, content) => {
@@ -77,6 +105,12 @@ export function fillFullInfo(arg) {
     });
   return 0;
 }
+
+/******************************************************************************/
+/*
+ * (full_page_id) => full_info_page
+ * Renders a full info page.
+ */
 
 export const FullInfo = (arg) => {
   return (
@@ -145,7 +179,6 @@ export const FullInfo = (arg) => {
                   </a>
                 </p>
                 <div>&nbsp;</div>
-
                 <div>&nbsp;</div>
                 <link rel="stylesheet" href="/styles/arduino-light.css"/>
                 <div id={arg+"FullInfoCode"}>

@@ -1,3 +1,10 @@
+/******************************************************************************/
+/*
+ * (json_name_element) -> standard_name
+ *
+ * Will generate a standard name (usable for path), given a json element.
+ */
+
 export function genStdrName(elem) {
   if (elem.pointInit === "no" && elem.pointCompose === "no") {
     return elem.name;
@@ -18,6 +25,12 @@ export function genStdrName(elem) {
   return name;
 }
 
+/******************************************************************************/
+/*
+ * (json_name_element) -> compatible_name
+ *
+ * Will generate a compatible name (usable for id), given a json element.
+ */
 
 export function genCompName(elem) {
   if (elem.pointInit === "no" && elem.pointCompose === "no") {

@@ -9,9 +9,9 @@ import { parseLink } from "../subfunc/gCloudButton.js";
 
 /******************************************************************************/
 /*
- * (object_inside_algolia_database) -> template_representation
- *
- * This function create a object representing every template.
+ * The globalNumber part prepare arrays and info about files paths.
+ * Thanks to this feature, the website is able to look for it
+ * later on.
  */
 
 export function incGlobalNumber() {
@@ -19,6 +19,14 @@ export function incGlobalNumber() {
 }
 
 export var globalNumber = 0;
+
+
+/******************************************************************************/
+/*
+ * (object_inside_algolia_database) -> template_representation
+ *
+ * This function create a object representing every template.
+ */
 
 export const Hit = ({ hit }) => {
   return (

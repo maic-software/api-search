@@ -1,5 +1,12 @@
 import React from "react";
 
+/******************************************************************************/
+/*
+ * (args_for_button) -> google_cloud_run_button
+ *
+ * Use the given query to render a button.
+ */
+
 const GCloudButton = (query) => {
   return (
     <a href={query}>
@@ -8,7 +15,12 @@ const GCloudButton = (query) => {
   )
 }
 
-
+/******************************************************************************/
+/*
+ * (link,button_flag) -> google_cloud_run_button
+ *
+ * Parse the link to prepare the generation of the google cloud run button.
+ */
 
 export function parseLink(link,flag) {
   if (flag !== "yes") {

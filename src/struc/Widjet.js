@@ -6,9 +6,10 @@ import { revealSecretGlobal, revealSecretStandard } from "../subfunc/treeConst.j
 
 /******************************************************************************/
 /*
- * (folder_id,location_tree,path_to_file) -> object_to_present_code_files
+ * (folder_id,location_tree,path_to_file,arrayId) -> object_to_present_code_files
  *
  * This function create a basic object that can present the content of a file.
+ * Carries an arrayId for the globalNumber feature.
  */
 
 export const WidjetFileGlobal = (id,tree,path,name,nameCompatible,arrayId) => {
@@ -29,6 +30,13 @@ export const WidjetFileGlobal = (id,tree,path,name,nameCompatible,arrayId) => {
     </div>
   )
 }
+
+/******************************************************************************/
+/*
+ * (folder_id,location_tree,path_to_file) -> object_to_present_code_files
+ *
+ * This function create a basic object that can present the content of a file.
+ */
 
 export const WidjetFileStandard = (id,tree,path,name,nameCompatible) => {
   return (
@@ -73,9 +81,10 @@ export const WidjetGetForm = (id,tree,path) => {
 
 /******************************************************************************/
 /*
- * (previous_folder_id,location_tree,path_to_folder) -> object_to_present_folder
+ * (previous_folder_id,location_tree,path_to_folder,arrayId) -> object_to_present_folder
  *
  * This function create a basic object that represent a folder inside a project.
+ * Carries an arrayId for the globalNumber feature.
  */
 
 export const WidjetFolderGlobal = (id,tree,path,name,nameCompatible,arrayId) => {
@@ -96,6 +105,13 @@ export const WidjetFolderGlobal = (id,tree,path,name,nameCompatible,arrayId) => 
   ]
   )
 }
+
+/******************************************************************************/
+/*
+ * (previous_folder_id,location_tree,path_to_folder) -> object_to_present_folder
+ *
+ * This function create a basic object that represent a folder inside a project.
+ */
 
 export const WidjetFolderStandard = (id,tree,path,name,nameCompatible) => {
   return (

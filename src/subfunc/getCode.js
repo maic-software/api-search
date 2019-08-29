@@ -3,6 +3,14 @@ import { FormInput } from "../App.js";
 import $ from 'jquery';
 import { arrayIdList, idList, pathList } from "../imp/sharedValues.js";
 
+/******************************************************************************/
+/*
+ * (template_id) -> void
+ *
+ * Trigger an async function to get the code of all the folders of a given
+ * template id.
+ */
+
 export function templateGetCode(id) {
   var i = 0;
   while (arrayIdList[i] !== id) {

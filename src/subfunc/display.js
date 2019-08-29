@@ -39,7 +39,6 @@ export function displayFolder(id) {
   }
 }
 
-
 export function displayMenu(id) {
   var divS = document.getElementById(id);
   if(divS.style.display === 'block'){
@@ -49,6 +48,13 @@ export function displayMenu(id) {
     divS.style.display = 'block';
   }
 }
+
+/******************************************************************************/
+/*
+ * (void) => void
+ *
+ * Display the facet filter and move the facet opener.
+ */
 
 export function displayFacets(){
   var displayer = document.getElementById("facetsOpener");
@@ -65,6 +71,12 @@ export function displayFacets(){
   }
 }
 
+/******************************************************************************/
+/*
+ * (void) -> void
+ *
+ * Display asynchronously a poper.
+ */
 
 export function poperQuickStart() {
   setTimeout(function() {

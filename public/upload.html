@@ -66,6 +66,7 @@
       data.append('file', evt.target.files[x]);
     }
     var json = '{' +
+               '"objectID": "' + document.getElementById("tempname").value + '",' +
                '"name": "' + document.getElementById("tempname").value + '",' +
                '"description": "' + document.getElementById("description").value + '",' +
                '"categorie": "' + document.getElementById("catname").value + '",' +
