@@ -80,7 +80,10 @@ export function displayFacets(){
 
 export function poperQuickStart() {
   setTimeout(function() {
-    var div = document.getElementById("poper");
-    div.style.display = "block";
+    var divS = document.getElementById("research");
+    if (divS.style.display !== "none") {
+      var div = document.getElementById("poper");
+      div.style.display = "block";
+    }
   },5000);
 }
