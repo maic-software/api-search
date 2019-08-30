@@ -112,6 +112,9 @@ class App extends Component {
                   className="md:w-64 lg:w-64 xxl:w-80 flex-no-shrink bg-white border-grey-light border-solid border-r z-10 max-h-screen md:block overflow-hidden"
                   >
                   <div className="h-full overflow-y-auto">
+                    <div style={{padding:"10px 15px"}}>
+                      <Stats/>
+                    </div>
                     <h4 className="font-normal uppercase text-xs tracking-wide text-grey-dark px-4 pt-4 pb-1 border-grey-light border-solid border-t clickable" onClick={() => {displayFolder("APIMenu")}}>
                       APIs
                     </h4>
@@ -190,7 +193,6 @@ class App extends Component {
                     data-intro="Right here are presented the templates, ordered by success and relevance. You can load more template by clicking on the loadmore button."
                     className="h-full overflow-y-scroll"
                     >
-                    <Stats/>
                     <div className="flex px-8 py-6">
                       <InfiniteHits hitComponent={Hit} showPrevious={false} />
                     </div>

@@ -161,20 +161,20 @@ export const FullInfo = (arg) => {
               </h1>
             </div>
           </header>
-          <h3
-            data-step="5"
-            data-intro="Every templates are given a name and a type that refer to it's complexity."
-            className="text-xl mb-3 flex flex-col sm:flex-row"
-            >
-            <div id ={arg+"FullInfoName"} className="name">
-              {arg}
-            </div>
-          </h3>
           <div className="bg-white p-8 rounded shadow hover:shadow-md my-2 transition flex flex-grow">
             <div className="h-full flow-grow max-h-screen overflow-y-scroll">
               <div className="h-full overflow-y-scroll">
+                <h3
+                  data-step="5"
+                  data-intro="Every templates are given a name and a type that refer to it's complexity."
+                  className="text-xl mb-3 flex flex-col sm:flex-row"
+                  >
+                  <div id ={arg+"FullInfoName"} className="name">
+                    {arg}
+                  </div>
+                </h3>
                 <p className="text-grey-dark mb-3">
-                  <span id ={arg+"FullInfoDescription"} className="description">
+                  <span id ={arg+"FullInfoDescription"}>
                     Loading...
                   </span>
                 </p>
