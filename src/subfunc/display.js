@@ -79,11 +79,25 @@ export function displayFacets(){
  */
 
 export function poperQuickStart() {
+  var iterator = 80;
   setTimeout(function() {
-    var divS = document.getElementById("research");
-    if (divS.style.display !== "none") {
-      var div = document.getElementById("poper");
-      div.style.display = "block";
+    if (document.getElementById("research").style.display !== "none") {
+      document.getElementById("poper").style.right = "85%";
+      document.getElementById("poper").style.display = "block";
+      poperAnimRec(iterator);
     }
   },5000);
+}
+
+function poperAnimRec(iterator) {
+  if (iterator >= 0) {
+    setTimeout(function() {
+      var perc = document.getElementById("poper").style.right;
+      var valint = parseInt(perc.replace("%",""),10);
+      valint -= 1;
+      var valstr = valint.toString() + "%";
+      document.getElementById("poper").style.right = valstr;
+      poperAnimRec(iterator-1);
+    },1);
+  }
 }

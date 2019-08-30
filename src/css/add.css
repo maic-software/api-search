@@ -93,8 +93,9 @@ input.gen {
 a.poper {
   display: none;
   padding: 10px 25px;
-  bottom: 7%;
-  right: 1%;
+  bottom: 1%;
+  right: 110%;
+  text-decoration: none;
   cursor: pointer;
   font-size: 12px;
   border-radius: 8px 8px 8px 8px;

@@ -9,11 +9,12 @@ import {
 import { Hit } from "./struc/Hit.js";
 import './css/App.css';
 import "./css/add.css";
-import { displayMenu, displayFacets, poperQuickStart } from './subfunc/display.js';
+import { displayMenu, displayFacets, poperQuickStart, displayFolder } from './subfunc/display.js';
 import { exposePage } from "./subfunc/exposePage.js";
 import { initDisplayUrl } from "./subfunc/initDisplayUrl.js";
 import { getUrlArg } from "./subfunc/urlForm.js";
-const algoliasearch = require("algoliasearch");
+import { index, APP_ID, API_KEY, INDEX_NAME } from "./imp/sharedValues.js";
+
 const introJs = require("intro.js");
 export const hljs = require('highlight.js');
 
@@ -30,13 +31,15 @@ export const hljs = require('highlight.js');
 // console.log(API_KEY);
 // console.log(INDEX_NAME);
 
-const APP_ID = "LYITGBJZF1";
-//const API_KEY = "c0d0c32d6bc8e80c30eabe69af5724d2";
-const API_KEY = "67baaf6fb4bc87e9b148aa237251b326";
-const INDEX_NAME = "apis6";
+// const APP_ID = "LYITGBJZF1";
+// //const API_KEY = "c0d0c32d6bc8e80c30eabe69af5724d2";
+// const API_KEY = "67baaf6fb4bc87e9b148aa237251b326";
+// const INDEX_NAME = "apis6";
+//
+// const client = algoliasearch(APP_ID,API_KEY);
+// const index = client.initIndex(INDEX_NAME);
 
-const client = algoliasearch(APP_ID,API_KEY);
-const index = client.initIndex(INDEX_NAME);
+
 
 index.setSettings({
   hitsPerPage: 5
@@ -109,10 +112,10 @@ class App extends Component {
                   className="md:w-64 lg:w-64 xxl:w-80 flex-no-shrink bg-white border-grey-light border-solid border-r z-10 max-h-screen md:block overflow-hidden"
                   >
                   <div className="h-full overflow-y-auto">
-                    <h4 className="font-normal uppercase text-xs tracking-wide text-grey-dark px-4 pt-4 pb-1 border-grey-light border-solid border-t clickable" onClick={() => {displayMenu("APIMenu")}}>
+                    <h4 className="font-normal uppercase text-xs tracking-wide text-grey-dark px-4 pt-4 pb-1 border-grey-light border-solid border-t clickable" onClick={() => {displayFolder("APIMenu")}}>
                       APIs
                     </h4>
-                    <div id="APIMenu" className="facetMenu">
+                    <div id="APIMenu">
                       <Menu
                         attribute="API"
                         limit={8}
@@ -177,6 +180,10 @@ class App extends Component {
                   >
                   Close
                 </a>
+                <a id="poper" className="poper" onClick={() => {introJs.introJs().start()}}>
+                  Need help getting started?
+                  {poperQuickStart()}
+                </a>
                 <main className="bg-grey-lighter flex-grow max-h-screen overflow-hidden">
                   <div
                     data-step="4"
@@ -190,7 +197,6 @@ class App extends Component {
                   </div>
                 </main>
               </div>
-
               <footer className="flex flex-no-shrink justify-between flex-col sm:flex-row p-4 border-grey-light border-solid border-t text-sm text-grey-dark">
                 <div>
                   &nbsp;
@@ -204,7 +210,6 @@ class App extends Component {
             </div>
           </InstantSearch>
         </div>
-        <a id="poper" className="poper" onClick={() => {introJs.introJs().start()}}>Need a quick start up?{poperQuickStart()}</a>
       </div>
     );
   }
