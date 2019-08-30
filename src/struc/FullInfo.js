@@ -147,7 +147,7 @@ export const FullInfo = (arg) => {
   return (
         <div
           key={arg+"FullInfo"}
-          className="h-screen overflow-hidden"
+          className="flex flex-col h-screen font-sans"
         >
           <header className="flex bg-white w-full border-grey-light border-solid border-b flex-no-shrink">
             <div className="p-4 md:w-64 lg:w-64 xxl:w-80 items-center flex-no-shrink border-grey-light border-solid border-r hidden md:flex justify-center">
@@ -161,7 +161,7 @@ export const FullInfo = (arg) => {
               </h1>
             </div>
           </header>
-          <div className="bg-white p-8 rounded shadow hover:shadow-md my-2 transition flex flex-grow">
+          <div className="max-h-screen bg-white p-8 rounded shadow hover:shadow-md my-2 transition flex flex-grow">
             <div className="h-full flow-grow max-h-screen overflow-y-scroll">
               <div className="h-full overflow-y-scroll">
                 <h3
@@ -209,9 +209,13 @@ export const FullInfo = (arg) => {
                     Loading...
                   </a>
                 </p>
-                <div>&nbsp;</div>
+                <div>
+                  &nbsp;
+                </div>
                 <ButtonContainer />
-                <div>&nbsp;</div>
+                <div>
+                  &nbsp;
+                </div>
                 <link rel="stylesheet" href="/styles/arduino-light.css"/>
                 <div id={arg+"FullInfoCode"}>
                   <div>
